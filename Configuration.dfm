@@ -23,13 +23,11 @@ object Config: TConfig
     Width = 519
     Height = 656
     Cursor = crHandPoint
-    ActivePage = Screen_shot
+    ActivePage = General_setup
     Align = alClient
     TabOrder = 0
     object Screen_shot: TTabSheet
       Caption = #1057#1082#1088#1080#1085#1096#1086#1090
-      ExplicitLeft = 8
-      ExplicitTop = 34
       object Hot_Keys: TGroupBox
         Left = 3
         Top = 3

@@ -51,7 +51,7 @@ public:
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
   void	set_Font_E(AnsiString set);
-  void	set_Font_size_E(AnsiString set);
+  void	set_Font_size_E(int set);
   void	set_Them_CM(AnsiString set);
   void  set_Font_bold_CH(bool set);
   void  set_Font_italic_CH(bool set);
@@ -123,7 +123,7 @@ public:
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
   AnsiString  get_Font_E();
-  AnsiString  get_Font_size_E();
+  int         get_Font_size_E();
   AnsiString  get_Them_CM();
   bool        get_Font_bold_CH();
   bool        get_Font_italic_CH();
@@ -195,7 +195,7 @@ private:
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
   AnsiString  Font_E;
-  AnsiString  Font_size_E;
+  int         Font_size_E;
   AnsiString  Them_CM;
   bool        Font_bold_CH;
   bool        Font_italic_CH;

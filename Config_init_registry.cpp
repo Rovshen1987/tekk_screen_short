@@ -163,7 +163,7 @@ void Config_init_registry::set_Font_E(AnsiString set)
    this->Font_E = set;
 };
 
-void Config_init_registry::set_Font_size_E(AnsiString set)
+void Config_init_registry::set_Font_size_E(int set)
 {
    this->Font_size_E = set;
 };
@@ -409,7 +409,7 @@ AnsiString Config_init_registry::get_Font_E()
    return this->Font_E;
 };
 
-AnsiString Config_init_registry::get_Font_size_E()
+int Config_init_registry::get_Font_size_E()
 {
    return this->Font_size_E;
 };
@@ -547,7 +547,7 @@ this->Open_video_in_the_browser_CH     = false;
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
 this->Font_E = "";
-this->Font_size_E = "";
+this->Font_size_E = 0;
 this->Them_CM = "";
 this->Font_bold_CH          = false;
 this->Font_italic_CH        = false;

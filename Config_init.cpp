@@ -673,73 +673,86 @@ void Config_init::Default_config_v()
   this->Default_config->set_Password_E("Password");
   this->Default_config->set_Show_Password_CH(true);
   this->Default_config->set_Locally_RB(true);
-  this->Default_config->set_Locally_E(this->directory->get_path_AnsiString(this->FOLDER_NAME_PICTURE));
-  /*
-
-
-
-  void  set_(bool set);
-  void	set_(AnsiString set);
-  void	set_(AnsiString set);
-  void	set_(AnsiString set);
-  void  set_(bool set);
-  void  set_(bool set);
-  void	set_(AnsiString set);
+  this->Default_config->set_Locally_E(this->fool_path(Config_init::FOLDER_NAME_PICTURE));
 
 //----------Additional_options---------------------------------//
-  void  set_Show_the_cursor_on_the_screenshot_CH(bool set);
-  void  set_Show_magnifying_glass_CH(bool set);
-  void  set_Open_screenshot_in_the_browser_CH(bool set);
+  this->Default_config->set_Show_the_cursor_on_the_screenshot_CH(false);
+  this->Default_config->set_Show_magnifying_glass_CH(false);
+  this->Default_config->set_Open_screenshot_in_the_browser_CH(false);
 
 //--------------------------------------------------------------------------------PAGE__2----------
 //-----------Hot_keys_VIDEO------------------------------------//
-  void  set_Recording_screen_area_CH(bool set);
-  void  set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(bool set);
-  void	set_Recording_screen_area_EHK(AnsiString set);
+  this->Default_config->set_Recording_screen_area_CH(false);
+  this->Default_config->set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(false);
+  this->Default_config->set_Recording_screen_area_EHK("Нет");
 
 //-----------Save_parameters_VIDEO-----------------------------//
-  void  set_Server_RB_VIDEO(bool set);
-  void	set_Address_E_VIDEO(AnsiString set);
-  void	set_Login_E_VIDEO(AnsiString set);
-  void	set_Password_E_VIDEO(AnsiString set);
-  void  set_Show_Password_CH_VIDEO(bool set);
-  void  set_Locally_RB_VIDEO(bool set);
-  void  set_Locally_E_VIDEO(AnsiString set);
+  this->Default_config->set_Server_RB_VIDEO(false);
+  this->Default_config->set_Address_E_VIDEO("");
+  this->Default_config->set_Login_E_VIDEO("Login");
+  this->Default_config->set_Password_E_VIDEO("Password");
+  this->Default_config->set_Show_Password_CH_VIDEO(true);
+  this->Default_config->set_Locally_RB_VIDEO(true);
+  this->Default_config->set_Locally_E_VIDEO(this->fool_path(Config_init::FOLDER_NAME_VIDEO));
 
 //------------Additional_options_VIDEO-------------------------//
-  void  set_Always_record_the_microphone_CH(bool set);
-  void  set_Record_audio_CH(bool set);
-  void  set_Open_video_in_the_browser_CH(bool set);
+  this->Default_config->set_Always_record_the_microphone_CH(false);
+  this->Default_config->set_Record_audio_CH(false);
+  this->Default_config->set_Open_video_in_the_browser_CH(false);
+
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
-  void	set_Font_E(AnsiString set);
-  void	set_Font_size_E(AnsiString set);
-  void	set_Them_CM(AnsiString set);
-  void  set_Font_bold_CH(bool set);
-  void  set_Font_italic_CH(bool set);
-  void  set_Font_underlined_CH(bool set);
+  this->Default_config->set_Font_E("Times New Roman");
+  this->Default_config->set_Font_size_E(12);
+  this->Default_config->set_Them_CM("Windows10 StateGray");
+  this->Default_config->set_Font_bold_CH(false);
+  this->Default_config->set_Font_italic_CH(false);
+  this->Default_config->set_Font_underlined_CH(false);
 
 //------------Shooting------------------------------------------//
 //------------Long_lines---------------------------------------//
-  void	set_Long_type_line_CM(AnsiString set);
-  void  set_Long_color_RED(int set);
-  void  set_Long_color_GREEN(int set);
-  void  set_Long_color_BLUE(int set);
-  void  set_Long_line_size_E(int set);
+  this->Default_config->set_Long_type_line_CM("Линия");
+  this->Default_config->set_Long_color_RED(0);
+  this->Default_config->set_Long_color_GREEN(0);
+  this->Default_config->set_Long_color_BLUE(0);
+  this->Default_config->set_Long_line_size_E(1);
 
 //------------Short_lines--------------------------------------//
-  void	set_Short_type_line_CM(AnsiString set);
-  void  set_Short_color_RED(int set);
-  void  set_Short_color_GREEN(int set);
-  void  set_Short_color_BLUE(int set);
-  void  set_Short_line_size_E(int set);
+  this->Default_config->set_Short_type_line_CM("Линия");
+  this->Default_config->set_Short_color_RED(0);
+  this->Default_config->set_Short_color_GREEN(0);
+  this->Default_config->set_Short_color_BLUE(0);
+  this->Default_config->set_Short_line_size_E(3);
 
 //-----------Other---------------------------------------------//
-  void  set_Indent_E(int set);
-  void	set_Magnifier_E(int set);
-  void	set_Log_create_CH(bool set);
-  */
+  this->Default_config->set_Indent_E(15);
+  this->Default_config->set_Magnifier_E(10);
+  this->Default_config->set_Log_create_CH(true);
+
+};
+
+std::string Config_init::Conversion_AnsiString_to_string(AnsiString& str)
+{
+
+  std:: string result = str.c_str();
+  return result;
+};
+
+AnsiString Config_init::Conversion_string_to_AnsiString(std::string& str)
+{
+  AnsiString result = str.c_str();
+  return result;
+};
+
+AnsiString Config_init::fool_path(const AnsiString& folder_name)
+{
+std::string str  = folder_name.c_str();
+std::string temp = this->directory->get_path(str);
+AnsiString result = this->Conversion_string_to_AnsiString(temp);
+return result;
+
+//  (this->directory->get_path(this->Conversion_AnsiString_to_string(this->FOLDER_NAME_PICTURE))));
 };
 
 

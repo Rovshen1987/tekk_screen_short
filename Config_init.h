@@ -182,8 +182,13 @@ private:
   void Program_config_init();
   void Default_config_v();
 
+  std::string Conversion_AnsiString_to_string(AnsiString& str);
+  AnsiString  Conversion_string_to_AnsiString(std::string& str);
+
   bool        Checked(TCheckBox* ch);
   bool        Checked(TRadioButton* ch);
+
+  AnsiString fool_path(const AnsiString& folder_name);
 
 
 };
