@@ -533,9 +533,9 @@ reg->OpenKeyReadOnly(this->Screen_shot_ASC);
 
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
-this->Registry_config->set_Screenshot_of_the_entire_screen_EHK(reg->ReadString(this->Screenshot_of_the_entire_screen_EHK->GetNamePath()));
-this->Registry_config->set_Screenshot_of_the_active_window_EHK(reg->ReadString(this->Screenshot_of_the_active_window_EHK->GetNamePath()));
-this->Registry_config->set_Screenshot_of_the_screen_area_EHK(reg->ReadString(this->Screenshot_of_the_screen_area_EHK->GetNamePath()));
+this->Registry_config->set_Screenshot_of_the_entire_screen_EHK(reg->ReadInteger(this->Screenshot_of_the_entire_screen_EHK->GetNamePath()));
+this->Registry_config->set_Screenshot_of_the_active_window_EHK(reg->ReadInteger(this->Screenshot_of_the_active_window_EHK->GetNamePath()));
+this->Registry_config->set_Screenshot_of_the_screen_area_EHK(reg->ReadInteger(this->Screenshot_of_the_screen_area_EHK->GetNamePath()));
 this->Registry_config->set_Two_mouse_buttons_at_the_same_time_CH(reg->ReadBool(this->Two_mouse_buttons_at_the_same_time_CH->GetNamePath()));
 
 //----------Save_parameters------------------------------------//
@@ -560,7 +560,7 @@ reg->OpenKeyReadOnly(this->Video_ASC);
 //-----------Hot_keys_VIDEO------------------------------------//
 this->Registry_config->set_Recording_screen_area_CH(reg->ReadBool(this->Recording_screen_area_CH->GetNamePath()));
 this->Registry_config->set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(reg->ReadBool(this->Two_mouse_buttons_at_the_same_time_CH_VIDEO->GetNamePath()));
-this->Registry_config->set_Recording_screen_area_EHK(reg->ReadString(this->Recording_screen_area_EHK->GetNamePath()));
+this->Registry_config->set_Recording_screen_area_EHK(reg->ReadInteger(this->Recording_screen_area_EHK->GetNamePath()));
 
 //-----------Save_parameters_VIDEO-----------------------------//
 this->Registry_config->set_Server_RB_VIDEO(reg->ReadBool(this->Server_RB_VIDEO->GetNamePath()));
@@ -625,7 +625,76 @@ this->Registry_config->set_(reg->ReadInteger());
 
 void Config_init::Program_config_init()
 {
+//--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
+this->Program_config->set_Screenshot_of_the_entire_screen_EHK(this->Screenshot_of_the_entire_screen_EHK->HotKey);
+this->Program_config->set_Screenshot_of_the_active_window_EHK(this->Screenshot_of_the_active_window_EHK->HotKey);
+this->Program_config->set_Screenshot_of_the_screen_area_EHK(this->Screenshot_of_the_screen_area_EHK->HotKey);
+this->Program_config->set_Two_mouse_buttons_at_the_same_time_CH(this->Checked(this->Two_mouse_buttons_at_the_same_time_CH));
 
+//----------Save_parameters------------------------------------//
+this->Program_config->set_Server_RB(this->Checked(this->Server_RB));
+this->Program_config->set_Address_E(this->Address_E->Text);
+this->Program_config->set_Login_E(this->Login_E->Text);
+this->Program_config->set_Password_E(this->Password_E->Text);
+this->Program_config->set_Show_Password_CH(this->Checked(this->Show_Password_CH));
+this->Program_config->set_Locally_RB(this->Checked(this->Locally_RB));
+this->Program_config->set_Locally_E(this->Locally_E->Text);
+
+//----------Additional_options---------------------------------//
+this->Program_config->set_Show_the_cursor_on_the_screenshot_CH(this->Checked(this->Show_the_cursor_on_the_screenshot_CH));
+this->Program_config->set_Show_magnifying_glass_CH(this->Checked(this->Show_magnifying_glass_CH));
+this->Program_config->set_Open_screenshot_in_the_browser_CH(this->Checked(this->Open_screenshot_in_the_browser_CH));
+
+//--------------------------------------------------------------------------------PAGE__2----------
+//-----------Hot_keys_VIDEO------------------------------------//
+this->Program_config->set_Recording_screen_area_CH(this->Checked(this->Recording_screen_area_CH));
+this->Program_config->set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(this->Checked(this->Two_mouse_buttons_at_the_same_time_CH_VIDEO));
+this->Program_config->set_Recording_screen_area_EHK(this->Recording_screen_area_EHK->HotKey);
+
+//-----------Save_parameters_VIDEO-----------------------------//
+this->Program_config->set_Server_RB_VIDEO(this->Checked(this->Server_RB_VIDEO));
+this->Program_config->set_Address_E_VIDEO(this->Address_E_VIDEO->Text);
+this->Program_config->set_Login_E_VIDEO(this->Login_E_VIDEO->Text);
+this->Program_config->set_Password_E_VIDEO(this->Password_E_VIDEO->Text);
+this->Program_config->set_Show_Password_CH_VIDEO(this->Checked(this->Show_Password_CH_VIDEO));
+this->Program_config->set_Locally_RB_VIDEO(this->Checked(this->Locally_RB_VIDEO));
+this->Program_config->set_Locally_E_VIDEO(this->Locally_E_VIDEO->Text);
+
+//------------Additional_options_VIDEO-------------------------//
+this->Program_config->set_Always_record_the_microphone_CH(this->Checked(this->Always_record_the_microphone_CH));
+this->Program_config->set_Record_audio_CH(this->Checked(this->Record_audio_CH));
+this->Program_config->set_Open_video_in_the_browser_CH(this->Checked(this->Open_video_in_the_browser_CH));
+
+
+//--------------------------------------------------------------------------------PAGE__3----------
+//-----------General_options------------------------------------//
+this->Program_config->set_Font_E(this->Font_E->Text);
+this->Program_config->set_Font_size_E(this->Font_size_E->Text.ToInt());
+this->Program_config->set_Them_CM(this->Them_CM->Text);
+this->Program_config->set_Font_bold_CH(this->Checked(this->Font_bold_CH));
+this->Program_config->set_Font_italic_CH(this->Checked(this->Font_italic_CH));
+this->Program_config->set_Long_type_line_CM(this->Long_type_line_CM->Text);
+
+//------------Shooting------------------------------------------//
+//------------Long_lines---------------------------------------//
+this->Program_config->set_Long_type_line_CM(this->Long_type_line_CM->Text);
+this->Program_config->set_Long_color_RED(this->Long_color_RED->Text.ToInt());
+this->Program_config->set_Long_color_GREEN(this->Long_color_GREEN->Text.ToInt());
+this->Program_config->set_Long_color_BLUE(this->Long_color_BLUE->Text.ToInt());
+this->Program_config->set_Long_line_size_E(this->Long_line_size_E->Text.ToInt());
+
+//------------Short_lines--------------------------------------//
+this->Program_config->set_Short_type_line_CM(this->Short_type_line_CM->Text);
+this->Program_config->set_Short_color_RED(this->Short_color_RED->Text.ToInt());
+this->Program_config->set_Short_color_GREEN(this->Short_color_GREEN->Text.ToInt());
+this->Program_config->set_Short_color_BLUE(this->Short_color_BLUE->Text.ToInt());
+this->Program_config->set_Short_line_size_E(this->Short_line_size_E->Text.ToInt());
+
+//-----------Other---------------------------------------------//
+this->Program_config->set_Indent_E(this->Indent_E->Text.ToInt());
+this->Program_config->set_Magnifier_E(this->Magnifier_E->Text.ToInt());
+this->Program_config->set_Log_create_CH(this->Checked(this->Log_create_CH));
 };
 
 
@@ -655,15 +724,15 @@ bool Config_init::Checked(TRadioButton* ch)
 
 };
 
-void Config_init::Default_config_v()
+void Config_init::Default_config_init()
 {
 
 ///////////////////////////////////-------SET----------////////////////////////////////////////////
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
-  this->Default_config->set_Screenshot_of_the_entire_screen_EHK("ALT+P");
-  this->Default_config->set_Screenshot_of_the_active_window_EHK("ALT+O");
-  this->Default_config->set_Screenshot_of_the_screen_area_EHK("ALT+I");
+  this->Default_config->set_Screenshot_of_the_entire_screen_EHK(0);
+  this->Default_config->set_Screenshot_of_the_active_window_EHK(0);
+  this->Default_config->set_Screenshot_of_the_screen_area_EHK(0);
   this->Default_config->set_Two_mouse_buttons_at_the_same_time_CH(false);
 
 //----------Save_parameters------------------------------------//
@@ -684,7 +753,7 @@ void Config_init::Default_config_v()
 //-----------Hot_keys_VIDEO------------------------------------//
   this->Default_config->set_Recording_screen_area_CH(false);
   this->Default_config->set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(false);
-  this->Default_config->set_Recording_screen_area_EHK("Нет");
+  this->Default_config->set_Recording_screen_area_EHK(0);
 
 //-----------Save_parameters_VIDEO-----------------------------//
   this->Default_config->set_Server_RB_VIDEO(false);
@@ -747,13 +816,107 @@ AnsiString Config_init::Conversion_string_to_AnsiString(std::string& str)
 
 AnsiString Config_init::fool_path(const AnsiString& folder_name)
 {
-std::string str  = folder_name.c_str();
-std::string temp = this->directory->get_path(str);
+std::string str   = folder_name.c_str();
+std::string temp  = this->directory->get_path(str);
 AnsiString result = this->Conversion_string_to_AnsiString(temp);
+
 return result;
 
 //  (this->directory->get_path(this->Conversion_AnsiString_to_string(this->FOLDER_NAME_PICTURE))));
 };
+
+void Config_init::Form_to_config(Config_init_registry* set)
+{
+///////////////////////////////////-------SET----------////////////////////////////////////////////
+//--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
+  this->Screenshot_of_the_entire_screen_EHK->HotKey    = set->get_Screenshot_of_the_entire_screen_EHK();
+  this->Screenshot_of_the_active_window_EHK->HotKey    = set->get_Screenshot_of_the_active_window_EHK();
+  this->Screenshot_of_the_screen_area_EHK->HotKey      = set->get_Screenshot_of_the_screen_area_EHK();
+  this->Two_mouse_buttons_at_the_same_time_CH->Checked = set->get_Two_mouse_buttons_at_the_same_time_CH();
+
+//----------Save_parameters------------------------------------//
+  this->Server_RB->Checked         = set->get_Server_RB();
+  this->Address_E->Text            = set->get_Address_E();
+  this->Login_E->Text              = set->get_Login_E();
+  this->Password_E->Text           = set->get_Password_E();
+  this->Show_Password_CH->Checked  = set->get_Show_Password_CH();
+  this->Locally_RB->Checked        = set->get_Locally_RB();
+  this->Locally_E->Text            = set->get_Locally_E();
+
+//----------Additional_options---------------------------------//
+  this->Show_the_cursor_on_the_screenshot_CH->Checked = set->get_Show_the_cursor_on_the_screenshot_CH();
+  this->Show_magnifying_glass_CH->Checked             = set->get_Show_magnifying_glass_CH();
+  this->Open_screenshot_in_the_browser_CH->Checked    = set->get_Open_screenshot_in_the_browser_CH();
+
+
+//--------------------------------------------------------------------------------PAGE__2----------
+//-----------Hot_keys_VIDEO------------------------------------//
+  this->Recording_screen_area_CH->Checked                    = set->get_Recording_screen_area_CH();
+  this->Two_mouse_buttons_at_the_same_time_CH_VIDEO->Checked = set->get_Two_mouse_buttons_at_the_same_time_CH_VIDEO();
+  this->Recording_screen_area_EHK->HotKey                    = set->get_Recording_screen_area_EHK();
+
+//-----------Save_parameters_VIDEO-----------------------------//
+  this->Server_RB_VIDEO->Checked = set->get_Server_RB_VIDEO();
+  this->Address_E_VIDEO->Text = set->get_Address_E_VIDEO();
+  this->Login_E_VIDEO->Text = set->get_Login_E_VIDEO();
+  this->Password_E_VIDEO->Text = set->get_Password_E_VIDEO();
+  this->Show_Password_CH_VIDEO->Checked = set->get_Show_Password_CH_VIDEO();
+  this->Locally_RB_VIDEO->Checked = set->get_Locally_RB_VIDEO();
+  this->Locally_E_VIDEO->Text = set->get_Locally_E_VIDEO();
+
+//------------Additional_options_VIDEO-------------------------//
+  this->Always_record_the_microphone_CH->Checked   = set->get_Always_record_the_microphone_CH();
+  this->Record_audio_CH->Checked                   = set->get_Record_audio_CH();
+  this->Open_video_in_the_browser_CH->Checked      = set->get_Open_video_in_the_browser_CH();
+
+
+//--------------------------------------------------------------------------------PAGE__3----------
+//-----------General_options------------------------------------//
+  this->Font_E->Text                  = set->get_Font_E();
+  this->Font_size_E->Text             = set->get_Font_size_E();
+  this->Them_CM->Text                 = set->get_Them_CM();
+  this->Font_bold_CH->Checked         = set->get_Font_bold_CH();
+  this->Font_italic_CH->Checked       = set->get_Font_italic_CH();
+  this->Font_underlined_CH->Checked   = set->get_Font_underlined_CH();
+
+//------------Shooting------------------------------------------//
+//------------Long_lines---------------------------------------//
+  this->Long_type_line_CM->Text       = set->get_Long_type_line_CM();
+  this->Long_color_RED->Text          = this->get_AnsiString_to_int(set->get_Long_color_RED());
+  this->Long_color_GREEN->Text        = this->get_AnsiString_to_int(set->get_Long_color_GREEN());
+  this->Long_color_BLUE->Text         = this->get_AnsiString_to_int(set->get_Long_color_BLUE());
+  this->Long_line_size_E->Text        = this->get_AnsiString_to_int(set->get_Long_line_size_E());
+
+//------------Short_lines--------------------------------------//
+  this->Short_type_line_CM->Text      = set->get_Short_type_line_CM();
+  this->Short_color_RED->Text         = this->get_AnsiString_to_int(set->get_Short_color_RED());
+  this->Short_color_GREEN->Text       = this->get_AnsiString_to_int(set->get_Short_color_GREEN());
+  this->Short_color_BLUE->Text        = this->get_AnsiString_to_int(set->get_Short_color_BLUE());
+  this->Short_line_size_E->Text       = this->get_AnsiString_to_int(set->get_Short_line_size_E());
+
+//-----------Other---------------------------------------------//
+  this->Indent_E->Text                = this->get_AnsiString_to_int(set->get_Indent_E());
+  this->Magnifier_E->Text             = this->get_AnsiString_to_int(set->get_Magnifier_E());
+  this->Log_create_CH->Checked        = set->get_Log_create_CH();
+
+//set->get_();
+
+};
+
+void Config_init::Config_to_form(Config_init_registry* set)
+{
+
+};
+
+AnsiString Config_init::get_AnsiString_to_int(int set)
+{
+  std::string str   = std::to_string(set);
+  AnsiString result = str.c_str();
+  return result;
+};
+
+
 
 
 

@@ -9,9 +9,9 @@ public:
 ///////////////////////////////////-------SET----------////////////////////////////////////////////
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
-  void  set_Screenshot_of_the_entire_screen_EHK(AnsiString set);
-  void	set_Screenshot_of_the_active_window_EHK(AnsiString set);
-  void	set_Screenshot_of_the_screen_area_EHK(AnsiString set);
+  void  set_Screenshot_of_the_entire_screen_EHK(int set);
+  void	set_Screenshot_of_the_active_window_EHK(int set);
+  void	set_Screenshot_of_the_screen_area_EHK(int set);
   void  set_Two_mouse_buttons_at_the_same_time_CH(bool set);
 
 //----------Save_parameters------------------------------------//
@@ -32,7 +32,7 @@ public:
 //-----------Hot_keys_VIDEO------------------------------------//
   void  set_Recording_screen_area_CH(bool set);
   void  set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(bool set);
-  void	set_Recording_screen_area_EHK(AnsiString set);
+  void	set_Recording_screen_area_EHK(int set);
 
 //-----------Save_parameters_VIDEO-----------------------------//
   void  set_Server_RB_VIDEO(bool set);
@@ -81,9 +81,9 @@ public:
 ///////////////////////////////////////---------GET----------////////////////////////////////////
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
-  AnsiString  get_Screenshot_of_the_entire_screen_EHK();
-  AnsiString  get_Screenshot_of_the_active_window_EHK();
-  AnsiString  get_Screenshot_of_the_screen_area_EHK();
+  int         get_Screenshot_of_the_entire_screen_EHK();
+  int         get_Screenshot_of_the_active_window_EHK();
+  int         get_Screenshot_of_the_screen_area_EHK();
   bool        get_Two_mouse_buttons_at_the_same_time_CH();
 
 //----------Save_parameters------------------------------------//
@@ -104,7 +104,7 @@ public:
 //-----------Hot_keys_VIDEO------------------------------------//
   bool        get_Recording_screen_area_CH();
   bool        get_Two_mouse_buttons_at_the_same_time_CH_VIDEO();
-  AnsiString  get_Recording_screen_area_EHK();
+  int         get_Recording_screen_area_EHK();
 
 //-----------Save_parameters_VIDEO-----------------------------//
   bool        get_Server_RB_VIDEO();
@@ -153,9 +153,9 @@ private:
 
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
-  AnsiString  Screenshot_of_the_entire_screen_EHK;
-  AnsiString  Screenshot_of_the_active_window_EHK;
-  AnsiString  Screenshot_of_the_screen_area_EHK;
+  int         Screenshot_of_the_entire_screen_EHK;
+  int         Screenshot_of_the_active_window_EHK;
+  int         Screenshot_of_the_screen_area_EHK;
   bool        Two_mouse_buttons_at_the_same_time_CH;
 
 //----------Save_parameters------------------------------------//
@@ -176,7 +176,7 @@ private:
 //-----------Hot_keys_VIDEO------------------------------------//
   bool        Recording_screen_area_CH;
   bool        Two_mouse_buttons_at_the_same_time_CH_VIDEO;
-  AnsiString  Recording_screen_area_EHK;
+  int         Recording_screen_area_EHK;
 
 //-----------Save_parameters_VIDEO-----------------------------//
   bool        Server_RB_VIDEO;

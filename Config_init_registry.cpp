@@ -13,17 +13,17 @@ this->destroy_varrible();
 ///////////////////////////////////-------SET----------////////////////////////////////////////////
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
-void Config_init_registry::set_Screenshot_of_the_entire_screen_EHK(AnsiString set)
+void Config_init_registry::set_Screenshot_of_the_entire_screen_EHK(int set)
 {
   this->Screenshot_of_the_entire_screen_EHK = set;
 };
 
-void Config_init_registry::set_Screenshot_of_the_active_window_EHK(AnsiString set)
+void Config_init_registry::set_Screenshot_of_the_active_window_EHK(int set)
 {
   this->Screenshot_of_the_active_window_EHK = set;
 };
 
-void Config_init_registry::set_Screenshot_of_the_screen_area_EHK(AnsiString set)
+void Config_init_registry::set_Screenshot_of_the_screen_area_EHK(int set)
 {
   this->Screenshot_of_the_screen_area_EHK = set;
 };
@@ -98,7 +98,7 @@ void Config_init_registry::set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(bool 
    this->Two_mouse_buttons_at_the_same_time_CH_VIDEO = set;
 };
 
-void Config_init_registry::set_Recording_screen_area_EHK(AnsiString set)
+void Config_init_registry::set_Recording_screen_area_EHK(int set)
 {
    this->Recording_screen_area_EHK = set;
 };
@@ -260,17 +260,17 @@ void Config_init_registry::set_Log_create_CH(bool set)
 ///////////////////////////////////////---------GET----------////////////////////////////////////
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
-AnsiString Config_init_registry::get_Screenshot_of_the_entire_screen_EHK()
+int Config_init_registry::get_Screenshot_of_the_entire_screen_EHK()
 {
    return this->Screenshot_of_the_entire_screen_EHK;
 };
 
-AnsiString Config_init_registry::get_Screenshot_of_the_active_window_EHK()
+int Config_init_registry::get_Screenshot_of_the_active_window_EHK()
 {
    return this->Screenshot_of_the_active_window_EHK;
 };
 
-AnsiString Config_init_registry::get_Screenshot_of_the_screen_area_EHK()
+int Config_init_registry::get_Screenshot_of_the_screen_area_EHK()
 {
    return this->Screenshot_of_the_screen_area_EHK;
 };
@@ -345,7 +345,7 @@ bool Config_init_registry::get_Two_mouse_buttons_at_the_same_time_CH_VIDEO()
    return this->Two_mouse_buttons_at_the_same_time_CH_VIDEO;
 };
 
-AnsiString Config_init_registry::get_Recording_screen_area_EHK()
+int Config_init_registry::get_Recording_screen_area_EHK()
 {
    return this->Recording_screen_area_EHK;
 };
@@ -505,9 +505,9 @@ bool Config_init_registry::get_Log_create_CH()
 
 void Config_init_registry::destroy_varrible()
 {
-this->Screenshot_of_the_entire_screen_EHK       = "";
-this->Screenshot_of_the_active_window_EHK       = "";
-this->Screenshot_of_the_screen_area_EHK         = "";
+this->Screenshot_of_the_entire_screen_EHK       = 0;
+this->Screenshot_of_the_active_window_EHK       = 0;
+this->Screenshot_of_the_screen_area_EHK         = 0;
 this->Two_mouse_buttons_at_the_same_time_CH     = false;
 
 //----------Save_parameters------------------------------------//
@@ -528,7 +528,7 @@ this->Open_screenshot_in_the_browser_CH     = false;
 //-----------Hot_keys_VIDEO------------------------------------//
 this->Recording_screen_area_CH                    = false;
 this->Two_mouse_buttons_at_the_same_time_CH_VIDEO = false;
-this->Recording_screen_area_EHK                   = "";
+this->Recording_screen_area_EHK                   = 0;
 
 //-----------Save_parameters_VIDEO-----------------------------//
 this->Server_RB_VIDEO           = false;
