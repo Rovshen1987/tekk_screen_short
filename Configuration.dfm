@@ -5,7 +5,7 @@ object Config: TConfig
   BorderStyle = bsDialog
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072
   ClientHeight = 656
-  ClientWidth = 519
+  ClientWidth = 517
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,14 +20,16 @@ object Config: TConfig
   object Option: TPageControl
     Left = 0
     Top = 0
-    Width = 519
+    Width = 517
     Height = 656
     Cursor = crHandPoint
     ActivePage = General_setup
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 519
     object Screen_shot: TTabSheet
       Caption = #1057#1082#1088#1080#1085#1096#1086#1090
+      ExplicitWidth = 511
       object Hot_Keys: TGroupBox
         Left = 3
         Top = 3
@@ -244,6 +246,7 @@ object Config: TConfig
     object Video: TTabSheet
       Caption = #1042#1080#1076#1077#1086
       ImageIndex = 1
+      ExplicitWidth = 511
       object Hot_keys_VIDEO: TGroupBox
         Left = 3
         Top = 3
@@ -414,6 +417,7 @@ object Config: TConfig
     object General_setup: TTabSheet
       Caption = #1043#1077#1085#1077#1088#1072#1083#1100#1085#1086#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1072
       ImageIndex = 2
+      ExplicitWidth = 511
       object General_options: TGroupBox
         Left = 3
         Top = 3
@@ -435,7 +439,7 @@ object Config: TConfig
           Height = 19
           Caption = #1088#1072#1079#1084#1077#1088
         end
-        object Label3: TLabel
+        object Them_L: TLabel
           Left = 16
           Top = 95
           Width = 32
@@ -676,21 +680,21 @@ object Config: TConfig
           Height = 130
           Caption = #1050#1086#1088#1086#1090#1082#1080#1077' '#1083#1080#1085#1080#1080
           TabOrder = 1
-          object Label7: TLabel
+          object Short_lines_type_L: TLabel
             Left = 8
             Top = 25
             Width = 27
             Height = 19
             Caption = #1058#1080#1087
           end
-          object Label8: TLabel
+          object Short_lines_color_L: TLabel
             Left = 8
             Top = 60
             Width = 71
             Height = 19
             Caption = #1062#1074#1077#1090' RGB:'
           end
-          object Label9: TLabel
+          object Short_line_size_L: TLabel
             Left = 8
             Top = 95
             Width = 95
@@ -825,21 +829,29 @@ object Config: TConfig
       end
     end
   end
-  object Button1: TButton
-    Left = 145
+  object Save_BUTTON: TButton
+    Left = 80
     Top = 613
     Width = 90
     Height = 35
     Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
     TabOrder = 1
   end
-  object Button2: TButton
-    Left = 241
+  object Exit_BUTTON: TButton
+    Left = 181
     Top = 613
     Width = 97
     Height = 35
     Caption = #1054#1090#1084#1077#1085#1080#1090#1100
     TabOrder = 2
+  end
+  object By_default_BUTTON: TButton
+    Left = 290
+    Top = 613
+    Width = 127
+    Height = 35
+    Caption = #1055#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
+    TabOrder = 3
   end
   object FontDialog1: TFontDialog
     Font.Charset = DEFAULT_CHARSET

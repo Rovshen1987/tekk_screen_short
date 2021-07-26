@@ -12,6 +12,8 @@
 #include <Vcl.ExtCtrls.hpp>
 #include "cspin.h"
 #include <VCLTee.TeCanvas.hpp>
+#include "Config_init.h"
+#include "memory.h"
 //---------------------------------------------------------------------------
 class TConfig : public TForm
 {
@@ -78,9 +80,9 @@ __published:	// IDE-managed Components
 	TUpDown *Long_line_size_UP_BUTTON;
 	TButtonColor *Long_lines_color_BUTTON;
 	TGroupBox *Short_lines;
-	TLabel *Label7;
-	TLabel *Label8;
-	TLabel *Label9;
+	TLabel *Short_lines_type_L;
+	TLabel *Short_lines_color_L;
+	TLabel *Short_line_size_L;
 	TComboBox *Short_type_line_CM;
 	TCSpinEdit *Short_Color_RED;
 	TCSpinEdit *Short_Color_GREEN;
@@ -91,14 +93,14 @@ __published:	// IDE-managed Components
 	TGroupBox *Other;
 	TLabel *Indent_L;
 	TLabel *Magnifier_L;
-	TLabel *Label3;
+	TLabel *Them_L;
 	TComboBox *Them_CM;
 	TEdit *Indent_E;
 	TEdit *Magnifier_E;
 	TUpDown *Indent_E_BUTTON;
 	TUpDown *Magnifier_E_BUTTON;
-	TButton *Button1;
-	TButton *Button2;
+	TButton *Save_BUTTON;
+	TButton *Exit_BUTTON;
 	THotKey *Screenshot_of_the_entire_screen_EHK;
 	THotKey *Screenshot_of_the_active_window_EHK;
 	THotKey *Screenshot_of_the_screen_area_EHK;
@@ -110,12 +112,14 @@ __published:	// IDE-managed Components
 	TRadioButton *Server_RB_VIDEO;
 	TRadioButton *Locally_RB_VIDEO;
 	TEdit *Locally_E_VIDEO;
+	TButton *By_default_BUTTON;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Them_CMChange(TObject *Sender);
 private:	// User declarations
     void initilization();
 public:		// User declarations
 	__fastcall TConfig(TComponent* Owner);
+	std::unique_ptr<Config_init> config_object;// = std::make_unique<Config_unit>();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TConfig *Config;

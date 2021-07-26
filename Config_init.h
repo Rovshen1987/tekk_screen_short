@@ -12,6 +12,10 @@ class Config_init
 
 public:
 	  Config_init();
+//	  Config_init(const Config_init& object);
+//	  Config_init& operator=(const Config_init& object);
+//	  Config_init(Config_init&& object);
+//	  Config_init& operator=(Config_init&& object);
 	 ~Config_init();
 	 bool   do_editing;
 
@@ -169,6 +173,8 @@ private:
   const AnsiString FOLDER_NAME_PICTURE = "Picture";
   const AnsiString FOLDER_NAME_VIDEO   = "Video";
 
+  enum type_struct {___bool, ___int, ___AnsiString};
+
 
 
   void anihilation_varrible();
@@ -178,9 +184,59 @@ private:
   void Registry_read();
   void Registry_save();
 
-  void Registry_config_init();
+  template<class T>
+  bool compare_variable(T& first, T& last)
+  {
+	 if (first == last)
+	 {
+	  return true;
+	 }
+	 else
+	 {
+	  return false;
+	 }
+  };
+
+
+  void Registry_save_inside(const type_struct& struc, const int& first, const int& last, const AnsiString& KeyName, TRegistry* reg);
+  void Registry_save_inside(const type_struct& struc, const bool& first, const bool& last, const AnsiString& KeyName, TRegistry* reg);
+  void Registry_save_inside(const type_struct& struc, const AnsiString& first, const AnsiString& last, const AnsiString& KeyName, TRegistry* reg);
+
+//  template<class T>
+// void Registry_save_inside(const type_struct& struc, const T& first, const T& last,  AnsiString KeyName, TRegistry* reg)
+//
+//  {
+//	if (this->compare_variable(first, last))
+//	{
+//	 return;
+//	};
+//
+//   switch (struc)
+//   {
+//   case ___bool: {
+//				  reg->WriteBool(KeyName, first);
+//				  break;
+//				 };
+//   case ___int:  {
+//				  reg->WriteInteger(KeyName, first);
+//				  break;
+//				 }
+//
+//   case ___AnsiString: {
+//						reg->WriteString(KeyName, first);
+//						break;
+//					   };
+//
+//   }
+//
+//  };
+
+
   void Program_config_init();
   void Default_config_init();
+
+
+
 
   std::string Conversion_AnsiString_to_string(AnsiString& str);
   AnsiString  Conversion_string_to_AnsiString(std::string& str);
@@ -188,8 +244,8 @@ private:
   bool        Checked(TCheckBox* ch);
   bool        Checked(TRadioButton* ch);
 
-  void        Form_to_config(Config_init_registry* set);
-  void        Config_to_form(Config_init_registry* set);
+  void        Form_to_config(Config_init_registry* first);
+  void        Config_to_form(Config_init_registry* first);
 
   AnsiString fool_path(const AnsiString& folder_name);
   AnsiString get_AnsiString_to_int(int set);

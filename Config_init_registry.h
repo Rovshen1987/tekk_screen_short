@@ -4,6 +4,11 @@ class Config_init_registry
 {
 public:
 	  Config_init_registry();
+	  Config_init_registry(const Config_init_registry& object) = default;
+	  Config_init_registry& operator=(const Config_init_registry& object)= default;
+	  Config_init_registry(Config_init_registry&& object)= default;
+	  Config_init_registry& operator=(Config_init_registry&& object)= default;
+
 	 ~Config_init_registry();
 
 ///////////////////////////////////-------SET----------////////////////////////////////////////////

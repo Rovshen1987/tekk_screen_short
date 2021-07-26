@@ -17,7 +17,8 @@ __fastcall TConfig::TConfig(TComponent* Owner)
 //---------------------------------------------------------------------------void TConfig::initilization()
 void TConfig::initilization()
 {
-  Option->ActivePage = Screen_shot;
+  Option->ActivePage  = Screen_shot;
+  this->config_object = std::make_unique<Config_init>();
 };
 //---------------------------------------------------------------------------
 

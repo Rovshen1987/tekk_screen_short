@@ -18,7 +18,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 void __fastcall TForm1::ButtonClick(TObject *Sender)
 {
 //
-//Config->Show();
+Config->Show();
 //////HotKey1->HotKey = 16481;
 //Form1->Caption = 3645;
 }

@@ -9,7 +9,28 @@ Config_init::Config_init()
    this->Program_config  = new Config_init_registry;
    this->Default_config  = new Config_init_registry;
    this->directory       = new direct_r;
+   this->Default_config_init();
 };
+
+//Config_init::Config_init(const Config_init& object)
+//{
+//
+//};
+//
+//Config_init& Config_init::operator=(const Config_init& object)
+//{
+//
+//};
+//
+//Config_init::Config_init(Config_init&& object)
+//{
+//
+//};
+//
+//Config_init& Config_init::operator=(Config_init&& object)
+//{
+//
+//};
 
 Config_init::~Config_init()
 {
@@ -513,18 +534,233 @@ void Config_init::Registry_destroy()
 
 };
 
-void Config_init::Registry_read()
-{
-
-};
 
 void Config_init::Registry_save()
 {
+TRegistry* reg = new TRegistry();
+reg->RootKey   = HKEY_LOCAL_MACHINE;
+reg->OpenKey(this->Screen_shot_ASC,true);
+
+//--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
+this->Registry_save_inside(___int,this->Program_config->get_Screenshot_of_the_entire_screen_EHK(),
+						  this->Registry_config->get_Screenshot_of_the_entire_screen_EHK(),
+						  this->Screenshot_of_the_entire_screen_EHK->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Screenshot_of_the_active_window_EHK(),
+						  this->Registry_config->get_Screenshot_of_the_active_window_EHK(),
+						  this->Screenshot_of_the_active_window_EHK->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Screenshot_of_the_screen_area_EHK(),
+						  this->Registry_config->get_Screenshot_of_the_screen_area_EHK(),
+						  this->Screenshot_of_the_screen_area_EHK->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Two_mouse_buttons_at_the_same_time_CH(),
+						  this->Registry_config->get_Two_mouse_buttons_at_the_same_time_CH(),
+						  this->Two_mouse_buttons_at_the_same_time_CH->GetNamePath(), reg);
+
+
+//----------Save_parameters------------------------------------//
+this->Registry_save_inside(___bool,this->Program_config->get_Server_RB(),
+						  this->Registry_config->get_Server_RB(),
+						  this->Server_RB->GetNamePath(), reg);
+
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Address_E(),
+						  this->Registry_config->get_Address_E(),
+						  this->Address_E->GetNamePath(), reg);
+
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Login_E(),
+						  this->Registry_config->get_Login_E(),
+						  this->Login_E->GetNamePath(), reg);
+//
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Password_E(),
+						  this->Registry_config->get_Password_E(),
+						  this->Password_E->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Show_Password_CH(),
+						  this->Registry_config->get_Show_Password_CH(),
+						  this->Show_Password_CH->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Locally_RB(),
+						  this->Registry_config->get_Locally_RB(),
+						  this->Locally_RB->GetNamePath(), reg);
+
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Locally_E(),
+						  this->Registry_config->get_Locally_E(),
+						  this->Locally_E->GetNamePath(), reg);
+
+
+//----------Additional_options---------------------------------//
+this->Registry_save_inside(___bool,this->Program_config->get_Show_the_cursor_on_the_screenshot_CH(),
+						  this->Registry_config->get_Show_the_cursor_on_the_screenshot_CH(),
+						  this->Show_the_cursor_on_the_screenshot_CH->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Show_magnifying_glass_CH(),
+						  this->Registry_config->get_Show_magnifying_glass_CH(),
+						  this->Show_magnifying_glass_CH->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Open_screenshot_in_the_browser_CH(),
+						  this->Registry_config->get_Open_screenshot_in_the_browser_CH(),
+						  this->Open_screenshot_in_the_browser_CH->GetNamePath(), reg);
+
+reg->CloseKey();
+
+
+
+
+//--------------------------------------------------------------------------------PAGE__2----------
+reg->OpenKey(this->Video_ASC,true);
+//-----------Hot_keys_VIDEO------------------------------------//
+this->Registry_save_inside(___bool,this->Program_config->get_Recording_screen_area_CH(),
+						  this->Registry_config->get_Recording_screen_area_CH(),
+						  this->Recording_screen_area_CH->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Two_mouse_buttons_at_the_same_time_CH_VIDEO(),
+						  this->Registry_config->get_Two_mouse_buttons_at_the_same_time_CH_VIDEO(),
+						  this->Two_mouse_buttons_at_the_same_time_CH_VIDEO->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Recording_screen_area_EHK(),
+						  this->Registry_config->get_Recording_screen_area_EHK(),
+						  this->Recording_screen_area_EHK->GetNamePath(), reg);
+
+//-----------Save_parameters_VIDEO-----------------------------//
+this->Registry_save_inside(___bool,this->Program_config->get_Server_RB_VIDEO(),
+						  this->Registry_config->get_Server_RB_VIDEO(),
+						  this->Server_RB_VIDEO->GetNamePath(), reg);
+
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Address_E_VIDEO(),
+						  this->Registry_config->get_Address_E_VIDEO(),
+						  this->Address_E_VIDEO->GetNamePath(), reg);
+
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Login_E_VIDEO(),
+						  this->Registry_config->get_Login_E_VIDEO(),
+						  this->Login_E_VIDEO->GetNamePath(), reg);
+
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Password_E_VIDEO(),
+						  this->Registry_config->get_Password_E_VIDEO(),
+						  this->Password_E_VIDEO->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Show_Password_CH_VIDEO(),
+						  this->Registry_config->get_Show_Password_CH_VIDEO(),
+						  this->Show_Password_CH_VIDEO->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Locally_RB_VIDEO(),
+						  this->Registry_config->get_Locally_RB_VIDEO(),
+						  this->Locally_RB_VIDEO->GetNamePath(), reg);
+
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Locally_E_VIDEO(),
+						  this->Registry_config->get_Locally_E_VIDEO(),
+						  this->Locally_E_VIDEO->GetNamePath(), reg);
+
+
+//------------Additional_options_VIDEO-------------------------//
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Always_record_the_microphone_CH(),
+						  this->Registry_config->get_Always_record_the_microphone_CH(),
+						  this->Always_record_the_microphone_CH->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Record_audio_CH(),
+						  this->Registry_config->get_Record_audio_CH(),
+						  this->Record_audio_CH->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Open_video_in_the_browser_CH(),
+						  this->Registry_config->get_Open_video_in_the_browser_CH(),
+						  this->Open_video_in_the_browser_CH->GetNamePath(), reg);
+
+reg->CloseKey();
+
+//--------------------------------------------------------------------------------PAGE__3----------
+reg->OpenKey(this->General_setup,true);
+//-----------General_options------------------------------------//
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Font_E(),
+						  this->Registry_config->get_Font_E(),
+						  this->Font_E->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Font_size_E(),
+						  this->Registry_config->get_Font_size_E(),
+						  this->Font_size_E->GetNamePath(), reg);
+
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Them_CM(),
+						  this->Registry_config->get_Them_CM(),
+						  this->Them_CM->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Font_bold_CH(),
+						  this->Registry_config->get_Font_bold_CH(),
+						  this->Font_bold_CH->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Font_italic_CH(),
+						  this->Registry_config->get_Font_italic_CH(),
+						  this->Font_italic_CH->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool,this->Program_config->get_Long_type_line_CM(),
+						  this->Registry_config->get_Long_type_line_CM(),
+						  this->Long_type_line_CM->GetNamePath(), reg);
+
+
+//------------Shooting------------------------------------------//
+//------------Long_lines---------------------------------------//
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Long_type_line_CM(),
+						  this->Registry_config->get_Long_type_line_CM(),
+						  this->Long_type_line_CM->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Long_color_RED(),
+						  this->Registry_config->get_Long_color_RED(),
+						  this->Long_color_RED->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Long_color_GREEN(),
+						  this->Registry_config->get_Long_color_GREEN(),
+						  this->Long_color_GREEN->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Long_color_BLUE(),
+						  this->Registry_config->get_Long_color_BLUE(),
+						  this->Long_color_BLUE->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Long_line_size_E(),
+						  this->Registry_config->get_Long_line_size_E(),
+						  this->Long_line_size_E->GetNamePath(), reg);
+
+
+////------------Short_lines--------------------------------------//
+this->Registry_save_inside(___AnsiString,this->Program_config->get_Short_type_line_CM(),
+						  this->Registry_config->get_Short_type_line_CM(),
+						  this->Short_type_line_CM->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Short_color_RED(),
+						  this->Registry_config->get_Short_color_RED(),
+						  this->Short_color_RED->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Short_color_GREEN(),
+						  this->Registry_config->get_Short_color_GREEN(),
+						  this->Short_color_GREEN->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Short_color_BLUE(),
+						  this->Registry_config->get_Short_color_BLUE(),
+						  this->Short_color_BLUE->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Short_line_size_E(),
+						  this->Registry_config->get_Short_line_size_E(),
+						  this->Short_line_size_E->GetNamePath(), reg);
+
+//-----------Other---------------------------------------------//
+this->Registry_save_inside(___int,this->Program_config->get_Indent_E(),
+						  this->Registry_config->get_Indent_E(),
+						  this->Indent_E->GetNamePath(), reg);
+
+this->Registry_save_inside(___int,this->Program_config->get_Magnifier_E(),
+						  this->Registry_config->get_Magnifier_E(),
+						  this->Magnifier_E->GetNamePath(), reg);
+
+this->Registry_save_inside(___bool, this->Program_config->get_Log_create_CH(),
+						  this->Registry_config->get_Log_create_CH(),
+						  this->Log_create_CH->GetNamePath(), reg);
+
+reg->CloseKey();
+delete reg;
+
 
 };
 
 
-void Config_init::Registry_config_init()
+void Config_init::Registry_read()
 {
 TRegistry* reg = new TRegistry();
 reg->RootKey   = HKEY_LOCAL_MACHINE;
@@ -825,88 +1061,159 @@ return result;
 //  (this->directory->get_path(this->Conversion_AnsiString_to_string(this->FOLDER_NAME_PICTURE))));
 };
 
-void Config_init::Form_to_config(Config_init_registry* set)
+void Config_init::Form_to_config(Config_init_registry* first)
 {
 ///////////////////////////////////-------SET----------////////////////////////////////////////////
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
-  this->Screenshot_of_the_entire_screen_EHK->HotKey    = set->get_Screenshot_of_the_entire_screen_EHK();
-  this->Screenshot_of_the_active_window_EHK->HotKey    = set->get_Screenshot_of_the_active_window_EHK();
-  this->Screenshot_of_the_screen_area_EHK->HotKey      = set->get_Screenshot_of_the_screen_area_EHK();
-  this->Two_mouse_buttons_at_the_same_time_CH->Checked = set->get_Two_mouse_buttons_at_the_same_time_CH();
+  this->Screenshot_of_the_entire_screen_EHK->HotKey    = first->get_Screenshot_of_the_entire_screen_EHK();
+  this->Screenshot_of_the_active_window_EHK->HotKey    = first->get_Screenshot_of_the_active_window_EHK();
+  this->Screenshot_of_the_screen_area_EHK->HotKey      = first->get_Screenshot_of_the_screen_area_EHK();
+  this->Two_mouse_buttons_at_the_same_time_CH->Checked = first->get_Two_mouse_buttons_at_the_same_time_CH();
 
 //----------Save_parameters------------------------------------//
-  this->Server_RB->Checked         = set->get_Server_RB();
-  this->Address_E->Text            = set->get_Address_E();
-  this->Login_E->Text              = set->get_Login_E();
-  this->Password_E->Text           = set->get_Password_E();
-  this->Show_Password_CH->Checked  = set->get_Show_Password_CH();
-  this->Locally_RB->Checked        = set->get_Locally_RB();
-  this->Locally_E->Text            = set->get_Locally_E();
+  this->Server_RB->Checked         = first->get_Server_RB();
+  this->Address_E->Text            = first->get_Address_E();
+  this->Login_E->Text              = first->get_Login_E();
+  this->Password_E->Text           = first->get_Password_E();
+  this->Show_Password_CH->Checked  = first->get_Show_Password_CH();
+  this->Locally_RB->Checked        = first->get_Locally_RB();
+  this->Locally_E->Text            = first->get_Locally_E();
 
 //----------Additional_options---------------------------------//
-  this->Show_the_cursor_on_the_screenshot_CH->Checked = set->get_Show_the_cursor_on_the_screenshot_CH();
-  this->Show_magnifying_glass_CH->Checked             = set->get_Show_magnifying_glass_CH();
-  this->Open_screenshot_in_the_browser_CH->Checked    = set->get_Open_screenshot_in_the_browser_CH();
+  this->Show_the_cursor_on_the_screenshot_CH->Checked = first->get_Show_the_cursor_on_the_screenshot_CH();
+  this->Show_magnifying_glass_CH->Checked             = first->get_Show_magnifying_glass_CH();
+  this->Open_screenshot_in_the_browser_CH->Checked    = first->get_Open_screenshot_in_the_browser_CH();
 
 
 //--------------------------------------------------------------------------------PAGE__2----------
 //-----------Hot_keys_VIDEO------------------------------------//
-  this->Recording_screen_area_CH->Checked                    = set->get_Recording_screen_area_CH();
-  this->Two_mouse_buttons_at_the_same_time_CH_VIDEO->Checked = set->get_Two_mouse_buttons_at_the_same_time_CH_VIDEO();
-  this->Recording_screen_area_EHK->HotKey                    = set->get_Recording_screen_area_EHK();
+  this->Recording_screen_area_CH->Checked                    = first->get_Recording_screen_area_CH();
+  this->Two_mouse_buttons_at_the_same_time_CH_VIDEO->Checked = first->get_Two_mouse_buttons_at_the_same_time_CH_VIDEO();
+  this->Recording_screen_area_EHK->HotKey                    = first->get_Recording_screen_area_EHK();
 
 //-----------Save_parameters_VIDEO-----------------------------//
-  this->Server_RB_VIDEO->Checked = set->get_Server_RB_VIDEO();
-  this->Address_E_VIDEO->Text = set->get_Address_E_VIDEO();
-  this->Login_E_VIDEO->Text = set->get_Login_E_VIDEO();
-  this->Password_E_VIDEO->Text = set->get_Password_E_VIDEO();
-  this->Show_Password_CH_VIDEO->Checked = set->get_Show_Password_CH_VIDEO();
-  this->Locally_RB_VIDEO->Checked = set->get_Locally_RB_VIDEO();
-  this->Locally_E_VIDEO->Text = set->get_Locally_E_VIDEO();
+  this->Server_RB_VIDEO->Checked                   = first->get_Server_RB_VIDEO();
+  this->Address_E_VIDEO->Text                      = first->get_Address_E_VIDEO();
+  this->Login_E_VIDEO->Text                        = first->get_Login_E_VIDEO();
+  this->Password_E_VIDEO->Text                     = first->get_Password_E_VIDEO();
+  this->Show_Password_CH_VIDEO->Checked            = first->get_Show_Password_CH_VIDEO();
+  this->Locally_RB_VIDEO->Checked                  = first->get_Locally_RB_VIDEO();
+  this->Locally_E_VIDEO->Text                      = first->get_Locally_E_VIDEO();
 
 //------------Additional_options_VIDEO-------------------------//
-  this->Always_record_the_microphone_CH->Checked   = set->get_Always_record_the_microphone_CH();
-  this->Record_audio_CH->Checked                   = set->get_Record_audio_CH();
-  this->Open_video_in_the_browser_CH->Checked      = set->get_Open_video_in_the_browser_CH();
+  this->Always_record_the_microphone_CH->Checked   = first->get_Always_record_the_microphone_CH();
+  this->Record_audio_CH->Checked                   = first->get_Record_audio_CH();
+  this->Open_video_in_the_browser_CH->Checked      = first->get_Open_video_in_the_browser_CH();
 
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
-  this->Font_E->Text                  = set->get_Font_E();
-  this->Font_size_E->Text             = set->get_Font_size_E();
-  this->Them_CM->Text                 = set->get_Them_CM();
-  this->Font_bold_CH->Checked         = set->get_Font_bold_CH();
-  this->Font_italic_CH->Checked       = set->get_Font_italic_CH();
-  this->Font_underlined_CH->Checked   = set->get_Font_underlined_CH();
+  this->Font_E->Text                  = first->get_Font_E();
+  this->Font_size_E->Text             = first->get_Font_size_E();
+  this->Them_CM->Text                 = first->get_Them_CM();
+  this->Font_bold_CH->Checked         = first->get_Font_bold_CH();
+  this->Font_italic_CH->Checked       = first->get_Font_italic_CH();
+  this->Font_underlined_CH->Checked   = first->get_Font_underlined_CH();
 
 //------------Shooting------------------------------------------//
 //------------Long_lines---------------------------------------//
-  this->Long_type_line_CM->Text       = set->get_Long_type_line_CM();
-  this->Long_color_RED->Text          = this->get_AnsiString_to_int(set->get_Long_color_RED());
-  this->Long_color_GREEN->Text        = this->get_AnsiString_to_int(set->get_Long_color_GREEN());
-  this->Long_color_BLUE->Text         = this->get_AnsiString_to_int(set->get_Long_color_BLUE());
-  this->Long_line_size_E->Text        = this->get_AnsiString_to_int(set->get_Long_line_size_E());
+  this->Long_type_line_CM->Text       = first->get_Long_type_line_CM();
+  this->Long_color_RED->Text          = this->get_AnsiString_to_int(first->get_Long_color_RED());
+  this->Long_color_GREEN->Text        = this->get_AnsiString_to_int(first->get_Long_color_GREEN());
+  this->Long_color_BLUE->Text         = this->get_AnsiString_to_int(first->get_Long_color_BLUE());
+  this->Long_line_size_E->Text        = this->get_AnsiString_to_int(first->get_Long_line_size_E());
 
 //------------Short_lines--------------------------------------//
-  this->Short_type_line_CM->Text      = set->get_Short_type_line_CM();
-  this->Short_color_RED->Text         = this->get_AnsiString_to_int(set->get_Short_color_RED());
-  this->Short_color_GREEN->Text       = this->get_AnsiString_to_int(set->get_Short_color_GREEN());
-  this->Short_color_BLUE->Text        = this->get_AnsiString_to_int(set->get_Short_color_BLUE());
-  this->Short_line_size_E->Text       = this->get_AnsiString_to_int(set->get_Short_line_size_E());
+  this->Short_type_line_CM->Text      = first->get_Short_type_line_CM();
+  this->Short_color_RED->Text         = this->get_AnsiString_to_int(first->get_Short_color_RED());
+  this->Short_color_GREEN->Text       = this->get_AnsiString_to_int(first->get_Short_color_GREEN());
+  this->Short_color_BLUE->Text        = this->get_AnsiString_to_int(first->get_Short_color_BLUE());
+  this->Short_line_size_E->Text       = this->get_AnsiString_to_int(first->get_Short_line_size_E());
 
 //-----------Other---------------------------------------------//
-  this->Indent_E->Text                = this->get_AnsiString_to_int(set->get_Indent_E());
-  this->Magnifier_E->Text             = this->get_AnsiString_to_int(set->get_Magnifier_E());
-  this->Log_create_CH->Checked        = set->get_Log_create_CH();
+  this->Indent_E->Text                = this->get_AnsiString_to_int(first->get_Indent_E());
+  this->Magnifier_E->Text             = this->get_AnsiString_to_int(first->get_Magnifier_E());
+  this->Log_create_CH->Checked        = first->get_Log_create_CH();
 
-//set->get_();
+//first->get_();
 
 };
 
-void Config_init::Config_to_form(Config_init_registry* set)
+void Config_init::Config_to_form(Config_init_registry* first)
 {
+///////////////////////////////////-------SET----------////////////////////////////////////////////
+//--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
+  first->set_Screenshot_of_the_entire_screen_EHK(this->Screenshot_of_the_entire_screen_EHK->HotKey);
+  first->set_Screenshot_of_the_active_window_EHK(this->Screenshot_of_the_active_window_EHK->HotKey);
+  first->set_Screenshot_of_the_screen_area_EHK(this->Screenshot_of_the_screen_area_EHK->HotKey);
+  first->set_Two_mouse_buttons_at_the_same_time_CH(this->Two_mouse_buttons_at_the_same_time_CH->Checked);
 
+//----------Save_parameters------------------------------------//
+  first->set_Server_RB(this->Server_RB->Checked);
+  first->set_Address_E(this->Address_E->Text);
+  first->set_Login_E(this->Login_E->Text);
+  first->set_Password_E(this->Password_E->Text);
+  first->set_Show_Password_CH(this->Show_Password_CH->Checked);
+  first->set_Locally_RB(this->Locally_RB->Checked);
+  first->set_Locally_E(this->Locally_E->Text);
+
+//----------Additional_options---------------------------------//
+  first->set_Show_the_cursor_on_the_screenshot_CH(this->Show_the_cursor_on_the_screenshot_CH->Checked);
+  first->set_Show_magnifying_glass_CH(this->Show_magnifying_glass_CH->Checked);
+  first->set_Open_screenshot_in_the_browser_CH(this->Open_screenshot_in_the_browser_CH->Checked);
+
+
+//--------------------------------------------------------------------------------PAGE__2----------
+//-----------Hot_keys_VIDEO------------------------------------//
+  first->set_Recording_screen_area_CH(this->Recording_screen_area_CH->Checked);
+  first->set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(this->Two_mouse_buttons_at_the_same_time_CH_VIDEO->Checked);
+  first->set_Recording_screen_area_EHK(this->Recording_screen_area_EHK->HotKey);
+
+//-----------Save_parameters_VIDEO-----------------------------//
+  first->set_Server_RB_VIDEO(this->Server_RB_VIDEO->Checked);
+  first->set_Address_E_VIDEO(this->Address_E_VIDEO->Text);
+  first->set_Login_E_VIDEO(this->Login_E_VIDEO->Text);
+  first->set_Password_E_VIDEO(this->Password_E_VIDEO->Text);
+  first->set_Show_Password_CH_VIDEO(this->Show_Password_CH_VIDEO->Checked);
+  first->set_Locally_RB_VIDEO(this->Locally_RB_VIDEO->Checked);
+  first->set_Locally_E_VIDEO(this->Locally_E_VIDEO->Text);
+
+//------------Additional_options_VIDEO-------------------------//
+  first->set_Always_record_the_microphone_CH(this->Always_record_the_microphone_CH->Checked);
+  first->set_Record_audio_CH(this->Record_audio_CH->Checked);
+  first->set_Open_video_in_the_browser_CH(this->Open_video_in_the_browser_CH->Checked);
+
+
+//--------------------------------------------------------------------------------PAGE__3----------
+//-----------General_options------------------------------------//
+  first->set_Font_E(this->Font_E->Text);
+  first->set_Font_size_E(this->Font_size_E->Text.ToInt());
+  first->set_Them_CM(this->Them_CM->Text);
+  first->set_Font_bold_CH(this->Font_bold_CH->Checked);
+  first->set_Font_italic_CH(this->Font_italic_CH->Checked);
+  first->set_Font_underlined_CH(this->Font_underlined_CH->Checked);
+
+//------------Shooting------------------------------------------//
+//------------Long_lines---------------------------------------//
+  first->set_Long_type_line_CM(this->Long_type_line_CM->Text);
+  first->set_Long_color_RED(this->Long_color_RED->Text.ToInt());
+  first->set_Long_color_GREEN(this->Long_color_GREEN->Text.ToInt());
+  first->set_Long_color_BLUE(this->Long_color_BLUE->Text.ToInt());
+  first->set_Long_line_size_E(this->Long_line_size_E->Text.ToInt());
+
+//------------Short_lines--------------------------------------//
+  first->set_Short_type_line_CM(this->Short_type_line_CM->Text);
+  first->set_Short_color_RED(this->Short_color_RED->Text.ToInt());
+  first->set_Short_color_GREEN(this->Short_color_GREEN->Text.ToInt());
+  first->set_Short_color_BLUE(this->Short_color_BLUE->Text.ToInt());
+  first->set_Short_line_size_E(this->Short_line_size_E->Text.ToInt());
+
+//-----------Other---------------------------------------------//
+  first->set_Indent_E(this->Indent_E->Text.ToInt());
+  first->set_Magnifier_E(this->Magnifier_E->Text.ToInt());
+  first->set_Log_create_CH(this->Log_create_CH->Checked);
 };
 
 AnsiString Config_init::get_AnsiString_to_int(int set)
@@ -916,6 +1223,48 @@ AnsiString Config_init::get_AnsiString_to_int(int set)
   return result;
 };
 
+void Config_init::Registry_save_inside(const type_struct& struc, const int& first, const int& last,
+				  const AnsiString& KeyName, TRegistry* reg)
+{
+	if (this->compare_variable(first, last))
+	{
+	 return;
+	};
+
+		if (struc == ___int)
+		{
+		reg->WriteInteger(KeyName, first);
+		};
+
+};
+
+void Config_init::Registry_save_inside(const type_struct& struc, const bool& first, const bool& last,
+				  const AnsiString& KeyName, TRegistry* reg)
+{
+	if (this->compare_variable(first, last))
+	{
+	 return;
+	}
+
+		if (struc == ___bool)
+		{
+		reg->WriteBool(KeyName, first);
+		};
+};
+
+void Config_init::Registry_save_inside(const type_struct& struc, const AnsiString& first, const AnsiString& last,
+				  const AnsiString& KeyName, TRegistry* reg)
+{
+	if (this->compare_variable(first, last))
+	{
+	 return;
+	}
+
+		if (struc == ___AnsiString)
+		{
+		reg->WriteString(KeyName, first);
+		};
+};
 
 
 
