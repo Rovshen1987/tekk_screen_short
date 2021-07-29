@@ -84,9 +84,9 @@ __published:	// IDE-managed Components
 	TLabel *Short_lines_color_L;
 	TLabel *Short_line_size_L;
 	TComboBox *Short_type_line_CM;
-	TCSpinEdit *Short_Color_RED;
-	TCSpinEdit *Short_Color_GREEN;
-	TCSpinEdit *Short_Color_BLUE;
+	TCSpinEdit *Short_color_RED;
+	TCSpinEdit *Short_color_GREEN;
+	TCSpinEdit *Short_color_BLUE;
 	TButtonColor *Short_lines_color_BUTTON;
 	TEdit *Short_line_size_E;
 	TUpDown *Short_line_size_BUTTON;
@@ -115,6 +115,12 @@ __published:	// IDE-managed Components
 	TButton *By_default_BUTTON;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Them_CMChange(TObject *Sender);
+	void __fastcall Server_RBClick(TObject *Sender);
+	void __fastcall Locally_RBClick(TObject *Sender);
+	void __fastcall Server_RB_VIDEOClick(TObject *Sender);
+	void __fastcall Locally_RB_VIDEOClick(TObject *Sender);
+	void __fastcall Show_Password_CHClick(TObject *Sender);
+	void __fastcall Show_Password_CH_VIDEOClick(TObject *Sender);
 private:	// User declarations
     void initilization();
 public:		// User declarations

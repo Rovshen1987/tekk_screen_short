@@ -23,3 +23,39 @@ Config->Show();
 //Form1->Caption = 3645;
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+std::unique_ptr<TRegistry> reg = std::make_unique<TRegistry>();
+ reg->RootKey   = HKEY_CURRENT_USER;
+ reg->OpenKey("tekk\\Alpari",true);
+// reg->Access = KEY_WRITE;
+ reg->WriteInteger("Wiki", 36);
+//
+// if (reg->KeyExists("SOFTWARE\\Adobe\\Acrobat PDFMaker\\DC"))
+////
+// if (reg->) {
+//
+// }
+// {
+//   Form1->Caption = "Bar";
+// }
+// else
+// {
+//   Form1->Caption = "Yok";
+// };
+//
+//AnsiString s = reg->ReadString("Path");
+//Form1->Caption = s;
+
+ reg->CloseKey();
+//if (IsUserAnAdmin())
+//{
+//  Form1->Caption = "Da";
+//}
+//else
+//{
+// Form1->Caption = "No";
+//}
+}
+//---------------------------------------------------------------------------
+

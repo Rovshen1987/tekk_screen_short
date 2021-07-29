@@ -362,8 +362,8 @@ void Config_init::anihilation_varrible()//-----------Destroy object
   this->Short_line_size_E  = 0;
 
 //-----------Other---------------------------------------------//
-  this->Indent_E    = 0;
-  this->Magnifier_E = 0;
+  this->Indent_E       = 0;
+  this->Magnifier_E    = 0;
   this->Log_create_CH  = 0;
 
   //------------------DELETE OBJECT----------------------------//
@@ -441,7 +441,7 @@ void Config_init::anihilation_varrible()//-----------Destroy object
 void Config_init::Registry_create()
 {
 TRegistry* reg = new TRegistry();
-reg->RootKey   = HKEY_LOCAL_MACHINE;
+reg->RootKey   = this->Root_key_C;
 reg->OpenKey(this->Screen_shot_ASC,true);
 
 
@@ -538,7 +538,7 @@ void Config_init::Registry_destroy()
 void Config_init::Registry_save()
 {
 TRegistry* reg = new TRegistry();
-reg->RootKey   = HKEY_LOCAL_MACHINE;
+reg->RootKey   = this->Root_key_C;
 reg->OpenKey(this->Screen_shot_ASC,true);
 
 //--------------------------------------------------------------------------------PAGE__1----------
@@ -763,7 +763,7 @@ delete reg;
 void Config_init::Registry_read()
 {
 TRegistry* reg = new TRegistry();
-reg->RootKey   = HKEY_LOCAL_MACHINE;
+reg->RootKey   = this->Root_key_C;
 reg->OpenKeyReadOnly(this->Screen_shot_ASC);
 
 
@@ -993,7 +993,7 @@ void Config_init::Default_config_init()
 
 //-----------Save_parameters_VIDEO-----------------------------//
   this->Default_config->set_Server_RB_VIDEO(false);
-  this->Default_config->set_Address_E_VIDEO("");
+  this->Default_config->set_Address_E_VIDEO("google.com/");
   this->Default_config->set_Login_E_VIDEO("Login");
   this->Default_config->set_Password_E_VIDEO("Password");
   this->Default_config->set_Show_Password_CH_VIDEO(true);
@@ -1136,7 +1136,7 @@ void Config_init::Form_to_config(Config_init_registry* first)
   this->Magnifier_E->Text             = this->get_AnsiString_to_int(first->get_Magnifier_E());
   this->Log_create_CH->Checked        = first->get_Log_create_CH();
 
-//first->get_();
+ this->Form_to_config_checked(first);
 
 };
 
@@ -1266,6 +1266,91 @@ void Config_init::Registry_save_inside(const type_struct& struc, const AnsiStrin
 		};
 };
 
+void Config_init::Default_config_V()
+{
+  this->Form_to_config(this->Default_config);
+};
+
+void Config_init::Form_to_config_checked(Config_init_registry* first)
+{
+  if (first->get_Server_RB())
+  {
+  this->Address_E->Enabled                = true;
+  this->Login_E->Enabled                  = true;
+  this->Password_E->Enabled               = true;
+  this->Show_Password_CH->Enabled         = true;
+
+  this->Locally_RB->Checked               = false;
+  this->Locally_E->Enabled                = false;
+
+	if (first->get_Show_Password_CH())
+	{
+	 this->Password_E->PasswordChar       = 0;
+	}
+	else
+	{
+	 this->Password_E->PasswordChar       = '*';
+	}
+  };
+
+   if (first->get_Locally_RB())
+   {
+	this->Locally_E->Enabled              = true;
+
+	this->Server_RB->Checked              = false;
+	this->Address_E->Enabled              = false;
+	this->Login_E->Enabled                = false;
+	this->Password_E->Enabled             = false;
+	this->Show_Password_CH->Enabled       = false;
+   };
+
+  if (first->get_Server_RB_VIDEO())
+  {
+  this->Address_E_VIDEO->Enabled          = true;
+  this->Login_E_VIDEO->Enabled            = true;
+  this->Password_E_VIDEO->Enabled         = true;
+  this->Show_Password_CH_VIDEO->Enabled   = true;
+
+  this->Locally_RB_VIDEO->Checked         = false;
+  this->Locally_E_VIDEO->Enabled          = false;
+
+	if (first->get_Show_Password_CH_VIDEO())
+	{
+	 this->Password_E_VIDEO->PasswordChar = 0;
+	}
+	else
+	{
+	 this->Password_E_VIDEO->PasswordChar = '*';
+	}
+  };
+
+   if (first->get_Locally_RB_VIDEO())
+   {
+	this->Locally_E_VIDEO->Enabled        = true;
+
+	this->Server_RB_VIDEO->Checked        = false;
+	this->Address_E_VIDEO->Enabled        = false;
+	this->Login_E_VIDEO->Enabled          = false;
+	this->Password_E_VIDEO->Enabled       = false;
+	this->Show_Password_CH_VIDEO->Enabled = false;
+   };
+
+
+};
+
+bool Config_init::Check_registry_key()
+{
+
+ return false;
+};
+
+bool Check_registry_key_in_side()
+{
+// std::unique_ptr<TRegistry>  reg = std::make_unique<TRegistry>();
+// reg->RootKey   = HKEY_LOCAL_MACHINE;
+
+ return false;
+};
 
 
 

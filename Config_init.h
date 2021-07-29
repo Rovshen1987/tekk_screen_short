@@ -17,7 +17,11 @@ public:
 //	  Config_init(Config_init&& object);
 //	  Config_init& operator=(Config_init&& object);
 	 ~Config_init();
-	 bool   do_editing;
+  bool   do_editing;
+
+  bool Check_registry_key();
+
+  void Default_config_V();
 
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
@@ -172,6 +176,7 @@ private:
 
   const AnsiString FOLDER_NAME_PICTURE = "Picture";
   const AnsiString FOLDER_NAME_VIDEO   = "Video";
+  const HKEY       Root_key_C          = HKEY_LOCAL_MACHINE;
 
   enum type_struct {___bool, ___int, ___AnsiString};
 
@@ -202,39 +207,12 @@ private:
   void Registry_save_inside(const type_struct& struc, const bool& first, const bool& last, const AnsiString& KeyName, TRegistry* reg);
   void Registry_save_inside(const type_struct& struc, const AnsiString& first, const AnsiString& last, const AnsiString& KeyName, TRegistry* reg);
 
-//  template<class T>
-// void Registry_save_inside(const type_struct& struc, const T& first, const T& last,  AnsiString KeyName, TRegistry* reg)
-//
-//  {
-//	if (this->compare_variable(first, last))
-//	{
-//	 return;
-//	};
-//
-//   switch (struc)
-//   {
-//   case ___bool: {
-//				  reg->WriteBool(KeyName, first);
-//				  break;
-//				 };
-//   case ___int:  {
-//				  reg->WriteInteger(KeyName, first);
-//				  break;
-//				 }
-//
-//   case ___AnsiString: {
-//						reg->WriteString(KeyName, first);
-//						break;
-//					   };
-//
-//   }
-//
-//  };
+
 
 
   void Program_config_init();
   void Default_config_init();
-
+  void Form_to_config_checked(Config_init_registry* first);
 
 
 
@@ -249,6 +227,8 @@ private:
 
   AnsiString fool_path(const AnsiString& folder_name);
   AnsiString get_AnsiString_to_int(int set);
+
+  bool Check_registry_key_in_side();
 
 
 };
@@ -265,7 +245,7 @@ private:
   cf->set_Address_E();
   cf->set_Login_E();
   cf->set_Password_E();
-  cf->set_Show_Password();
+  cf->set_Show_Password_CH();
   cf->set_Locally_RB();
   cf->set_Locally_E();
 

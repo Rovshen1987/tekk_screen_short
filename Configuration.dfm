@@ -23,7 +23,7 @@ object Config: TConfig
     Width = 517
     Height = 656
     Cursor = crHandPoint
-    ActivePage = General_setup
+    ActivePage = Video
     Align = alClient
     TabOrder = 0
     ExplicitWidth = 519
@@ -165,7 +165,6 @@ object Config: TConfig
           Top = 130
           Width = 151
           Height = 27
-          PasswordChar = '*'
           TabOrder = 2
           Text = 'Password_E'
         end
@@ -177,6 +176,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1072#1088#1086#1083#1100
           TabOrder = 3
+          OnClick = Show_Password_CHClick
         end
         object Locally_E: TEdit
           Left = 16
@@ -194,6 +194,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1053#1072' '#1089#1077#1088#1074#1077#1088', '#1082#1086#1087#1080#1088#1091#1102' '#1089#1089#1099#1083#1082#1091' '#1074' '#1073#1091#1092#1077#1088' '#1086#1073#1084#1077#1085#1072
           TabOrder = 5
+          OnClick = Server_RBClick
         end
         object Locally_RB: TRadioButton
           Left = 16
@@ -205,6 +206,7 @@ object Config: TConfig
           Checked = True
           TabOrder = 6
           TabStop = True
+          OnClick = Locally_RBClick
         end
       end
       object Additional_options: TGroupBox
@@ -347,6 +349,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1072#1088#1086#1083#1100
           TabOrder = 3
+          OnClick = Show_Password_CH_VIDEOClick
         end
         object Server_RB_VIDEO: TRadioButton
           Left = 16
@@ -356,6 +359,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1053#1072' '#1089#1077#1088#1074#1077#1088', '#1082#1086#1087#1080#1088#1091#1102' '#1089#1089#1099#1083#1082#1091' '#1074' '#1073#1091#1092#1077#1088' '#1086#1073#1084#1077#1085#1072
           TabOrder = 4
+          OnClick = Server_RB_VIDEOClick
         end
         object Locally_RB_VIDEO: TRadioButton
           Left = 16
@@ -367,6 +371,7 @@ object Config: TConfig
           Checked = True
           TabOrder = 5
           TabStop = True
+          OnClick = Locally_RB_VIDEOClick
         end
         object Locally_E_VIDEO: TEdit
           Left = 16
@@ -713,21 +718,21 @@ object Config: TConfig
               #1051#1080#1085#1080#1103
               #1058#1086#1095#1082#1072)
           end
-          object Short_Color_RED: TCSpinEdit
+          object Short_color_RED: TCSpinEdit
             Left = 85
             Top = 60
             Width = 60
             Height = 29
             TabOrder = 1
           end
-          object Short_Color_GREEN: TCSpinEdit
+          object Short_color_GREEN: TCSpinEdit
             Left = 150
             Top = 60
             Width = 60
             Height = 29
             TabOrder = 2
           end
-          object Short_Color_BLUE: TCSpinEdit
+          object Short_color_BLUE: TCSpinEdit
             Left = 215
             Top = 60
             Width = 60

@@ -21,7 +21,15 @@ object Form1: TForm1
     Height = 65
     Caption = 'Button'
     TabOrder = 0
-    StyleName = 'Glow'
     OnClick = ButtonClick
+  end
+  object Button1: TButton
+    Left = 176
+    Top = 248
+    Width = 185
+    Height = 57
+    Caption = 'Button1'
+    TabOrder = 1
+    OnClick = Button1Click
   end
 end
