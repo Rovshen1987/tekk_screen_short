@@ -27,22 +27,19 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 {
 std::unique_ptr<TRegistry> reg = std::make_unique<TRegistry>();
  reg->RootKey   = HKEY_CURRENT_USER;
- reg->OpenKey("tekk\\Alpari",true);
+// reg->OpenKey("tekk\\Alpari",true);
 // reg->Access = KEY_WRITE;
- reg->WriteInteger("Wiki", 36);
+// reg->WriteInteger("Wiki", 36);
 //
-// if (reg->KeyExists("SOFTWARE\\Adobe\\Acrobat PDFMaker\\DC"))
-////
-// if (reg->) {
-//
-// }
-// {
-//   Form1->Caption = "Bar";
-// }
-// else
-// {
-//   Form1->Caption = "Yok";
-// };
+ if (reg->KeyExists("System\\CurrentControlSet"))
+
+ {
+   Form1->Caption = "Bar";
+ }
+ else
+ {
+   Form1->Caption = "Yok";
+ };
 //
 //AnsiString s = reg->ReadString("Path");
 //Form1->Caption = s;

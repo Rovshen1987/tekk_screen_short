@@ -26,10 +26,8 @@ object Config: TConfig
     ActivePage = Video
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 519
     object Screen_shot: TTabSheet
       Caption = #1057#1082#1088#1080#1085#1096#1086#1090
-      ExplicitWidth = 511
       object Hot_Keys: TGroupBox
         Left = 3
         Top = 3
@@ -87,7 +85,7 @@ object Config: TConfig
         end
         object Screenshot_of_the_entire_screen_EHK: THotKey
           Left = 216
-          Top = 25
+          Top = 27
           Width = 260
           Height = 27
           Cursor = crHandPoint
@@ -248,7 +246,6 @@ object Config: TConfig
     object Video: TTabSheet
       Caption = #1042#1080#1076#1077#1086
       ImageIndex = 1
-      ExplicitWidth = 511
       object Hot_keys_VIDEO: TGroupBox
         Left = 3
         Top = 3
@@ -390,7 +387,7 @@ object Config: TConfig
         Height = 106
         Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1099#1077' '#1086#1087#1094#1080#1080
         TabOrder = 2
-        object Always_record_the_microphone_CH: TCheckBox
+        object Always_record_the_microphone_CH_VIDEO: TCheckBox
           Left = 16
           Top = 25
           Width = 225
@@ -399,7 +396,7 @@ object Config: TConfig
           Caption = #1047#1072#1087#1080#1089#1099#1074#1072#1090#1100' '#1084#1080#1082#1088#1086#1092#1086#1085' '#1074#1089#1077#1075#1076#1072
           TabOrder = 0
         end
-        object Record_audio_CH: TCheckBox
+        object Record_audio_CH_VIDEO: TCheckBox
           Left = 16
           Top = 50
           Width = 129
@@ -408,7 +405,7 @@ object Config: TConfig
           Caption = #1047#1072#1087#1080#1089#1099#1074#1072#1090#1100' '#1079#1074#1091#1082
           TabOrder = 1
         end
-        object Open_video_in_the_browser_CH: TCheckBox
+        object Open_video_in_the_browser_CH_VIDEO: TCheckBox
           Left = 16
           Top = 75
           Width = 217
@@ -422,7 +419,6 @@ object Config: TConfig
     object General_setup: TTabSheet
       Caption = #1043#1077#1085#1077#1088#1072#1083#1100#1085#1086#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1072
       ImageIndex = 2
-      ExplicitWidth = 511
       object General_options: TGroupBox
         Left = 3
         Top = 3

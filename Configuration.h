@@ -51,9 +51,9 @@ __published:	// IDE-managed Components
 	TEdit *Password_E_VIDEO;
 	TCheckBox *Show_Password_CH_VIDEO;
 	TGroupBox *Additional_options_VIDEO;
-	TCheckBox *Always_record_the_microphone_CH;
-	TCheckBox *Record_audio_CH;
-	TCheckBox *Open_video_in_the_browser_CH;
+	TCheckBox *Always_record_the_microphone_CH_VIDEO;
+	TCheckBox *Record_audio_CH_VIDEO;
+	TCheckBox *Open_video_in_the_browser_CH_VIDEO;
 	TTabSheet *General_setup;
 	TGroupBox *General_options;
 	TLabel *Font_L;

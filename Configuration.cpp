@@ -55,9 +55,9 @@ void TConfig::initilization()
   this->config_object->set_Locally_E_VIDEO(Locally_E_VIDEO);
 
 //------------Additional_options_VIDEO-------------------------//
-  this->config_object->set_Always_record_the_microphone_CH(Always_record_the_microphone_CH);
-  this->config_object->set_Record_audio_CH(Record_audio_CH);
-  this->config_object->set_Open_video_in_the_browser_CH(Open_video_in_the_browser_CH);
+  this->config_object->set_Always_record_the_microphone_CH_VIDEO(Always_record_the_microphone_CH_VIDEO);
+  this->config_object->set_Record_audio_CH_VIDEO(Record_audio_CH_VIDEO);
+  this->config_object->set_Open_video_in_the_browser_CH_VIDEO(Open_video_in_the_browser_CH_VIDEO);
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
@@ -89,7 +89,14 @@ void TConfig::initilization()
   this->config_object->set_Log_create_CH(Log_create_CH);
 
 
-this->config_object->Default_config_V();
+	if( this->config_object->Check_registry_key())
+	{
+	 ShowMessage("Dogry");
+	}
+	else
+	{
+	 ShowMessage("Yalnys");
+	}
 };
 //---------------------------------------------------------------------------
 

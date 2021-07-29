@@ -21,7 +21,7 @@ public:
 
   bool Check_registry_key();
 
-  void Default_config_V();
+
 
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
@@ -60,9 +60,9 @@ public:
   void set_Locally_E_VIDEO(TEdit* set);
 
 //------------Additional_options_VIDEO-------------------------//
-  void set_Always_record_the_microphone_CH(TCheckBox* set);
-  void set_Record_audio_CH(TCheckBox* set);
-  void set_Open_video_in_the_browser_CH(TCheckBox* set);
+  void set_Always_record_the_microphone_CH_VIDEO(TCheckBox* set);
+  void set_Record_audio_CH_VIDEO(TCheckBox* set);
+  void set_Open_video_in_the_browser_CH_VIDEO(TCheckBox* set);
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
@@ -132,9 +132,9 @@ private:
   TEdit*         Locally_E_VIDEO;
 
 //------------Additional_options_VIDEO-------------------------//
-  TCheckBox*     Always_record_the_microphone_CH;
-  TCheckBox*     Record_audio_CH;
-  TCheckBox*     Open_video_in_the_browser_CH;
+  TCheckBox*     Always_record_the_microphone_CH_VIDEO;
+  TCheckBox*     Record_audio_CH_VIDEO;
+  TCheckBox*     Open_video_in_the_browser_CH_VIDEO;
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
@@ -170,13 +170,13 @@ private:
   Config_init_registry*  Default_config;
   direct_r*              directory;
 
-  const AnsiString Screen_shot_ASC     = "SOFTWARE\\tekk\\Screen_shot";
-  const AnsiString Video_ASC           = "SOFTWARE\\tekk\\Video";
-  const AnsiString General_setup       = "SOFTWARE\\tekk\\General_setup";
+  const AnsiString Screen_shot_ASC     = "Software\\tekk\\Screen_shot";
+  const AnsiString Video_ASC           = "Software\\tekk\\Video";
+  const AnsiString General_setup       = "Software\\tekk\\General_setup";
 
   const AnsiString FOLDER_NAME_PICTURE = "Picture";
   const AnsiString FOLDER_NAME_VIDEO   = "Video";
-  const HKEY       Root_key_C          = HKEY_LOCAL_MACHINE;
+  const HKEY       Root_key_C          = HKEY_CURRENT_USER;
 
   enum type_struct {___bool, ___int, ___AnsiString};
 
@@ -184,10 +184,10 @@ private:
 
   void anihilation_varrible();
 
-  void Registry_create();
+//  void Registry_create();
   void Registry_destroy();
   void Registry_read();
-  void Registry_save();
+  void Registry_save(bool Default = false);
 
   template<class T>
   bool compare_variable(T& first, T& last)
@@ -203,9 +203,9 @@ private:
   };
 
 
-  void Registry_save_inside(const type_struct& struc, const int& first, const int& last, const AnsiString& KeyName, TRegistry* reg);
-  void Registry_save_inside(const type_struct& struc, const bool& first, const bool& last, const AnsiString& KeyName, TRegistry* reg);
-  void Registry_save_inside(const type_struct& struc, const AnsiString& first, const AnsiString& last, const AnsiString& KeyName, TRegistry* reg);
+  void Registry_save_inside(const type_struct& struc, const int& first, const int& last, const AnsiString& KeyName, TRegistry* reg, bool Defaul);
+  void Registry_save_inside(const type_struct& struc, const bool& first, const bool& last, const AnsiString& KeyName, TRegistry* reg, bool Defaul);
+  void Registry_save_inside(const type_struct& struc, const AnsiString& first, const AnsiString& last, const AnsiString& KeyName, TRegistry* reg, bool Defaul);
 
 
 
@@ -229,7 +229,7 @@ private:
   AnsiString get_AnsiString_to_int(int set);
 
   bool Check_registry_key_in_side();
-
+  void Default_config_V();
 
 };
 

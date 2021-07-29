@@ -5,7 +5,7 @@ class Config_init_registry
 public:
 	  Config_init_registry();
 	  Config_init_registry(const Config_init_registry& object) = default;
-	  Config_init_registry& operator=(const Config_init_registry& object)= default;
+	  Config_init_registry& operator=(const Config_init_registry& object);
 	  Config_init_registry(Config_init_registry&& object)= default;
 	  Config_init_registry& operator=(Config_init_registry&& object)= default;
 
@@ -49,9 +49,9 @@ public:
   void  set_Locally_E_VIDEO(AnsiString set);
 
 //------------Additional_options_VIDEO-------------------------//
-  void  set_Always_record_the_microphone_CH(bool set);
-  void  set_Record_audio_CH(bool set);
-  void  set_Open_video_in_the_browser_CH(bool set);
+  void  set_Always_record_the_microphone_CH_VIDEO(bool set);
+  void  set_Record_audio_CH_VIDEO(bool set);
+  void  set_Open_video_in_the_browser_CH_VIDEO(bool set);
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
@@ -121,9 +121,9 @@ public:
   AnsiString  get_Locally_E_VIDEO();
 
 //------------Additional_options_VIDEO-------------------------//
-  bool        get_Always_record_the_microphone_CH();
-  bool        get_Record_audio_CH();
-  bool        get_Open_video_in_the_browser_CH();
+  bool        get_Always_record_the_microphone_CH_VIDEO();
+  bool        get_Record_audio_CH_VIDEO();
+  bool        get_Open_video_in_the_browser_CH_VIDEO();
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
@@ -193,9 +193,9 @@ private:
   AnsiString  Locally_E_VIDEO;
 
 //------------Additional_options_VIDEO-------------------------//
-  bool        Always_record_the_microphone_CH;
-  bool        Record_audio_CH;
-  bool        Open_video_in_the_browser_CH;
+  bool        Always_record_the_microphone_CH_VIDEO;
+  bool        Record_audio_CH_VIDEO;
+  bool        Open_video_in_the_browser_CH_VIDEO;
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//

@@ -5,6 +5,84 @@ Config_init_registry::Config_init_registry()
 
 };
 
+Config_init_registry& Config_init_registry::operator=(const Config_init_registry& object)
+{
+   if (this == &object)
+   {
+	return*this;
+   }
+
+  this->Screenshot_of_the_entire_screen_EHK           = object.Screenshot_of_the_entire_screen_EHK;
+  this->Screenshot_of_the_active_window_EHK           = object.Screenshot_of_the_active_window_EHK;
+  this->Screenshot_of_the_screen_area_EHK             = object.Screenshot_of_the_screen_area_EHK;
+  this->Two_mouse_buttons_at_the_same_time_CH         = object.Two_mouse_buttons_at_the_same_time_CH;
+
+//----------Save_parameters------------------------------------//
+  this->Server_RB                                     = object.Server_RB;
+  this->Address_E                                     = object.Address_E;
+  this->Login_E                                       = object.Login_E;
+  this->Password_E                                    = object.Password_E;
+  this->Show_Password_CH                              = object.Show_Password_CH;
+  this->Locally_RB                                    = object.Locally_RB;
+  this->Locally_E                                     = object.Locally_E;
+
+//----------Additional_options---------------------------------//
+  this->Show_the_cursor_on_the_screenshot_CH          = object.Show_the_cursor_on_the_screenshot_CH;
+  this->Show_magnifying_glass_CH                      = object.Show_magnifying_glass_CH;
+  this->Open_screenshot_in_the_browser_CH             = object.Open_screenshot_in_the_browser_CH;
+
+//--------------------------------------------------------------------------------PAGE__2----------
+//-----------Hot_keys_VIDEO------------------------------------//
+  this->Recording_screen_area_CH                      = object.Recording_screen_area_CH;
+  this->Two_mouse_buttons_at_the_same_time_CH_VIDEO   = object.Two_mouse_buttons_at_the_same_time_CH_VIDEO;
+  this->Recording_screen_area_EHK                     = object.Recording_screen_area_EHK;
+
+//-----------Save_parameters_VIDEO-----------------------------//
+  this->Server_RB_VIDEO                               = object.Server_RB_VIDEO;
+  this->Address_E_VIDEO                               = object.Address_E_VIDEO;
+  this->Login_E_VIDEO                                 = object.Login_E_VIDEO;
+  this->Password_E_VIDEO                              = object.Password_E_VIDEO;
+  this->Show_Password_CH_VIDEO                        = object.Show_Password_CH_VIDEO;
+  this->Locally_RB_VIDEO                              = object.Locally_RB_VIDEO;
+  this->Locally_E_VIDEO                               = object.Locally_E_VIDEO;
+
+//------------Additional_options_VIDEO-------------------------//
+  this->Always_record_the_microphone_CH_VIDEO        = object.Always_record_the_microphone_CH_VIDEO;
+  this->Record_audio_CH_VIDEO                        = object.Record_audio_CH_VIDEO;
+  this->Open_video_in_the_browser_CH_VIDEO           = object.Open_video_in_the_browser_CH_VIDEO;
+
+//--------------------------------------------------------------------------------PAGE__3----------
+//-----------General_options------------------------------------//
+  this->Font_E                                        = object.Font_E;
+  this->Font_size_E                                   = object.Font_size_E;
+  this->Them_CM                                       = object.Them_CM;
+  this->Font_bold_CH                                  = object.Font_bold_CH;
+  this->Font_italic_CH                                = object.Font_italic_CH;
+  this->Font_underlined_CH                            = object.Font_underlined_CH;
+
+//------------Shooting------------------------------------------//
+//------------Long_lines---------------------------------------//
+  this->Long_type_line_CM                            = object.Long_type_line_CM;
+  this->Long_color_RED                               = object.Long_color_RED;
+  this->Long_color_GREEN                             = object.Long_color_GREEN;
+  this->Long_color_BLUE                              = object.Long_color_BLUE;
+  this->Long_line_size_E                             = object.Long_line_size_E;
+
+//------------Short_lines--------------------------------------//
+  this->Short_type_line_CM                           = object.Short_type_line_CM;
+  this->Short_color_RED                              = object.Short_color_RED;
+  this->Short_color_GREEN                            = object.Short_color_GREEN;
+  this->Short_color_BLUE                             = object.Short_color_BLUE;
+  this->Short_line_size_E                            = object.Short_line_size_E;
+
+//-----------Other---------------------------------------------//
+  this->Indent_E                                     = object.Indent_E;
+  this->Magnifier_E                                  = object.Magnifier_E;
+  this->Log_create_CH                                = object.Log_create_CH;
+
+  return *this;
+};
+
 Config_init_registry::~Config_init_registry()
 {
 this->destroy_varrible();
@@ -141,19 +219,19 @@ void Config_init_registry::set_Locally_E_VIDEO(AnsiString set)
 };
 
 //------------Additional_options_VIDEO-------------------------//
-void Config_init_registry::set_Always_record_the_microphone_CH(bool set)
+void Config_init_registry::set_Always_record_the_microphone_CH_VIDEO(bool set)
 {
-   this->Always_record_the_microphone_CH = set;
+   this->Always_record_the_microphone_CH_VIDEO = set;
 };
 
-void Config_init_registry::set_Record_audio_CH(bool set)
+void Config_init_registry::set_Record_audio_CH_VIDEO(bool set)
 {
-   this->Record_audio_CH = set;
+   this->Record_audio_CH_VIDEO = set;
 };
 
-void Config_init_registry::set_Open_video_in_the_browser_CH(bool set)
+void Config_init_registry::set_Open_video_in_the_browser_CH_VIDEO(bool set)
 {
-   this->Open_video_in_the_browser_CH = set;
+   this->Open_video_in_the_browser_CH_VIDEO = set;
 };
 
 //--------------------------------------------------------------------------------PAGE__3----------
@@ -387,19 +465,19 @@ AnsiString Config_init_registry::get_Locally_E_VIDEO()
 };
 
 //------------Additional_options_VIDEO-------------------------//
-bool Config_init_registry::get_Always_record_the_microphone_CH()
+bool Config_init_registry::get_Always_record_the_microphone_CH_VIDEO()
 {
-   return this->Always_record_the_microphone_CH;
+   return this->Always_record_the_microphone_CH_VIDEO;
 };
 
-bool Config_init_registry::get_Record_audio_CH()
+bool Config_init_registry::get_Record_audio_CH_VIDEO()
 {
-   return this->Record_audio_CH;
+   return this->Record_audio_CH_VIDEO;
 };
 
-bool Config_init_registry::get_Open_video_in_the_browser_CH()
+bool Config_init_registry::get_Open_video_in_the_browser_CH_VIDEO()
 {
-   return this->Open_video_in_the_browser_CH;
+   return this->Open_video_in_the_browser_CH_VIDEO;
 };
 
 //--------------------------------------------------------------------------------PAGE__3----------
@@ -505,73 +583,73 @@ bool Config_init_registry::get_Log_create_CH()
 
 void Config_init_registry::destroy_varrible()
 {
-this->Screenshot_of_the_entire_screen_EHK       = 0;
-this->Screenshot_of_the_active_window_EHK       = 0;
-this->Screenshot_of_the_screen_area_EHK         = 0;
-this->Two_mouse_buttons_at_the_same_time_CH     = false;
+this->Screenshot_of_the_entire_screen_EHK                 = 0;
+this->Screenshot_of_the_active_window_EHK                 = 0;
+this->Screenshot_of_the_screen_area_EHK                   = 0;
+this->Two_mouse_buttons_at_the_same_time_CH               = false;
 
 //----------Save_parameters------------------------------------//
-this->Server_RB           = false;
-this->Address_E           = "";
-this->Login_E             = "";
-this->Password_E          = "";
-this->Show_Password_CH    = false;
-this->Locally_RB          = false;
-this->Locally_E           = "";
+this->Server_RB                                           = false;
+this->Address_E                                           = "";
+this->Login_E                                             = "";
+this->Password_E                                          = "";
+this->Show_Password_CH                                    = false;
+this->Locally_RB                                          = false;
+this->Locally_E                                           = "";
 
 //----------Additional_options---------------------------------//
-this->Show_the_cursor_on_the_screenshot_CH  = false;
-this->Show_magnifying_glass_CH              = false;
-this->Open_screenshot_in_the_browser_CH     = false;
+this->Show_the_cursor_on_the_screenshot_CH                = false;
+this->Show_magnifying_glass_CH                            = false;
+this->Open_screenshot_in_the_browser_CH                   = false;
 
 //--------------------------------------------------------------------------------PAGE__2----------
 //-----------Hot_keys_VIDEO------------------------------------//
-this->Recording_screen_area_CH                    = false;
-this->Two_mouse_buttons_at_the_same_time_CH_VIDEO = false;
-this->Recording_screen_area_EHK                   = 0;
+this->Recording_screen_area_CH                            = false;
+this->Two_mouse_buttons_at_the_same_time_CH_VIDEO         = false;
+this->Recording_screen_area_EHK                           = 0;
 
 //-----------Save_parameters_VIDEO-----------------------------//
-this->Server_RB_VIDEO           = false;
-this->Address_E_VIDEO           = "";
-this->Login_E_VIDEO             = "";
-this->Password_E_VIDEO          = "";
-this->Show_Password_CH_VIDEO    = false;
-this->Locally_RB_VIDEO          = false;
-this->Locally_E_VIDEO           = "";
+this->Server_RB_VIDEO                                     = false;
+this->Address_E_VIDEO                                     = "";
+this->Login_E_VIDEO                                       = "";
+this->Password_E_VIDEO                                    = "";
+this->Show_Password_CH_VIDEO                              = false;
+this->Locally_RB_VIDEO                                    = false;
+this->Locally_E_VIDEO                                     = "";
 
 //------------Additional_options_VIDEO-------------------------//
-this->Always_record_the_microphone_CH  = false;
-this->Record_audio_CH                  = false;
-this->Open_video_in_the_browser_CH     = false;
+this->Always_record_the_microphone_CH_VIDEO               = false;
+this->Record_audio_CH_VIDEO                               = false;
+this->Open_video_in_the_browser_CH_VIDEO                  = false;
 
 //--------------------------------------------------------------------------------PAGE__3----------
 //-----------General_options------------------------------------//
 this->Font_E = "";
 this->Font_size_E = 0;
 this->Them_CM = "";
-this->Font_bold_CH          = false;
-this->Font_italic_CH        = false;
-this->Font_underlined_CH    = false;
+this->Font_bold_CH                                        = false;
+this->Font_italic_CH                                      = false;
+this->Font_underlined_CH                                  = false;
 
 //------------Shooting------------------------------------------//
 //------------Long_lines---------------------------------------//
-this->Long_type_line_CM   = "";
-this->Long_color_RED      = 0;
-this->Long_color_GREEN    = 0;
-this->Long_color_BLUE     = 0;
-this->Long_line_size_E    = 0;
+this->Long_type_line_CM                                   = "";
+this->Long_color_RED                                      = 0;
+this->Long_color_GREEN                                    = 0;
+this->Long_color_BLUE                                     = 0;
+this->Long_line_size_E                                    = 0;
 
 //------------Short_lines--------------------------------------//
-this->Short_type_line_CM   = "";
-this->Short_color_RED      = 0;
-this->Short_color_GREEN    = 0;
-this->Short_color_BLUE     = 0;
-this->Short_line_size_E    = 0;
+this->Short_type_line_CM                                  = "";
+this->Short_color_RED                                     = 0;
+this->Short_color_GREEN                                   = 0;
+this->Short_color_BLUE                                    = 0;
+this->Short_line_size_E                                   = 0;
 
 //-----------Other---------------------------------------------//
-this->Indent_E         = 0;
-this->Magnifier_E      = 0;
-this->Log_create_CH    = false;
+this->Indent_E                                            = 0;
+this->Magnifier_E                                         = 0;
+this->Log_create_CH                                       = false;
 };
 
 
