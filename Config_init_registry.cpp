@@ -51,33 +51,6 @@ Config_init_registry& Config_init_registry::operator=(const Config_init_registry
   this->Record_audio_CH_VIDEO                        = object.Record_audio_CH_VIDEO;
   this->Open_video_in_the_browser_CH_VIDEO           = object.Open_video_in_the_browser_CH_VIDEO;
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-  this->Font_E                                        = object.Font_E;
-  this->Font_size_E                                   = object.Font_size_E;
-  this->Them_CM                                       = object.Them_CM;
-  this->Font_bold_CH                                  = object.Font_bold_CH;
-  this->Font_italic_CH                                = object.Font_italic_CH;
-  this->Font_underlined_CH                            = object.Font_underlined_CH;
-
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-  this->Long_type_line_CM                            = object.Long_type_line_CM;
-  this->Long_color_RED                               = object.Long_color_RED;
-  this->Long_color_GREEN                             = object.Long_color_GREEN;
-  this->Long_color_BLUE                              = object.Long_color_BLUE;
-  this->Long_line_size_E                             = object.Long_line_size_E;
-
-//------------Short_lines--------------------------------------//
-  this->Short_type_line_CM                           = object.Short_type_line_CM;
-  this->Short_color_RED                              = object.Short_color_RED;
-  this->Short_color_GREEN                            = object.Short_color_GREEN;
-  this->Short_color_BLUE                             = object.Short_color_BLUE;
-  this->Short_line_size_E                            = object.Short_line_size_E;
-
-//-----------Other---------------------------------------------//
-  this->Indent_E                                     = object.Indent_E;
-  this->Magnifier_E                                  = object.Magnifier_E;
   this->Log_create_CH                                = object.Log_create_CH;
 
   return *this;
@@ -234,101 +207,7 @@ void Config_init_registry::set_Open_video_in_the_browser_CH_VIDEO(bool set)
    this->Open_video_in_the_browser_CH_VIDEO = set;
 };
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-void Config_init_registry::set_Font_E(AnsiString set)
-{
-   this->Font_E = set;
-};
 
-void Config_init_registry::set_Font_size_E(int set)
-{
-   this->Font_size_E = set;
-};
-
-void Config_init_registry::set_Them_CM(AnsiString set)
-{
-   this->Them_CM = set;
-};
-
-void Config_init_registry::set_Font_bold_CH(bool set)
-{
-   this->Font_bold_CH = set;
-};
-
-void Config_init_registry::set_Font_italic_CH(bool set)
-{
-   this->Font_italic_CH = set;
-};
-
-void Config_init_registry::set_Font_underlined_CH(bool set)
-{
-   this->Font_underlined_CH = set;
-};
-
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-void Config_init_registry::set_Long_type_line_CM(AnsiString set)
-{
-   this->Long_type_line_CM = set;
-};
-
-void Config_init_registry::set_Long_color_RED(int set)
-{
-   this->Long_color_RED = set;
-};
-
-void Config_init_registry::set_Long_color_GREEN(int set)
-{
-   this->Long_color_GREEN = set;
-};
-
-void Config_init_registry::set_Long_color_BLUE(int set)
-{
-   this->Long_color_BLUE = set;
-};
-
-void Config_init_registry::set_Long_line_size_E(int set)
-{
-   this->Long_line_size_E = set;
-};
-
-//------------Short_lines--------------------------------------//
-void Config_init_registry::set_Short_type_line_CM(AnsiString set)
-{
-   this->Short_type_line_CM = set;
-};
-
-void Config_init_registry::set_Short_color_RED(int set)
-{
-   this->Short_color_RED = set;
-};
-
-void Config_init_registry::set_Short_color_GREEN(int set)
-{
-   this->Short_color_GREEN = set;
-};
-
-void Config_init_registry::set_Short_color_BLUE(int set)
-{
-   this->Short_color_BLUE = set;
-};
-
-void Config_init_registry::set_Short_line_size_E(int set)
-{
-   this->Short_line_size_E = set;
-};
-
-//-----------Other---------------------------------------------//
-void Config_init_registry::set_Indent_E(int set)
-{
-   this->Indent_E = set;
-};
-
-void Config_init_registry::set_Magnifier_E(int set)
-{
-   this->Magnifier_E = set;
-};
 
 void Config_init_registry::set_Log_create_CH(bool set)
 {
@@ -480,101 +359,7 @@ bool Config_init_registry::get_Open_video_in_the_browser_CH_VIDEO()
    return this->Open_video_in_the_browser_CH_VIDEO;
 };
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-AnsiString Config_init_registry::get_Font_E()
-{
-   return this->Font_E;
-};
 
-int Config_init_registry::get_Font_size_E()
-{
-   return this->Font_size_E;
-};
-
-AnsiString Config_init_registry::get_Them_CM()
-{
-   return this->Them_CM;
-};
-
-bool Config_init_registry::get_Font_bold_CH()
-{
-   return this->Font_bold_CH;
-};
-
-bool Config_init_registry::get_Font_italic_CH()
-{
-   return this->Font_italic_CH;
-};
-
-bool Config_init_registry::get_Font_underlined_CH()
-{
-   return this->Font_underlined_CH;
-};
-
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-AnsiString Config_init_registry::get_Long_type_line_CM()
-{
-   return this->Long_type_line_CM;
-};
-
-int Config_init_registry::get_Long_color_RED()
-{
-   return this->Long_color_RED;
-};
-
-int Config_init_registry::get_Long_color_GREEN()
-{
-   return this->Long_color_GREEN;
-};
-
-int Config_init_registry::get_Long_color_BLUE()
-{
-   return this->Long_color_BLUE;
-};
-
-int Config_init_registry::get_Long_line_size_E()
-{
-   return this->Long_line_size_E;
-};
-
-//------------Short_lines--------------------------------------//
-AnsiString Config_init_registry::get_Short_type_line_CM()
-{
-   return this->Short_type_line_CM;
-};
-
-int Config_init_registry::get_Short_color_RED()
-{
-   return this->Short_color_RED;
-};
-
-int Config_init_registry::get_Short_color_GREEN()
-{
-   return this->Short_color_GREEN;
-};
-
-int Config_init_registry::get_Short_color_BLUE()
-{
-   return this->Short_color_BLUE;
-};
-
-int Config_init_registry::get_Short_line_size_E()
-{
-   return this->Short_line_size_E;
-};
-
-//-----------Other---------------------------------------------//
-int Config_init_registry::get_Indent_E()
-{
-   return this->Indent_E;
-};
-
-int Config_init_registry::get_Magnifier_E()
-{
-   return this->Magnifier_E;
-};
 
 bool Config_init_registry::get_Log_create_CH()
 {
@@ -622,33 +407,7 @@ this->Always_record_the_microphone_CH_VIDEO               = false;
 this->Record_audio_CH_VIDEO                               = false;
 this->Open_video_in_the_browser_CH_VIDEO                  = false;
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-this->Font_E = "";
-this->Font_size_E = 0;
-this->Them_CM = "";
-this->Font_bold_CH                                        = false;
-this->Font_italic_CH                                      = false;
-this->Font_underlined_CH                                  = false;
 
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-this->Long_type_line_CM                                   = "";
-this->Long_color_RED                                      = 0;
-this->Long_color_GREEN                                    = 0;
-this->Long_color_BLUE                                     = 0;
-this->Long_line_size_E                                    = 0;
-
-//------------Short_lines--------------------------------------//
-this->Short_type_line_CM                                  = "";
-this->Short_color_RED                                     = 0;
-this->Short_color_GREEN                                   = 0;
-this->Short_color_BLUE                                    = 0;
-this->Short_line_size_E                                   = 0;
-
-//-----------Other---------------------------------------------//
-this->Indent_E                                            = 0;
-this->Magnifier_E                                         = 0;
 this->Log_create_CH                                       = false;
 };
 

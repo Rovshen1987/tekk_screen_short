@@ -58,34 +58,6 @@ void TConfig::initilization()
   this->config_object->set_Always_record_the_microphone_CH_VIDEO(Always_record_the_microphone_CH_VIDEO);
   this->config_object->set_Record_audio_CH_VIDEO(Record_audio_CH_VIDEO);
   this->config_object->set_Open_video_in_the_browser_CH_VIDEO(Open_video_in_the_browser_CH_VIDEO);
-
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-  this->config_object->set_Font_E(Font_E);
-  this->config_object->set_Font_size_E(Font_size_E);
-  this->config_object->set_Them_CM(Them_CM);
-  this->config_object->set_Font_bold_CH(Font_bold_CH);
-  this->config_object->set_Font_italic_CH(Font_italic_CH);
-  this->config_object->set_Font_underlined_CH(Font_underlined_CH);
-
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-  this->config_object->set_Long_type_line_CM(Long_type_line_CM);
-  this->config_object->set_Long_color_RED(Long_color_RED);
-  this->config_object->set_Long_color_GREEN(Long_color_GREEN);
-  this->config_object->set_Long_color_BLUE(Long_color_BLUE);
-  this->config_object->set_Long_line_size_E(Long_line_size_E);
-
-//------------Short_lines--------------------------------------//
-  this->config_object->set_Short_type_line_CM(Short_type_line_CM);
-  this->config_object->set_Short_color_RED(Short_color_RED);
-  this->config_object->set_Short_color_GREEN(Short_color_GREEN);
-  this->config_object->set_Short_color_BLUE(Short_color_BLUE);
-  this->config_object->set_Short_line_size_E(Short_line_size_E);
-
-//-----------Other---------------------------------------------//
-  this->config_object->set_Indent_E(Indent_E);
-  this->config_object->set_Magnifier_E(Magnifier_E);
   this->config_object->set_Log_create_CH(Log_create_CH);
 
 //-------------Control-----------------------------------------//
@@ -119,7 +91,7 @@ initilization();
 
 void __fastcall TConfig::Them_CMChange(TObject *Sender)
 {
-Config->StyleName = Them_CM->Text;
+
 
  this->config_object->set_do_editing(true);
  this->config_object->Control_button_v();
@@ -477,4 +449,20 @@ void __fastcall TConfig::Long_type_line_CMChange(TObject *Sender)
 
 
 
+
+
+
+
+
+
+
+
+void __fastcall TConfig::Long_lines_color_BUTTONClick(TObject *Sender)
+{
+
+// int a = Config->Long_lines_color_BUTTON->Color;
+// std::string s = std::to_string(a);
+//  Save_BUTTON->Caption = s.c_str();
+}
+//---------------------------------------------------------------------------
 

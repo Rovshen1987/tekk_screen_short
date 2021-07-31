@@ -64,33 +64,7 @@ public:
   void set_Record_audio_CH_VIDEO(TCheckBox* set);
   void set_Open_video_in_the_browser_CH_VIDEO(TCheckBox* set);
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-  void set_Font_E(TEdit* set);
-  void set_Font_size_E(TEdit* set);
-  void set_Them_CM(TComboBox* set);
-  void set_Font_bold_CH(TCheckBox* set);
-  void set_Font_italic_CH(TCheckBox* set);
-  void set_Font_underlined_CH(TCheckBox* set);
 
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-  void set_Long_type_line_CM(TComboBox* set);
-  void set_Long_color_RED(TCSpinEdit* set);
-  void set_Long_color_GREEN(TCSpinEdit* set);
-  void set_Long_color_BLUE(TCSpinEdit* set);
-  void set_Long_line_size_E(TEdit* set);
-
-//------------Short_lines--------------------------------------//
-  void set_Short_type_line_CM(TComboBox* set);
-  void set_Short_color_RED(TCSpinEdit* set);
-  void set_Short_color_GREEN(TCSpinEdit* set);
-  void set_Short_color_BLUE(TCSpinEdit* set);
-  void set_Short_line_size_E(TEdit* set);
-
-//-----------Other---------------------------------------------//
-  void set_Indent_E(TEdit* set);
-  void set_Magnifier_E(TEdit* set);
   void set_Log_create_CH(TCheckBox* set);
 
 //------------------------------Control-------------------------------//
@@ -151,33 +125,7 @@ private:
   TCheckBox*     Record_audio_CH_VIDEO;
   TCheckBox*     Open_video_in_the_browser_CH_VIDEO;
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-  TEdit*         Font_E;
-  TEdit*         Font_size_E;
-  TComboBox*     Them_CM;
-  TCheckBox*     Font_bold_CH;
-  TCheckBox*     Font_italic_CH;
-  TCheckBox*     Font_underlined_CH;
 
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-  TComboBox*     Long_type_line_CM;
-  TCSpinEdit*    Long_color_RED;
-  TCSpinEdit*    Long_color_GREEN;
-  TCSpinEdit*    Long_color_BLUE;
-  TEdit*         Long_line_size_E;
-
-//------------Short_lines--------------------------------------//
-  TComboBox*     Short_type_line_CM;
-  TCSpinEdit*    Short_color_RED;
-  TCSpinEdit*    Short_color_GREEN;
-  TCSpinEdit*    Short_color_BLUE;
-  TEdit*         Short_line_size_E;
-
-//-----------Other---------------------------------------------//
-  TEdit*                 Indent_E;
-  TEdit*                 Magnifier_E;
   TCheckBox*             Log_create_CH;
 
   Config_init_registry*  Registry_config;

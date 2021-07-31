@@ -53,33 +53,7 @@ public:
   void  set_Record_audio_CH_VIDEO(bool set);
   void  set_Open_video_in_the_browser_CH_VIDEO(bool set);
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-  void	set_Font_E(AnsiString set);
-  void	set_Font_size_E(int set);
-  void	set_Them_CM(AnsiString set);
-  void  set_Font_bold_CH(bool set);
-  void  set_Font_italic_CH(bool set);
-  void  set_Font_underlined_CH(bool set);
 
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-  void	set_Long_type_line_CM(AnsiString set);
-  void  set_Long_color_RED(int set);
-  void  set_Long_color_GREEN(int set);
-  void  set_Long_color_BLUE(int set);
-  void  set_Long_line_size_E(int set);
-
-//------------Short_lines--------------------------------------//
-  void	set_Short_type_line_CM(AnsiString set);
-  void  set_Short_color_RED(int set);
-  void  set_Short_color_GREEN(int set);
-  void  set_Short_color_BLUE(int set);
-  void  set_Short_line_size_E(int set);
-
-//-----------Other---------------------------------------------//
-  void  set_Indent_E(int set);
-  void	set_Magnifier_E(int set);
   void	set_Log_create_CH(bool set);
 
 
@@ -124,35 +98,8 @@ public:
   bool        get_Always_record_the_microphone_CH_VIDEO();
   bool        get_Record_audio_CH_VIDEO();
   bool        get_Open_video_in_the_browser_CH_VIDEO();
+  bool        get_Log_create_CH();
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-  AnsiString  get_Font_E();
-  int         get_Font_size_E();
-  AnsiString  get_Them_CM();
-  bool        get_Font_bold_CH();
-  bool        get_Font_italic_CH();
-  bool        get_Font_underlined_CH();
-
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-  AnsiString  get_Long_type_line_CM();
-  int         get_Long_color_RED();
-  int         get_Long_color_GREEN();
-  int         get_Long_color_BLUE();
-  int         get_Long_line_size_E();
-
-//------------Short_lines--------------------------------------//
-  AnsiString  get_Short_type_line_CM();
-  int         get_Short_color_RED();
-  int         get_Short_color_GREEN();
-  int         get_Short_color_BLUE();
-  int         get_Short_line_size_E();
-
-//-----------Other---------------------------------------------//
-  int         get_Indent_E();
-  int 	      get_Magnifier_E();
-  bool	      get_Log_create_CH();
 
 private:
 
@@ -197,33 +144,7 @@ private:
   bool        Record_audio_CH_VIDEO;
   bool        Open_video_in_the_browser_CH_VIDEO;
 
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-  AnsiString  Font_E;
-  int         Font_size_E;
-  AnsiString  Them_CM;
-  bool        Font_bold_CH;
-  bool        Font_italic_CH;
-  bool        Font_underlined_CH;
 
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-  AnsiString  Long_type_line_CM;
-  int         Long_color_RED;
-  int         Long_color_GREEN;
-  int         Long_color_BLUE;
-  int         Long_line_size_E;
-
-//------------Short_lines--------------------------------------//
-  AnsiString  Short_type_line_CM;
-  int         Short_color_RED;
-  int         Short_color_GREEN;
-  int         Short_color_BLUE;
-  int         Short_line_size_E;
-
-//-----------Other---------------------------------------------//
-  int         Indent_E;
-  int         Magnifier_E;
   bool        Log_create_CH;
 
   void destroy_varrible();
