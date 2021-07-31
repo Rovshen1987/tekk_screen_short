@@ -1042,12 +1042,9 @@ bool Config_init::Check_registry_key_in_side()
 	  result++;
 	}
 
-	if (reg->KeyExists(this->General_setup))
-	{
-	  result++;
-	}
 
-	if (result == 3)
+
+	if (result == 2)
 	{
 	 return true;
 	}

@@ -144,7 +144,6 @@ private:
 
   const AnsiString Screen_shot_ASC     = "Software\\tekk\\Screen_shot";
   const AnsiString Video_ASC           = "Software\\tekk\\Video";
-  const AnsiString General_setup       = "Software\\tekk\\General_setup";
 
   const AnsiString FOLDER_NAME_PICTURE = "Picture";
   const AnsiString FOLDER_NAME_VIDEO   = "Video";

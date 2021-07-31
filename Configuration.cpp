@@ -69,6 +69,7 @@ void TConfig::initilization()
 //-----------------------------------------------------------//
 //-----------------------------------------------------------//
 //-----------------------------------------------------------//
+   this->config_object->Check_registry_key();
    this->config_object->Control_button_v();
 
 //	if( this->config_object->Check_registry_key())
