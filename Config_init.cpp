@@ -9,6 +9,7 @@ Config_init::Config_init()
    this->Program_config  = new Config_init_registry;
    this->Default_config  = new Config_init_registry;
    this->directory       = new direct_r;
+   this->do_editing      = false;
    this->Default_config_init();
 };
 
@@ -35,10 +36,7 @@ Config_init::Config_init()
 Config_init::~Config_init()
 {
   this->anihilation_varrible();
-  delete this->Registry_config;
-  delete this->Program_config;
-  delete this->Default_config;
-  delete this->directory;
+
 };
 
 
@@ -295,6 +293,22 @@ void Config_init::set_Log_create_CH(TCheckBox* set)
   this->Log_create_CH = set;
 };
 
+
+//------------------------------Control-------------------------------//
+  void Config_init::set_By_default_BUTTON(TButton* set)
+  {
+	this->By_default_BUTTON = set;
+  };
+
+  void Config_init::set_Exit_BUTTON(TButton* set)
+  {
+	this->Exit_BUTTON = set;
+  };
+
+  void Config_init::set_Save_BUTTON(TButton* set)
+  {
+	this->Save_BUTTON = set;
+  };
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
@@ -362,9 +376,12 @@ void Config_init::anihilation_varrible()//-----------Destroy object
   this->Short_line_size_E  = 0;
 
 //-----------Other---------------------------------------------//
-  this->Indent_E       = 0;
-  this->Magnifier_E    = 0;
-  this->Log_create_CH  = 0;
+  this->Indent_E          = 0;
+  this->Magnifier_E       = 0;
+  this->Log_create_CH     = 0;
+  this->By_default_BUTTON = 0;
+  this->Exit_BUTTON       = 0;
+  this->Save_BUTTON       = 0;
 
   //------------------DELETE OBJECT----------------------------//
   delete this->Screenshot_of_the_entire_screen_EHK;
@@ -432,6 +449,18 @@ void Config_init::anihilation_varrible()//-----------Destroy object
   delete this->Indent_E;
   delete this->Magnifier_E;
   delete this->Log_create_CH;
+
+//------------Control------------------------------------------//
+
+  delete this->By_default_BUTTON;
+  delete this->Exit_BUTTON;
+  delete this->Save_BUTTON;
+
+//-------------------------------------------------------------//
+  delete this->Registry_config;
+  delete this->Program_config;
+  delete this->Default_config;
+  delete this->directory;
 
 };
 
@@ -760,7 +789,7 @@ this->Registry_save_inside(___bool, this->Program_config->get_Log_create_CH(),
 reg->CloseKey();
 delete reg;
 
-
+this->do_editing = false;
 };
 
 
@@ -1355,21 +1384,20 @@ void Config_init::Form_to_config_checked(Config_init_registry* first)
 bool Config_init::Check_registry_key()
 {
 
-  if (this->Check_registry_key_in_side())
-  {
-   this->Registry_read();
-   this->Form_to_config(this->Registry_config);
-   this->Config_to_form(this->Program_config);
-   return true;
-  }
-  else
-  {
-   this->Form_to_config(this->Default_config);
-   this->Config_to_form(this->Program_config);
-//   this->Registry_config = this->Default_config;
-   this->Registry_save(true);
-   return false;
-  }
+	if (this->Check_registry_key_in_side())
+	{
+	 this->Registry_read();
+	 this->Form_to_config(this->Registry_config);
+	 this->Config_to_form(this->Program_config);
+	 return true;
+	}
+	else
+	{
+	 this->Form_to_config(this->Default_config);
+	 this->Config_to_form(this->Program_config);
+	 this->Registry_save(true);
+	 return false;
+	}
 
 };
 
@@ -1379,33 +1407,66 @@ bool Config_init::Check_registry_key_in_side()
  reg->RootKey   = this->Root_key_C;
  int result = 0;
 
- if (reg->KeyExists(this->Screen_shot_ASC))
- {
-   result++;
- }
+	if (reg->KeyExists(this->Screen_shot_ASC))
+	{
+	  result++;
+	}
 
- if (reg->KeyExists(this->Video_ASC))
- {
-   result++;
- }
+	if (reg->KeyExists(this->Video_ASC))
+	{
+	  result++;
+	}
 
- if (reg->KeyExists(this->General_setup))
- {
-   result++;
- }
+	if (reg->KeyExists(this->General_setup))
+	{
+	  result++;
+	}
 
- if (result == 3)
- {
-  return true;
- }
- else
- {
-  return false;
- }
+	if (result == 3)
+	{
+	 return true;
+	}
+	else
+	{
+	 return false;
+	}
 
 
 };
 
+void Config_init::Control_button_v()
+{
+	if (this->do_editing)
+	{
+	  this->Save_BUTTON->Enabled = true;
+	  this->Exit_BUTTON->Caption = this->CONFIG_RETURN;
+	}
+	else
+	{
+	  this->Save_BUTTON->Enabled = false;
+	  this->Exit_BUTTON->Caption = this->CONFIG_CLOSE;
+	}
+};
+
+void Config_init::set_do_editing(bool set)
+{
+ this->do_editing = set;
+};
+
+void Config_init::set_do_default(bool set)
+{
+  this->do_default = set;
+};
+  //-------------------------------------------------------
+bool Config_init::get_do_editing()
+{
+   return this->do_editing;
+};
+
+bool Config_init::get_do_default()
+{
+   return this->do_default;
+};
 
 
 

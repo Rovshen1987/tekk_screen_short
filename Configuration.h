@@ -121,8 +121,42 @@ __published:	// IDE-managed Components
 	void __fastcall Locally_RB_VIDEOClick(TObject *Sender);
 	void __fastcall Show_Password_CHClick(TObject *Sender);
 	void __fastcall Show_Password_CH_VIDEOClick(TObject *Sender);
+	void __fastcall Screenshot_of_the_entire_screen_EHKChange(TObject *Sender);
+	void __fastcall Screenshot_of_the_active_window_EHKChange(TObject *Sender);
+	void __fastcall Screenshot_of_the_screen_area_EHKChange(TObject *Sender);
+	void __fastcall Two_mouse_buttons_at_the_same_time_CHClick(TObject *Sender);
+	void __fastcall Address_EChange(TObject *Sender);
+	void __fastcall Login_EChange(TObject *Sender);
+	void __fastcall Password_EChange(TObject *Sender);
+	void __fastcall Locally_EChange(TObject *Sender);
+	void __fastcall Show_the_cursor_on_the_screenshot_CHClick(TObject *Sender);
+	void __fastcall Show_magnifying_glass_CHClick(TObject *Sender);
+	void __fastcall Open_screenshot_in_the_browser_CHClick(TObject *Sender);
+	void __fastcall Recording_screen_area_CHClick(TObject *Sender);
+	void __fastcall Two_mouse_buttons_at_the_same_time_CH_VIDEOClick(TObject *Sender);
+	void __fastcall Recording_screen_area_EHKChange(TObject *Sender);
+	void __fastcall Address_E_VIDEOChange(TObject *Sender);
+	void __fastcall Login_E_VIDEOChange(TObject *Sender);
+	void __fastcall Password_E_VIDEOChange(TObject *Sender);
+	void __fastcall Locally_E_VIDEOChange(TObject *Sender);
+	void __fastcall Always_record_the_microphone_CH_VIDEOClick(TObject *Sender);
+	void __fastcall Record_audio_CH_VIDEOClick(TObject *Sender);
+	void __fastcall Open_video_in_the_browser_CH_VIDEOClick(TObject *Sender);
+	void __fastcall Font_EChange(TObject *Sender);
+	void __fastcall Font_size_EChange(TObject *Sender);
+	void __fastcall Font_BUTTONClick(TObject *Sender);
+	void __fastcall Font_size_UP_BUTTONChanging(TObject *Sender, bool &AllowChange);
+	void __fastcall Font_bold_CHClick(TObject *Sender);
+	void __fastcall Font_italic_CHClick(TObject *Sender);
+	void __fastcall Font_underlined_CHClick(TObject *Sender);
+	void __fastcall Long_type_line_CMChange(TObject *Sender);
+
+
+
+
 private:	// User declarations
-    void initilization();
+	void initilization();
+
 public:		// User declarations
 	__fastcall TConfig(TComponent* Owner);
 	std::unique_ptr<Config_init> config_object;// = std::make_unique<Config_unit>();

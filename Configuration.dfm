@@ -23,7 +23,7 @@ object Config: TConfig
     Width = 517
     Height = 656
     Cursor = crHandPoint
-    ActivePage = Video
+    ActivePage = General_setup
     Align = alClient
     TabOrder = 0
     object Screen_shot: TTabSheet
@@ -82,6 +82,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1044#1074#1077' '#1082#1085#1086#1087#1082#1080' '#1084#1099#1096#1080' '#1086#1076#1085#1086#1074#1088#1077#1084#1077#1085#1085#1086
           TabOrder = 0
+          OnClick = Two_mouse_buttons_at_the_same_time_CHClick
         end
         object Screenshot_of_the_entire_screen_EHK: THotKey
           Left = 216
@@ -92,6 +93,7 @@ object Config: TConfig
           HotKey = 0
           Modifiers = []
           TabOrder = 1
+          OnChange = Screenshot_of_the_entire_screen_EHKChange
         end
         object Screenshot_of_the_active_window_EHK: THotKey
           Left = 216
@@ -102,6 +104,7 @@ object Config: TConfig
           HotKey = 0
           Modifiers = []
           TabOrder = 2
+          OnChange = Screenshot_of_the_active_window_EHKChange
         end
         object Screenshot_of_the_screen_area_EHK: THotKey
           Left = 216
@@ -112,6 +115,7 @@ object Config: TConfig
           HotKey = 0
           Modifiers = []
           TabOrder = 3
+          OnChange = Screenshot_of_the_screen_area_EHKChange
         end
       end
       object Save_parameters: TGroupBox
@@ -149,6 +153,7 @@ object Config: TConfig
           Height = 27
           TabOrder = 0
           Text = 'Address_E'
+          OnChange = Address_EChange
         end
         object Login_E: TEdit
           Left = 193
@@ -157,6 +162,7 @@ object Config: TConfig
           Height = 27
           TabOrder = 1
           Text = 'Login_E'
+          OnChange = Login_EChange
         end
         object Password_E: TEdit
           Left = 193
@@ -165,6 +171,7 @@ object Config: TConfig
           Height = 27
           TabOrder = 2
           Text = 'Password_E'
+          OnChange = Password_EChange
         end
         object Show_Password_CH: TCheckBox
           Left = 350
@@ -183,6 +190,7 @@ object Config: TConfig
           Height = 27
           TabOrder = 4
           Text = 'Locally_E'
+          OnChange = Locally_EChange
         end
         object Server_RB: TRadioButton
           Left = 16
@@ -222,6 +230,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' '#1082#1091#1088#1089#1086#1088' '#1085#1072' '#1089#1082#1088#1080#1085#1096#1086#1090#1077
           TabOrder = 0
+          OnClick = Show_the_cursor_on_the_screenshot_CHClick
         end
         object Show_magnifying_glass_CH: TCheckBox
           Left = 16
@@ -231,6 +240,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' '#1083#1091#1087#1091
           TabOrder = 1
+          OnClick = Show_magnifying_glass_CHClick
         end
         object Open_screenshot_in_the_browser_CH: TCheckBox
           Left = 16
@@ -240,6 +250,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1054#1090#1082#1088#1099#1074#1072#1090#1100' '#1089#1082#1088#1080#1085#1096#1086#1090' '#1074' '#1073#1088#1072#1091#1079#1077#1088#1077
           TabOrder = 2
+          OnClick = Open_screenshot_in_the_browser_CHClick
         end
       end
     end
@@ -261,6 +272,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1047#1072#1087#1080#1089#1100' '#1086#1073#1083#1072#1089#1090#1080' '#1101#1082#1088#1072#1085#1072
           TabOrder = 0
+          OnClick = Recording_screen_area_CHClick
         end
         object Two_mouse_buttons_at_the_same_time_CH_VIDEO: TCheckBox
           Left = 16
@@ -270,6 +282,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1044#1074#1077' '#1082#1085#1086#1087#1082#1080' '#1084#1099#1096#1080' '#1086#1076#1085#1086#1074#1088#1077#1084#1077#1085#1085#1086
           TabOrder = 1
+          OnClick = Two_mouse_buttons_at_the_same_time_CH_VIDEOClick
         end
         object Recording_screen_area_EHK: THotKey
           Left = 216
@@ -280,6 +293,7 @@ object Config: TConfig
           HotKey = 0
           Modifiers = []
           TabOrder = 2
+          OnChange = Recording_screen_area_EHKChange
         end
       end
       object Save_parameters_VIDEO: TGroupBox
@@ -318,6 +332,7 @@ object Config: TConfig
           Cursor = crHandPoint
           TabOrder = 0
           Text = 'Address_E_VIDEO'
+          OnChange = Address_E_VIDEOChange
         end
         object Login_E_VIDEO: TEdit
           Left = 192
@@ -327,6 +342,7 @@ object Config: TConfig
           Cursor = crHandPoint
           TabOrder = 1
           Text = 'Login_E_VIDEO'
+          OnChange = Login_E_VIDEOChange
         end
         object Password_E_VIDEO: TEdit
           Left = 192
@@ -337,6 +353,7 @@ object Config: TConfig
           PasswordChar = '*'
           TabOrder = 2
           Text = 'Password_E_VIDEO'
+          OnChange = Password_E_VIDEOChange
         end
         object Show_Password_CH_VIDEO: TCheckBox
           Left = 344
@@ -378,6 +395,7 @@ object Config: TConfig
           Cursor = crHandPoint
           TabOrder = 6
           Text = 'Locally_E_VIDEO'
+          OnChange = Locally_E_VIDEOChange
         end
       end
       object Additional_options_VIDEO: TGroupBox
@@ -395,6 +413,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1047#1072#1087#1080#1089#1099#1074#1072#1090#1100' '#1084#1080#1082#1088#1086#1092#1086#1085' '#1074#1089#1077#1075#1076#1072
           TabOrder = 0
+          OnClick = Always_record_the_microphone_CH_VIDEOClick
         end
         object Record_audio_CH_VIDEO: TCheckBox
           Left = 16
@@ -404,6 +423,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1047#1072#1087#1080#1089#1099#1074#1072#1090#1100' '#1079#1074#1091#1082
           TabOrder = 1
+          OnClick = Record_audio_CH_VIDEOClick
         end
         object Open_video_in_the_browser_CH_VIDEO: TCheckBox
           Left = 16
@@ -413,6 +433,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1054#1090#1082#1088#1099#1074#1072#1090#1100' '#1074#1080#1076#1077#1086' '#1074' '#1073#1088#1072#1091#1079#1077#1088#1077
           TabOrder = 2
+          OnClick = Open_video_in_the_browser_CH_VIDEOClick
         end
       end
     end
@@ -462,6 +483,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1046#1080#1088#1085#1099#1081
           TabOrder = 0
+          OnClick = Font_bold_CHClick
         end
         object Font_italic_CH: TCheckBox
           Left = 365
@@ -471,6 +493,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1050#1091#1088#1089#1080#1074#1085#1099#1081
           TabOrder = 1
+          OnClick = Font_italic_CHClick
         end
         object Font_underlined_CH: TCheckBox
           Left = 365
@@ -480,6 +503,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1055#1086#1076#1095#1077#1088#1082#1085#1091#1090#1099
           TabOrder = 2
+          OnClick = Font_underlined_CHClick
         end
         object Font_E: TEdit
           Left = 96
@@ -489,6 +513,7 @@ object Config: TConfig
           ReadOnly = True
           TabOrder = 3
           Text = 'Font_E'
+          OnChange = Font_EChange
         end
         object Font_BUTTON: TButton
           Left = 288
@@ -498,6 +523,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = '+'
           TabOrder = 4
+          OnClick = Font_BUTTONClick
         end
         object Font_size_E: TEdit
           Left = 96
@@ -508,6 +534,7 @@ object Config: TConfig
           ReadOnly = True
           TabOrder = 5
           Text = '8'
+          OnChange = Font_size_EChange
         end
         object Font_size_UP_BUTTON: TUpDown
           Left = 129
@@ -519,6 +546,7 @@ object Config: TConfig
           Max = 20
           Position = 8
           TabOrder = 6
+          OnChanging = Font_size_UP_BUTTONChanging
         end
         object Them_CM: TComboBox
           Left = 96
@@ -616,6 +644,7 @@ object Config: TConfig
             ItemIndex = 1
             TabOrder = 1
             Text = #1058#1086#1095#1082#1072
+            OnChange = Long_type_line_CMChange
             Items.Strings = (
               #1051#1080#1085#1080#1103
               #1058#1086#1095#1082#1072)
@@ -835,6 +864,7 @@ object Config: TConfig
     Top = 613
     Width = 90
     Height = 35
+    Cursor = crHandPoint
     Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
     TabOrder = 1
   end
@@ -843,6 +873,7 @@ object Config: TConfig
     Top = 613
     Width = 97
     Height = 35
+    Cursor = crHandPoint
     Caption = #1054#1090#1084#1077#1085#1080#1090#1100
     TabOrder = 2
   end
@@ -851,6 +882,7 @@ object Config: TConfig
     Top = 613
     Width = 127
     Height = 35
+    Cursor = crHandPoint
     Caption = #1055#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
     TabOrder = 3
   end

@@ -88,15 +88,25 @@ void TConfig::initilization()
   this->config_object->set_Magnifier_E(Magnifier_E);
   this->config_object->set_Log_create_CH(Log_create_CH);
 
+//-------------Control-----------------------------------------//
+  this->config_object->set_Save_BUTTON(Save_BUTTON);
+  this->config_object->set_Exit_BUTTON(Exit_BUTTON);
+  this->config_object->set_By_default_BUTTON(By_default_BUTTON);
 
-	if( this->config_object->Check_registry_key())
-	{
-	 ShowMessage("Dogry");
-	}
-	else
-	{
-	 ShowMessage("Yalnys");
-	}
+//-----------------------------------------------------------//
+//-----------------------------------------------------------//
+//-----------------------------------------------------------//
+//-----------------------------------------------------------//
+   this->config_object->Control_button_v();
+
+//	if( this->config_object->Check_registry_key())
+//	{
+//	 ShowMessage("Dogry");
+//	}
+//	else
+//	{
+//	 ShowMessage("Yalnys");
+//	}
 };
 //---------------------------------------------------------------------------
 
@@ -110,6 +120,9 @@ initilization();
 void __fastcall TConfig::Them_CMChange(TObject *Sender)
 {
 Config->StyleName = Them_CM->Text;
+
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
 }
 //---------------------------------------------------------------------------
 
@@ -138,6 +151,9 @@ void __fastcall TConfig::Server_RBClick(TObject *Sender)
 	 Password_E->PasswordChar = '*';
 	}
   };
+
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
 }
 //---------------------------------------------------------------------------
 
@@ -153,6 +169,9 @@ void __fastcall TConfig::Locally_RBClick(TObject *Sender)
 	Password_E->Enabled       = false;
 	Show_Password_CH->Enabled = false;
    };
+
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
 }
 //---------------------------------------------------------------------------
 
@@ -177,6 +196,9 @@ void __fastcall TConfig::Server_RB_VIDEOClick(TObject *Sender)
 	 Password_E_VIDEO->PasswordChar = '*';
 	}
   };
+
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
 }
 //---------------------------------------------------------------------------
 
@@ -192,6 +214,9 @@ void __fastcall TConfig::Locally_RB_VIDEOClick(TObject *Sender)
 	Password_E_VIDEO->Enabled       = false;
 	Show_Password_CH_VIDEO->Enabled = false;
    };
+
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
 }
 //---------------------------------------------------------------------------
 
@@ -206,6 +231,9 @@ void __fastcall TConfig::Show_Password_CHClick(TObject *Sender)
 	{
 	 Password_E->PasswordChar = '*';
 	}
+
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
 }
 //---------------------------------------------------------------------------
 
@@ -219,6 +247,234 @@ void __fastcall TConfig::Show_Password_CH_VIDEOClick(TObject *Sender)
 	{
 	 Password_E_VIDEO->PasswordChar = '*';
 	}
+
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
 }
 //---------------------------------------------------------------------------
+
+
+void __fastcall TConfig::Screenshot_of_the_entire_screen_EHKChange(TObject *Sender)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Screenshot_of_the_active_window_EHKChange(TObject *Sender)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Screenshot_of_the_screen_area_EHKChange(TObject *Sender)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Two_mouse_buttons_at_the_same_time_CHClick(TObject *Sender)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Address_EChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Login_EChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Password_EChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TConfig::Locally_EChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Show_the_cursor_on_the_screenshot_CHClick(TObject *Sender)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Show_magnifying_glass_CHClick(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Open_screenshot_in_the_browser_CHClick(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Recording_screen_area_CHClick(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Two_mouse_buttons_at_the_same_time_CH_VIDEOClick(TObject *Sender)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Recording_screen_area_EHKChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TConfig::Address_E_VIDEOChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Login_E_VIDEOChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Password_E_VIDEOChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Locally_E_VIDEOChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Always_record_the_microphone_CH_VIDEOClick(TObject *Sender)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Record_audio_CH_VIDEOClick(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Open_video_in_the_browser_CH_VIDEOClick(TObject *Sender)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Font_EChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Font_size_EChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Font_BUTTONClick(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Font_size_UP_BUTTONChanging(TObject *Sender, bool &AllowChange)
+
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Font_bold_CHClick(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Font_italic_CHClick(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Font_underlined_CHClick(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TConfig::Long_type_line_CMChange(TObject *Sender)
+{
+ this->config_object->set_do_editing(true);
+ this->config_object->Control_button_v();
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 

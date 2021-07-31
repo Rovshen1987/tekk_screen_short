@@ -17,7 +17,7 @@ public:
 //	  Config_init(Config_init&& object);
 //	  Config_init& operator=(Config_init&& object);
 	 ~Config_init();
-  bool   do_editing;
+
 
   bool Check_registry_key();
 
@@ -93,6 +93,21 @@ public:
   void set_Magnifier_E(TEdit* set);
   void set_Log_create_CH(TCheckBox* set);
 
+//------------------------------Control-------------------------------//
+  void set_By_default_BUTTON(TButton* set);
+  void set_Exit_BUTTON(TButton* set);
+  void set_Save_BUTTON(TButton* set);
+
+  void   set_do_editing(bool set);
+  void   set_do_default(bool set);
+  //-------------------------------------------------------
+  bool   get_do_editing();
+  bool   get_do_default();
+
+//-------------------------------------------------------------------------//
+//-------------------------------------------------------------------------//
+//-------------------------------------------------------------------------//
+  void Control_button_v();
 
 private:
 //--------------------------------------------------------------------------------PAGE__1----------
@@ -170,6 +185,15 @@ private:
   Config_init_registry*  Default_config;
   direct_r*              directory;
 
+//-------------Control-------------------------------------------//
+  TButton* By_default_BUTTON;
+  TButton* Exit_BUTTON;
+  TButton* Save_BUTTON;
+
+//--------------Other--------------------------------------------//
+  bool   do_editing;
+  bool   do_default;
+
   const AnsiString Screen_shot_ASC     = "Software\\tekk\\Screen_shot";
   const AnsiString Video_ASC           = "Software\\tekk\\Video";
   const AnsiString General_setup       = "Software\\tekk\\General_setup";
@@ -177,6 +201,9 @@ private:
   const AnsiString FOLDER_NAME_PICTURE = "Picture";
   const AnsiString FOLDER_NAME_VIDEO   = "Video";
   const HKEY       Root_key_C          = HKEY_CURRENT_USER;
+
+  const AnsiString CONFIG_CLOSE        = "Закрыть";
+  const AnsiString CONFIG_RETURN       = "Отменить";
 
   enum type_struct {___bool, ___int, ___AnsiString};
 
