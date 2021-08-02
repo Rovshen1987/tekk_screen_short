@@ -402,9 +402,23 @@ object Config: TConfig
         Left = 3
         Top = 330
         Width = 494
-        Height = 106
+        Height = 215
         Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1099#1077' '#1086#1087#1094#1080#1080
         TabOrder = 2
+        object Bevel1: TBevel
+          Left = 40
+          Top = 112
+          Width = 370
+          Height = 17
+          Shape = bsTopLine
+        end
+        object Label1: TLabel
+          Left = 16
+          Top = 128
+          Width = 32
+          Height = 19
+          Caption = #1058#1077#1084#1072
+        end
         object Always_record_the_microphone_CH_VIDEO: TCheckBox
           Left = 16
           Top = 25
@@ -436,14 +450,22 @@ object Config: TConfig
           OnClick = Open_video_in_the_browser_CH_VIDEOClick
         end
         object Log_create_CH: TCheckBox
-          Left = 256
-          Top = 25
+          Left = 283
+          Top = 33
           Width = 145
           Height = 25
           Cursor = crHandPoint
           Caption = #1057#1086#1079#1076#1072#1090#1100' '#1051#1086#1075' '#1060#1072#1081#1083
           TabOrder = 3
           OnClick = Log_create_CHClick
+        end
+        object ComboBox1: TComboBox
+          Left = 56
+          Top = 128
+          Width = 281
+          Height = 27
+          TabOrder = 4
+          Text = 'ComboBox1'
         end
       end
     end

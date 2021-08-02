@@ -69,6 +69,9 @@ __published:	// IDE-managed Components
 	TEdit *Locally_E_VIDEO;
 	TButton *By_default_BUTTON;
 	TCheckBox *Log_create_CH;
+	TBevel *Bevel1;
+	TLabel *Label1;
+	TComboBox *ComboBox1;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Server_RBClick(TObject *Sender);
 	void __fastcall Locally_RBClick(TObject *Sender);
