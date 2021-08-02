@@ -97,16 +97,24 @@ bool direct_r::check_file(AnsiString&& value)
 
 };
 
-void direct_r::create_folder_in_prog(std::string folder_name)
+void direct_r::create_folder_in_prog(std::string folder_name, bool __default)
 {
 	std::string path = "";
+	if (__default == true )
+	{
 	path = this->get_path(folder_name);
-	std::cout << path << std::endl;
+	}
+	else
+	{
+	path = folder_name;
+	}
+
+//	std::cout << path << std::endl;
 
 	if (!std::filesystem::is_directory(this->true_slesh(path)))
 	{
 	std::filesystem::create_directory(this->true_slesh(path));
-    std::cout << "Yok" << std::endl;
+//    std::cout << "Yok" << std::endl;
 	};
 };
 

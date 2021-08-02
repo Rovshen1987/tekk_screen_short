@@ -221,6 +221,12 @@ void Config_init::set_Log_create_CH(TCheckBox* set)
   this->Log_create_CH = set;
 };
 
+//-------------------------------------------------------
+void Config_init::set_Them_CB(TComboBox* set)
+{
+  this->Them_CB = set;
+};
+
 
 //------------------------------Control-------------------------------//
   void Config_init::set_By_default_BUTTON(TButton* set)
@@ -239,6 +245,18 @@ void Config_init::set_Log_create_CH(TCheckBox* set)
   {
 	this->Save_BUTTON = set;
   };
+
+//-------------------------------------------------------
+void Config_init::set_Configuration_F(TForm* set)
+{
+  this->Configuration_F = set;
+};
+
+//-------------------------------------------------------
+void Config_init::set_General_F(TForm* set)
+{
+  this->General_F = set;
+};
 
 //-------------------------------------------------------
 void Config_init::set_do_editing(bool set)
@@ -706,6 +724,19 @@ case 28: {
 		 }
 		 break;
 		 };
+
+case 29: {
+			if (this->Check_date_to_editin_inside<AnsiString>(this->Them_CB->Text,
+				  this->Program_config->get_Them_CB()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
 default: {
 		   ShowMessage("Yalnys Bar! 710");
 		 };
@@ -719,7 +750,7 @@ void Config_init::Save_BUTTON_v()
 {
    if (!this->Save_BUTTON_HotKey_check())
    {
-	return ShowMessage("ќдинаковы назначенные клав€щи!");
+	return ShowMessage("ќдинаковы назначенные гор€чые клав€щи!");
    }
 
    this->Config_to_form(this->Program_config);
@@ -727,6 +758,13 @@ void Config_init::Save_BUTTON_v()
    this->do_editing = false;
    this->Registry_config = this->Program_config;
    this->Control_button_v();
+};
+
+void Config_init::Them_form_all(const AnsiString& set)
+{
+  this->General_F->StyleName       = set;
+  this->Configuration_F->StyleName = set;
+
 };
 
 						//PRIVATE//
@@ -775,12 +813,14 @@ void Config_init::anihilation_varrible()//-----------Destroy object
   this->Always_record_the_microphone_CH_VIDEO = 0;
   this->Record_audio_CH_VIDEO                 = 0;
   this->Open_video_in_the_browser_CH_VIDEO    = 0;
-
-
   this->Log_create_CH     = 0;
+  this->Them_CB           = 0;
+
   this->By_default_BUTTON = 0;
   this->Exit_BUTTON       = 0;
   this->Save_BUTTON       = 0;
+  this->Configuration_F   = 0;
+  this->General_F         = 0;
 
   //------------------DELETE OBJECT----------------------------//
   delete this->Screenshot_of_the_entire_screen_EHK;
@@ -824,12 +864,15 @@ void Config_init::anihilation_varrible()//-----------Destroy object
 
 
   delete this->Log_create_CH;
+  delete this->Them_CB;
 
 //------------Control------------------------------------------//
 
   delete this->By_default_BUTTON;
   delete this->Exit_BUTTON;
   delete this->Save_BUTTON;
+  delete this->Configuration_F;
+  delete this->General_F;
 
 //-------------------------------------------------------------//
   delete this->Registry_config;
@@ -838,98 +881,6 @@ void Config_init::anihilation_varrible()//-----------Destroy object
   delete this->directory;
 
 };
-
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-//void Config_init::Registry_create()
-//{
-//std::unique_ptr<TRegistry> reg = std::make_unique<TRegistry>();
-//reg->RootKey   = this->Root_key_C;
-//reg->OpenKey(this->Screen_shot_ASC,true);
-//
-//
-////--------------------------------------------------------------------------------PAGE__1----------
-////----------Hot_Keys--------------------------------------------//
-//reg->WriteString(this->Screenshot_of_the_entire_screen_EHK->GetNamePath(), this->Screenshot_of_the_entire_screen_EHK->HotKey);
-//reg->WriteString(this->Screenshot_of_the_active_window_EHK->GetNamePath(), this->Screenshot_of_the_active_window_EHK->HotKey);
-//reg->WriteString(this->Screenshot_of_the_screen_area_EHK->GetNamePath(), this->Screenshot_of_the_screen_area_EHK->HotKey);
-//reg->WriteBool(this->Two_mouse_buttons_at_the_same_time_CH->GetNamePath(),this->Checked(this->Two_mouse_buttons_at_the_same_time_CH));
-//
-////----------Save_parameters------------------------------------//
-//reg->WriteBool(this->Server_RB->GetNamePath(), this->Checked(this->Server_RB));
-//reg->WriteString(this->Address_E->GetNamePath(), this->Address_E->Text);
-//reg->WriteString(this->Login_E->GetNamePath(), this->Login_E->Text);
-//reg->WriteString(this->Password_E->GetNamePath(), this->Password_E->Text);
-//reg->WriteBool(this->Show_Password_CH->GetNamePath(), this->Checked(Show_Password_CH));
-//reg->WriteBool(this->Locally_RB->GetNamePath(), this->Checked(this->Locally_RB));
-//reg->WriteString(this->Locally_E->GetNamePath(), this->Locally_E->Text);
-//
-////----------Additional_options---------------------------------//
-//reg->WriteBool(this->Show_the_cursor_on_the_screenshot_CH->GetNamePath(), this->Checked(Show_the_cursor_on_the_screenshot_CH));
-//reg->WriteBool(this->Show_magnifying_glass_CH->GetNamePath(), this->Checked(this->Show_magnifying_glass_CH));
-//reg->WriteBool(this->Open_screenshot_in_the_browser_CH->GetNamePath(), this->Checked(this->Open_screenshot_in_the_browser_CH));
-//
-//reg->CloseKey();
-//
-//
-////--------------------------------------------------------------------------------PAGE__2----------
-//reg->OpenKey(this->Video_ASC,true);
-////-----------Hot_keys_VIDEO------------------------------------//
-//reg->WriteBool(this->Recording_screen_area_CH->GetNamePath(), this->Checked(this->Recording_screen_area_CH));
-//reg->WriteBool(this->Two_mouse_buttons_at_the_same_time_CH_VIDEO->GetNamePath(), this->Checked(this->Two_mouse_buttons_at_the_same_time_CH_VIDEO));
-//reg->WriteString(this->Recording_screen_area_EHK->GetNamePath(), this->Recording_screen_area_EHK->HotKey);
-//
-////-----------Save_parameters_VIDEO-----------------------------//
-//reg->WriteBool(this->Server_RB_VIDEO->GetNamePath(), this->Checked(this->Server_RB_VIDEO));
-//reg->WriteString(this->Address_E_VIDEO->GetNamePath(), this->Address_E_VIDEO->Text);
-//reg->WriteString(this->Login_E_VIDEO->GetNamePath(), this->Login_E_VIDEO->Text);
-//reg->WriteString(this->Password_E_VIDEO->GetNamePath(), this->Password_E_VIDEO->Text);
-//reg->WriteBool(this->Show_Password_CH_VIDEO->GetNamePath(), this->Checked(this->Show_Password_CH_VIDEO));
-//reg->WriteBool(this->Locally_RB_VIDEO->GetNamePath(), this->Checked(this->Locally_RB_VIDEO));
-//reg->WriteString(this->Locally_E_VIDEO->GetNamePath(), this->Locally_E_VIDEO->Text);
-//
-////------------Additional_options_VIDEO-------------------------//
-//reg->WriteBool(this->Always_record_the_microphone_CH->GetNamePath(), this->Checked(this->Always_record_the_microphone_CH));
-//reg->WriteBool(this->Record_audio_CH->GetNamePath(), this->Checked(this->Record_audio_CH));
-//reg->WriteBool(this->Open_video_in_the_browser_CH->GetNamePath(), this->Checked(this->Open_video_in_the_browser_CH));
-//
-//reg->CloseKey();
-//
-////--------------------------------------------------------------------------------PAGE__3----------
-//reg->OpenKey(this->General_setup,true);
-////-----------General_options------------------------------------//
-//reg->WriteString(this->Font_E->GetNamePath(), this->Font_E->Text);
-//reg->WriteInteger(this->Font_size_E->GetNamePath(), this->Font_size_E->Text.ToInt());
-//reg->WriteString(this->Them_CM->GetNamePath(), this->Them_CM->Text);
-//reg->WriteBool(this->Font_bold_CH->GetNamePath(), this->Checked(this->Font_bold_CH));
-//reg->WriteBool(this->Font_italic_CH->GetNamePath(), this->Checked(this->Font_italic_CH));
-//reg->WriteString(this->Long_type_line_CM->GetNamePath(), this->Long_type_line_CM->Text);
-//
-////------------Shooting------------------------------------------//
-////------------Long_lines---------------------------------------//
-//reg->WriteString(this->Long_type_line_CM->GetNamePath(), Long_type_line_CM->Text);
-//reg->WriteInteger(this->Long_color_RED->GetNamePath(), this->Long_color_RED->Text.ToInt());
-//reg->WriteInteger(this->Long_color_GREEN->GetNamePath(), this->Long_color_GREEN->Text.ToInt());
-//reg->WriteInteger(this->Long_color_BLUE->GetNamePath(), this->Long_color_BLUE->Text.ToInt());
-//reg->WriteInteger(this->Long_line_size_E->GetNamePath(), this->Long_line_size_E->Text.ToInt());
-//
-//////------------Short_lines--------------------------------------//
-//reg->WriteString(this->Short_type_line_CM->GetNamePath(), this->Short_type_line_CM->Text);
-//reg->WriteInteger(this->Short_color_RED->GetNamePath(), this->Short_color_RED->Text.ToInt());
-//reg->WriteInteger(this->Short_color_GREEN->GetNamePath(), this->Short_color_GREEN->Text.ToInt());
-//reg->WriteInteger(this->Short_color_BLUE->GetNamePath(), this->Short_color_BLUE->Text.ToInt());
-//reg->WriteInteger(this->Short_line_size_E->GetNamePath(), this->Short_line_size_E->Text.ToInt());
-//
-////-----------Other---------------------------------------------//
-//reg->WriteString(this->Indent_E->GetNamePath(), this->Indent_E->Text);
-//reg->WriteString(this->Magnifier_E->GetNamePath(), this->Magnifier_E->Text);
-//reg->WriteBool(this->Log_create_CH->GetNamePath(), this->Checked(this->Log_create_CH));
-//
-//reg->CloseKey();
-//delete reg;
-//};
-
 
 
 //-------------------------------------------------------
@@ -1075,6 +1026,10 @@ this->Registry_save_inside(___bool, this->Program_config->get_Log_create_CH(),
 						  this->Registry_config->get_Log_create_CH(),
 						  this->Log_create_CH->GetNamePath(), reg, Default);
 
+this->Registry_save_inside(___AnsiString, this->Program_config->get_Them_CB(),
+						  this->Registry_config->get_Them_CB(),
+						  this->Them_CB->GetNamePath(), reg, Default);
+
 reg->CloseKey();
 delete reg;
 
@@ -1133,6 +1088,7 @@ this->Registry_config->set_Record_audio_CH_VIDEO(reg->ReadBool(this->Record_audi
 this->Registry_config->set_Open_video_in_the_browser_CH_VIDEO(reg->ReadBool(this->Open_video_in_the_browser_CH_VIDEO->GetNamePath()));
 
 this->Registry_config->set_Log_create_CH(reg->ReadBool(this->Log_create_CH->GetNamePath()));
+this->Registry_config->set_Them_CB(reg->ReadString(this->Them_CB->GetNamePath()));
 
 reg->CloseKey();
 
@@ -1185,6 +1141,7 @@ this->Program_config->set_Record_audio_CH_VIDEO(this->Checked(this->Record_audio
 this->Program_config->set_Open_video_in_the_browser_CH_VIDEO(this->Checked(this->Open_video_in_the_browser_CH_VIDEO));
 
 this->Program_config->set_Log_create_CH(this->Checked(this->Log_create_CH));
+this->Program_config->set_Them_CB(this->Them_CB->Text);
 };
 
 //-------------------------------------------------------
@@ -1264,11 +1221,12 @@ void Config_init::Default_config_init()
 
 
   this->Default_config->set_Log_create_CH(true);
+  this->Default_config->set_Log_create_CH("Aqua Light State");
 
 };
 
 //-------------------------------------------------------
-std::string Config_init::Conversion_AnsiString_to_string(AnsiString& str)
+std::string Config_init::Conversion_AnsiString_to_string(const AnsiString& str)
 {
 
   std:: string result = str.c_str();
@@ -1314,6 +1272,7 @@ void Config_init::Form_to_config(Config_init_registry* first)
   this->Show_Password_CH->Checked  = first->get_Show_Password_CH();
   this->Locally_RB->Checked        = first->get_Locally_RB();
   this->Locally_E->Text            = first->get_Locally_E();
+  this->Locally_E_create_folder(first->get_Locally_E());
 
 //----------Additional_options---------------------------------//
   this->Show_the_cursor_on_the_screenshot_CH->Checked = first->get_Show_the_cursor_on_the_screenshot_CH();
@@ -1335,6 +1294,7 @@ void Config_init::Form_to_config(Config_init_registry* first)
   this->Show_Password_CH_VIDEO->Checked            = first->get_Show_Password_CH_VIDEO();
   this->Locally_RB_VIDEO->Checked                  = first->get_Locally_RB_VIDEO();
   this->Locally_E_VIDEO->Text                      = first->get_Locally_E_VIDEO();
+  this->Locally_E_create_folder(first->get_Locally_E_VIDEO());
 
 //------------Additional_options_VIDEO-------------------------//
   this->Always_record_the_microphone_CH_VIDEO->Checked   = first->get_Always_record_the_microphone_CH_VIDEO();
@@ -1344,6 +1304,8 @@ void Config_init::Form_to_config(Config_init_registry* first)
 
 
   this->Log_create_CH->Checked        = first->get_Log_create_CH();
+  this->Them_CB->Text                 = first->get_Them_CB();
+  this->Them_form_all(first->get_Them_CB());
 
  this->Form_to_config_checked(first);
 
@@ -1396,6 +1358,7 @@ void Config_init::Config_to_form(Config_init_registry* first)
   first->set_Open_video_in_the_browser_CH_VIDEO(this->Open_video_in_the_browser_CH_VIDEO->Checked);
 
   first->set_Log_create_CH(this->Log_create_CH->Checked);
+  first->set_Them_CB(this->Them_CB->Text);
 };
 
 AnsiString Config_init::get_AnsiString_to_int(int set)
@@ -1773,6 +1736,12 @@ int result = 0;
 	return result;
    }
 
+   result++;//29
+   if (object == AnsiString("Them_CB"))
+   {
+	return result;
+   }
+
    return 0;
 
 };
@@ -1845,6 +1814,11 @@ bool Config_init::Save_BUTTON_HotKey_check_inside(const int& first, const int& l
   {
    return false;
   };
+};
+
+void Config_init::Locally_E_create_folder(const AnsiString& folder_name)
+{
+   this->directory->create_folder_in_prog(this->Conversion_AnsiString_to_string(folder_name), false);
 };
 
 /*

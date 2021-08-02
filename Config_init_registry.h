@@ -55,7 +55,7 @@ public:
 
 
   void	set_Log_create_CH(bool set);
-
+  void  set_Them_CB(AnsiString set);
 
 ///////////////////////////////////////---------GET----------////////////////////////////////////
 //--------------------------------------------------------------------------------PAGE__1----------
@@ -99,6 +99,7 @@ public:
   bool        get_Record_audio_CH_VIDEO();
   bool        get_Open_video_in_the_browser_CH_VIDEO();
   bool        get_Log_create_CH();
+  AnsiString  get_Them_CB();
 
 
 private:
@@ -146,6 +147,7 @@ private:
 
 
   bool        Log_create_CH;
+  AnsiString  Them_CB;
 
   void destroy_varrible();
 

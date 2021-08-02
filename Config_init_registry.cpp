@@ -1,10 +1,14 @@
 #include "Config_init_registry.h"
 
+//-----------------------------------------------------------------------------//
+//-----------------------------------------------------------------------------//
+//--------------------------------Constructors---------------------------------//
 Config_init_registry::Config_init_registry()
 {
 
 };
 
+//-----------------------------------------------------------------------------//
 Config_init_registry& Config_init_registry::operator=(const Config_init_registry& object)
 {
    if (this == &object)
@@ -52,10 +56,11 @@ Config_init_registry& Config_init_registry::operator=(const Config_init_registry
   this->Open_video_in_the_browser_CH_VIDEO           = object.Open_video_in_the_browser_CH_VIDEO;
 
   this->Log_create_CH                                = object.Log_create_CH;
-
+  this->Them_CB                                      = object.Them_CB;
   return *this;
 };
 
+//----------------------------------Desturctor---------------------------------//
 Config_init_registry::~Config_init_registry()
 {
 this->destroy_varrible();
@@ -69,16 +74,19 @@ void Config_init_registry::set_Screenshot_of_the_entire_screen_EHK(int set)
   this->Screenshot_of_the_entire_screen_EHK = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Screenshot_of_the_active_window_EHK(int set)
 {
   this->Screenshot_of_the_active_window_EHK = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Screenshot_of_the_screen_area_EHK(int set)
 {
   this->Screenshot_of_the_screen_area_EHK = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Two_mouse_buttons_at_the_same_time_CH(bool set)
 {
   this->Two_mouse_buttons_at_the_same_time_CH = set;
@@ -90,31 +98,37 @@ void Config_init_registry::set_Server_RB(bool set)
   this->Server_RB = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Address_E(AnsiString set)
 {
   this->Address_E = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Login_E(AnsiString set)
 {
   this->Login_E = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Password_E(AnsiString set)
 {
   this->Password_E = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Show_Password_CH(bool set)
 {
   this->Show_Password_CH = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Locally_RB(bool set)
 {
   this->Locally_RB = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Locally_E(AnsiString set)
 {
   this->Locally_E = set;
@@ -127,11 +141,13 @@ void Config_init_registry::set_Show_the_cursor_on_the_screenshot_CH(bool set)
   this->Show_the_cursor_on_the_screenshot_CH = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Show_magnifying_glass_CH(bool set)
 {
   this->Show_magnifying_glass_CH = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Open_screenshot_in_the_browser_CH(bool set)
 {
   this->Open_screenshot_in_the_browser_CH = set;
@@ -144,11 +160,13 @@ void Config_init_registry::set_Recording_screen_area_CH(bool set)
    this->Recording_screen_area_CH = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(bool set)
 {
    this->Two_mouse_buttons_at_the_same_time_CH_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Recording_screen_area_EHK(int set)
 {
    this->Recording_screen_area_EHK = set;
@@ -161,31 +179,37 @@ void Config_init_registry::set_Server_RB_VIDEO(bool set)
    this->Server_RB_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Address_E_VIDEO(AnsiString set)
 {
    this->Address_E_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Login_E_VIDEO(AnsiString set)
 {
    this->Login_E_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Password_E_VIDEO(AnsiString set)
 {
    this->Password_E_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Show_Password_CH_VIDEO(bool set)
 {
    this->Show_Password_CH_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Locally_RB_VIDEO(bool set)
 {
    this->Locally_RB_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Locally_E_VIDEO(AnsiString set)
 {
    this->Locally_E_VIDEO = set;
@@ -197,21 +221,28 @@ void Config_init_registry::set_Always_record_the_microphone_CH_VIDEO(bool set)
    this->Always_record_the_microphone_CH_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Record_audio_CH_VIDEO(bool set)
 {
    this->Record_audio_CH_VIDEO = set;
 };
 
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Open_video_in_the_browser_CH_VIDEO(bool set)
 {
    this->Open_video_in_the_browser_CH_VIDEO = set;
 };
 
-
-
+//-----------------------------------------------------------------------------//
 void Config_init_registry::set_Log_create_CH(bool set)
 {
    this->Log_create_CH = set;
+};
+
+//-----------------------------------------------------------------------------//
+void Config_init_registry::set_Them_CB(AnsiString set)
+{
+   this->Them_CB = set;
 };
 
 ///////////////////////////////////////---------GET----------////////////////////////////////////
@@ -222,16 +253,19 @@ int Config_init_registry::get_Screenshot_of_the_entire_screen_EHK()
    return this->Screenshot_of_the_entire_screen_EHK;
 };
 
+//-----------------------------------------------------------------------------//
 int Config_init_registry::get_Screenshot_of_the_active_window_EHK()
 {
    return this->Screenshot_of_the_active_window_EHK;
 };
 
+//-----------------------------------------------------------------------------//
 int Config_init_registry::get_Screenshot_of_the_screen_area_EHK()
 {
    return this->Screenshot_of_the_screen_area_EHK;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Two_mouse_buttons_at_the_same_time_CH()
 {
    return this->Two_mouse_buttons_at_the_same_time_CH;
@@ -244,31 +278,37 @@ bool Config_init_registry::get_Server_RB()
    return this->Server_RB;
 };
 
+//-----------------------------------------------------------------------------//
 AnsiString Config_init_registry::get_Address_E()
 {
    return this->Address_E;
 };
 
+//-----------------------------------------------------------------------------//
 AnsiString Config_init_registry::get_Login_E()
 {
    return this->Login_E;
 };
 
+//-----------------------------------------------------------------------------//
 AnsiString Config_init_registry::get_Password_E()
 {
    return this->Password_E;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Show_Password_CH()
 {
    return this->Show_Password_CH;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Locally_RB()
 {
    return this->Locally_RB;
 };
 
+//-----------------------------------------------------------------------------//
 AnsiString Config_init_registry::get_Locally_E()
 {
    return this->Locally_E;
@@ -280,11 +320,13 @@ bool Config_init_registry::get_Show_the_cursor_on_the_screenshot_CH()
    return this->Show_the_cursor_on_the_screenshot_CH;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Show_magnifying_glass_CH()
 {
    return this->Show_magnifying_glass_CH;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Open_screenshot_in_the_browser_CH()
 {
    return this->Open_screenshot_in_the_browser_CH;
@@ -297,11 +339,13 @@ bool Config_init_registry::get_Recording_screen_area_CH()
    return this->Recording_screen_area_CH;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Two_mouse_buttons_at_the_same_time_CH_VIDEO()
 {
    return this->Two_mouse_buttons_at_the_same_time_CH_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 int Config_init_registry::get_Recording_screen_area_EHK()
 {
    return this->Recording_screen_area_EHK;
@@ -313,31 +357,37 @@ bool Config_init_registry::get_Server_RB_VIDEO()
    return this->Server_RB_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 AnsiString Config_init_registry::get_Address_E_VIDEO()
 {
    return this->Address_E_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 AnsiString Config_init_registry::get_Login_E_VIDEO()
 {
    return this->Login_E_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 AnsiString Config_init_registry::get_Password_E_VIDEO()
 {
    return this->Password_E_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Show_Password_CH_VIDEO()
 {
    return this->Show_Password_CH_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Locally_RB_VIDEO()
 {
   return this->Locally_RB_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 AnsiString Config_init_registry::get_Locally_E_VIDEO()
 {
   return this->Locally_E_VIDEO;
@@ -349,25 +399,35 @@ bool Config_init_registry::get_Always_record_the_microphone_CH_VIDEO()
    return this->Always_record_the_microphone_CH_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Record_audio_CH_VIDEO()
 {
    return this->Record_audio_CH_VIDEO;
 };
 
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Open_video_in_the_browser_CH_VIDEO()
 {
    return this->Open_video_in_the_browser_CH_VIDEO;
 };
 
-
-
+//-----------------------------------------------------------------------------//
 bool Config_init_registry::get_Log_create_CH()
 {
    return this->Log_create_CH;
 };
 
+//-----------------------------------------------------------------------------//
+AnsiString Config_init_registry::get_Them_CB()
+{
+  return this->Them_CB;
+};
+
+//-----------------------------------------------------------------------------//
 void Config_init_registry::destroy_varrible()
 {
+//--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
 this->Screenshot_of_the_entire_screen_EHK                 = 0;
 this->Screenshot_of_the_active_window_EHK                 = 0;
 this->Screenshot_of_the_screen_area_EHK                   = 0;
@@ -409,6 +469,7 @@ this->Open_video_in_the_browser_CH_VIDEO                  = false;
 
 
 this->Log_create_CH                                       = false;
+this->Them_CB                                             = "";
 };
 
 

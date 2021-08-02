@@ -35,7 +35,7 @@ class direct_r
    bool check_file(AnsiString&& value);
 
 
-   void  create_folder_in_prog(std::string folder_name);
+   void  create_folder_in_prog(std::string folder_name, bool __default);
    private:
    std::string true_slesh(std::string folder_name);
 

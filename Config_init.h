@@ -100,11 +100,15 @@ public:
 
 
   void set_Log_create_CH(TCheckBox* set);
+  void set_Them_CB(TComboBox* set);
 
 //------------------------------Control-------------------------------//
   void set_By_default_BUTTON(TButton* set);
   void set_Exit_BUTTON(TButton* set);
   void set_Save_BUTTON(TButton* set);
+
+  void set_Configuration_F(TForm* set);
+  void set_General_F(TForm* set);
 
   void set_do_editing(bool set);
   void set_do_default(bool set);
@@ -116,6 +120,7 @@ public:
 //-------------------------------------------------------------------------//
 //-------------------------------------------------------------------------//
   void Control_button_v();
+  void Them_form_all(const AnsiString& set);
 
 private:
 //--------------------------------------------------------------------------------PAGE__1----------
@@ -158,6 +163,7 @@ private:
   TCheckBox*     Always_record_the_microphone_CH_VIDEO;
   TCheckBox*     Record_audio_CH_VIDEO;
   TCheckBox*     Open_video_in_the_browser_CH_VIDEO;
+  TComboBox*     Them_CB;
 
 
   TCheckBox*             Log_create_CH;
@@ -171,6 +177,9 @@ private:
   TButton* By_default_BUTTON;
   TButton* Exit_BUTTON;
   TButton* Save_BUTTON;
+
+  TForm*   Configuration_F;
+  TForm*   General_F;
 
 //--------------Other--------------------------------------------//
   bool   do_editing;
@@ -224,7 +233,7 @@ private:
 
 
 
-  std::string Conversion_AnsiString_to_string(AnsiString& str);
+  std::string Conversion_AnsiString_to_string(const AnsiString& str);
   AnsiString  Conversion_string_to_AnsiString(std::string& str);
 
   bool        Checked(TCheckBox* ch);
@@ -241,77 +250,9 @@ private:
   int  get_ID_object(const AnsiString& object);
   bool Save_BUTTON_HotKey_check();
   bool Save_BUTTON_HotKey_check_inside(const int& first, const int& last);
+  void Locally_E_create_folder(const AnsiString& folder_name);
 
 };
 
 
-/*
-  cf->set_Screenshot_of_the_entire_screen_EHK();
-  cf->set_Screenshot_of_the_active_window_EHK();
-  cf->set_Screenshot_of_the_screen_area_EHK();
-  cf->set_Two_mouse_buttons_at_the_same_time_CH();
 
-//----------Save_parameters------------------------------------//
-  cf->set_Server_RB();
-  cf->set_Address_E();
-  cf->set_Login_E();
-  cf->set_Password_E();
-  cf->set_Show_Password_CH();
-  cf->set_Locally_RB();
-  cf->set_Locally_E();
-
-//----------Additional_options---------------------------------//
-  cf->set_Show_the_cursor_on_the_screenshot_CH();
-  cf->set_Show_magnifying_glass_CH();
-  cf->set_Open_screenshot_in_the_browser_CH();
-
-//--------------------------------------------------------------------------------PAGE__2----------
-//-----------Hot_keys_VIDEO------------------------------------//
-  cf->set_Recording_screen_area_CH();
-  cf->set_Two_mouse_buttons_at_the_same_time_CH_VIDEO();
-  cf->set_Recording_screen_area_EHK();
-
-//-----------Save_parameters_VIDEO-----------------------------//
-  cf->set_Server_RB_VIDEO();
-  cf->set_Address_E_VIDEO();
-  cf->set_Login_E_VIDEO();
-  cf->set_Password_E_VIDEO();
-  cf->set_Show_Password_VIDEO();
-  cf->set_Locally_RB_VIDEO();
-  cf->set_Locally_E_VIDEO();
-
-//------------Additional_options_VIDEO-------------------------//
-  cf->set_Always_record_the_microphone_CH();
-  cf->set_Record_audio_CH();
-  cf->set_Open_video_in_the_browser_CH();
-
-//--------------------------------------------------------------------------------PAGE__3----------
-//-----------General_options------------------------------------//
-  cf->set_Font_E();
-  cf->set_Font_size_E();
-  cf->set_Them_CM();
-  cf->set_Font_bold_CH();
-  cf->set_Font_italic_CH();
-  cf->set_Font_underlined_CH();
-
-//------------Shooting------------------------------------------//
-//------------Long_lines---------------------------------------//
-  cf->set_Long_type_line_CM();
-  cf->set_Long_color_RED();
-  cf->set_Long_color_GREEN();
-  cf->set_Long_color_BLUE();
-  cf->set_Long_line_size_E();
-
-//------------Short_lines--------------------------------------//
-  cf->set_Short_type_line_CM();
-  cf->set_Short_color_RED();
-  cf->set_Short_color_GREEN();
-  cf->set_Short_color_BLUE();
-  cf->set_Short_line_size_E();
-
-//-----------Other---------------------------------------------//
-  cf->set_Indent_E();
-  cf->set_Magnifier_E();
-  cf->set_Log_create();
-
-*/

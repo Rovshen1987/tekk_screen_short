@@ -8,22 +8,22 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TForm1 *Form1;
+TGeneral_F *General_F;
 //---------------------------------------------------------------------------
-__fastcall TForm1::TForm1(TComponent* Owner)
+__fastcall TGeneral_F::TGeneral_F(TComponent* Owner)
 	: TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::ButtonClick(TObject *Sender)
+void __fastcall TGeneral_F::ButtonClick(TObject *Sender)
 {
 //
-Config->Show();
+Configuration_F->Show();
 //////HotKey1->HotKey = 16481;
 //Form1->Caption = 3645;
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::Button1Click(TObject *Sender)
+void __fastcall TGeneral_F::Button1Click(TObject *Sender)
 {
 std::unique_ptr<TRegistry> reg = std::make_unique<TRegistry>();
  reg->RootKey   = HKEY_CURRENT_USER;
@@ -34,11 +34,11 @@ std::unique_ptr<TRegistry> reg = std::make_unique<TRegistry>();
  if (reg->KeyExists("System\\CurrentControlSet"))
 
  {
-   Form1->Caption = "Bar";
+   General_F->Caption = "Bar";
  }
  else
  {
-   Form1->Caption = "Yok";
+   General_F->Caption = "Yok";
  };
 //
 //AnsiString s = reg->ReadString("Path");

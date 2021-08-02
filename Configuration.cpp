@@ -4,18 +4,19 @@
 #pragma hdrstop
 
 #include "Configuration.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cspin"
 #pragma resource "*.dfm"
-TConfig *Config;
+TConfiguration_F *Configuration_F;
 //---------------------------------------------------------------------------
-__fastcall TConfig::TConfig(TComponent* Owner)
+__fastcall TConfiguration_F::TConfiguration_F(TComponent* Owner)
 	: TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------void TConfig::initilization()
-void TConfig::initilization()
+void TConfiguration_F::initilization()
 {
   Option->ActivePage  = Screen_shot;
   this->config_object = std::make_unique<Config_init>();
@@ -59,11 +60,14 @@ void TConfig::initilization()
   this->config_object->set_Record_audio_CH_VIDEO(Record_audio_CH_VIDEO);
   this->config_object->set_Open_video_in_the_browser_CH_VIDEO(Open_video_in_the_browser_CH_VIDEO);
   this->config_object->set_Log_create_CH(Log_create_CH);
+  this->config_object->set_Them_CB(Them_CB);
 
 //-------------Control-----------------------------------------//
   this->config_object->set_Save_BUTTON(Save_BUTTON);
   this->config_object->set_Exit_BUTTON(Exit_BUTTON);
   this->config_object->set_By_default_BUTTON(By_default_BUTTON);
+  this->config_object->set_Configuration_F(this);
+  this->config_object->set_General_F(General_F);
 
 //-----------------------------------------------------------//
 //-----------------------------------------------------------//
@@ -76,7 +80,7 @@ void TConfig::initilization()
 };
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::FormCreate(TObject *Sender)
+void __fastcall TConfiguration_F::FormCreate(TObject *Sender)
 {
 initilization();
 }
@@ -86,7 +90,7 @@ initilization();
 
 
 
-void __fastcall TConfig::Server_RBClick(TObject *Sender)
+void __fastcall TConfiguration_F::Server_RBClick(TObject *Sender)
 {
   if (Server_RB->Checked)
   {
@@ -119,7 +123,7 @@ void __fastcall TConfig::Server_RBClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Locally_RBClick(TObject *Sender)
+void __fastcall TConfiguration_F::Locally_RBClick(TObject *Sender)
 {
    if (Locally_RB->Checked)
    {
@@ -140,7 +144,7 @@ void __fastcall TConfig::Locally_RBClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Server_RB_VIDEOClick(TObject *Sender)
+void __fastcall TConfiguration_F::Server_RB_VIDEOClick(TObject *Sender)
 {
   if (Server_RB_VIDEO->Checked)
   {
@@ -170,7 +174,7 @@ void __fastcall TConfig::Server_RB_VIDEOClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Locally_RB_VIDEOClick(TObject *Sender)
+void __fastcall TConfiguration_F::Locally_RB_VIDEOClick(TObject *Sender)
 {
    if (Locally_RB_VIDEO->Checked)
    {
@@ -192,7 +196,7 @@ void __fastcall TConfig::Locally_RB_VIDEOClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TConfig::Show_Password_CHClick(TObject *Sender)
+void __fastcall TConfiguration_F::Show_Password_CHClick(TObject *Sender)
 {
 	if (Show_Password_CH->Checked)
 	{
@@ -211,7 +215,7 @@ void __fastcall TConfig::Show_Password_CHClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Show_Password_CH_VIDEOClick(TObject *Sender)
+void __fastcall TConfiguration_F::Show_Password_CH_VIDEOClick(TObject *Sender)
 {
 	if (Show_Password_CH_VIDEO->Checked)
 	{
@@ -231,13 +235,13 @@ void __fastcall TConfig::Show_Password_CH_VIDEOClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TConfig::Exit_BUTTONClick(TObject *Sender)
+void __fastcall TConfiguration_F::Exit_BUTTONClick(TObject *Sender)
 {
 
 
  if (!this->config_object->get_do_editing())
  {
- Config->Close();
+ Configuration_F->Close();
 
  }
 
@@ -246,7 +250,7 @@ void __fastcall TConfig::Exit_BUTTONClick(TObject *Sender)
 }
 
 //---------------------------------------------------------------------------
-void __fastcall TConfig::Locally_EChange(TObject *Sender)
+void __fastcall TConfiguration_F::Locally_EChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Locally_E->GetNamePath()))
  {
@@ -258,7 +262,7 @@ void __fastcall TConfig::Locally_EChange(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TConfig::Screenshot_of_the_entire_screen_EHKChange(TObject *Sender)
+void __fastcall TConfiguration_F::Screenshot_of_the_entire_screen_EHKChange(TObject *Sender)
 
 {
 
@@ -271,7 +275,7 @@ void __fastcall TConfig::Screenshot_of_the_entire_screen_EHKChange(TObject *Send
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Screenshot_of_the_active_window_EHKChange(TObject *Sender)
+void __fastcall TConfiguration_F::Screenshot_of_the_active_window_EHKChange(TObject *Sender)
 
 {
  if (!this->config_object->Check_date_to_editin_object(Screenshot_of_the_active_window_EHK->GetNamePath()))
@@ -282,7 +286,7 @@ void __fastcall TConfig::Screenshot_of_the_active_window_EHKChange(TObject *Send
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Screenshot_of_the_screen_area_EHKChange(TObject *Sender)
+void __fastcall TConfiguration_F::Screenshot_of_the_screen_area_EHKChange(TObject *Sender)
 
 {
  if (!this->config_object->Check_date_to_editin_object(Screenshot_of_the_screen_area_EHK->GetNamePath()))
@@ -293,7 +297,7 @@ void __fastcall TConfig::Screenshot_of_the_screen_area_EHKChange(TObject *Sender
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Address_EChange(TObject *Sender)
+void __fastcall TConfiguration_F::Address_EChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Address_E->GetNamePath()))
  {
@@ -303,7 +307,7 @@ void __fastcall TConfig::Address_EChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Login_EChange(TObject *Sender)
+void __fastcall TConfiguration_F::Login_EChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Login_E->GetNamePath()))
  {
@@ -313,7 +317,7 @@ void __fastcall TConfig::Login_EChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Password_EChange(TObject *Sender)
+void __fastcall TConfiguration_F::Password_EChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Password_E->GetNamePath()))
  {
@@ -323,7 +327,7 @@ void __fastcall TConfig::Password_EChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Two_mouse_buttons_at_the_same_time_CHClick(TObject *Sender)
+void __fastcall TConfiguration_F::Two_mouse_buttons_at_the_same_time_CHClick(TObject *Sender)
 
 {
  if (!this->config_object->Check_date_to_editin_object(Two_mouse_buttons_at_the_same_time_CH->GetNamePath()))
@@ -334,7 +338,7 @@ void __fastcall TConfig::Two_mouse_buttons_at_the_same_time_CHClick(TObject *Sen
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Show_the_cursor_on_the_screenshot_CHClick(TObject *Sender)
+void __fastcall TConfiguration_F::Show_the_cursor_on_the_screenshot_CHClick(TObject *Sender)
 
 {
  if (!this->config_object->Check_date_to_editin_object(Show_the_cursor_on_the_screenshot_CH->GetNamePath()))
@@ -345,7 +349,7 @@ void __fastcall TConfig::Show_the_cursor_on_the_screenshot_CHClick(TObject *Send
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Show_magnifying_glass_CHClick(TObject *Sender)
+void __fastcall TConfiguration_F::Show_magnifying_glass_CHClick(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Show_magnifying_glass_CH->GetNamePath()))
  {
@@ -355,7 +359,7 @@ void __fastcall TConfig::Show_magnifying_glass_CHClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Open_screenshot_in_the_browser_CHClick(TObject *Sender)
+void __fastcall TConfiguration_F::Open_screenshot_in_the_browser_CHClick(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Open_screenshot_in_the_browser_CH->GetNamePath()))
  {
@@ -365,7 +369,7 @@ void __fastcall TConfig::Open_screenshot_in_the_browser_CHClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Recording_screen_area_CHClick(TObject *Sender)
+void __fastcall TConfiguration_F::Recording_screen_area_CHClick(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Recording_screen_area_CH->GetNamePath()))
  {
@@ -375,7 +379,7 @@ void __fastcall TConfig::Recording_screen_area_CHClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Two_mouse_buttons_at_the_same_time_CH_VIDEOClick(TObject *Sender)
+void __fastcall TConfiguration_F::Two_mouse_buttons_at_the_same_time_CH_VIDEOClick(TObject *Sender)
 
 {
  if (!this->config_object->Check_date_to_editin_object(Two_mouse_buttons_at_the_same_time_CH_VIDEO->GetNamePath()))
@@ -386,7 +390,7 @@ void __fastcall TConfig::Two_mouse_buttons_at_the_same_time_CH_VIDEOClick(TObjec
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Recording_screen_area_EHKChange(TObject *Sender)
+void __fastcall TConfiguration_F::Recording_screen_area_EHKChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Recording_screen_area_EHK->GetNamePath()))
  {
@@ -396,7 +400,7 @@ void __fastcall TConfig::Recording_screen_area_EHKChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Address_E_VIDEOChange(TObject *Sender)
+void __fastcall TConfiguration_F::Address_E_VIDEOChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Address_E_VIDEO->GetNamePath()))
  {
@@ -406,7 +410,7 @@ void __fastcall TConfig::Address_E_VIDEOChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Login_E_VIDEOChange(TObject *Sender)
+void __fastcall TConfiguration_F::Login_E_VIDEOChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Login_E_VIDEO->GetNamePath()))
  {
@@ -416,7 +420,7 @@ void __fastcall TConfig::Login_E_VIDEOChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Password_E_VIDEOChange(TObject *Sender)
+void __fastcall TConfiguration_F::Password_E_VIDEOChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Password_E_VIDEO->GetNamePath()))
  {
@@ -426,7 +430,7 @@ void __fastcall TConfig::Password_E_VIDEOChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Locally_E_VIDEOChange(TObject *Sender)
+void __fastcall TConfiguration_F::Locally_E_VIDEOChange(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Locally_E_VIDEO->GetNamePath()))
  {
@@ -436,7 +440,7 @@ void __fastcall TConfig::Locally_E_VIDEOChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Always_record_the_microphone_CH_VIDEOClick(TObject *Sender)
+void __fastcall TConfiguration_F::Always_record_the_microphone_CH_VIDEOClick(TObject *Sender)
 
 {
  if (!this->config_object->Check_date_to_editin_object(Always_record_the_microphone_CH_VIDEO->GetNamePath()))
@@ -447,7 +451,7 @@ void __fastcall TConfig::Always_record_the_microphone_CH_VIDEOClick(TObject *Sen
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Record_audio_CH_VIDEOClick(TObject *Sender)
+void __fastcall TConfiguration_F::Record_audio_CH_VIDEOClick(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Record_audio_CH_VIDEO->GetNamePath()))
  {
@@ -457,7 +461,7 @@ void __fastcall TConfig::Record_audio_CH_VIDEOClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Open_video_in_the_browser_CH_VIDEOClick(TObject *Sender)
+void __fastcall TConfiguration_F::Open_video_in_the_browser_CH_VIDEOClick(TObject *Sender)
 
 {
  if (!this->config_object->Check_date_to_editin_object(Open_video_in_the_browser_CH_VIDEO->GetNamePath()))
@@ -468,7 +472,7 @@ void __fastcall TConfig::Open_video_in_the_browser_CH_VIDEOClick(TObject *Sender
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Log_create_CHClick(TObject *Sender)
+void __fastcall TConfiguration_F::Log_create_CHClick(TObject *Sender)
 {
  if (!this->config_object->Check_date_to_editin_object(Log_create_CH->GetNamePath()))
  {
@@ -478,15 +482,40 @@ void __fastcall TConfig::Log_create_CHClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::Save_BUTTONClick(TObject *Sender)
+void __fastcall TConfiguration_F::Save_BUTTONClick(TObject *Sender)
 {
  this->config_object->Save_BUTTON_v();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TConfig::By_default_BUTTONClick(TObject *Sender)
+void __fastcall TConfiguration_F::By_default_BUTTONClick(TObject *Sender)
 {
 this->config_object->By_default_BUTTON_v();
 }
 //---------------------------------------------------------------------------
+
+
+void __fastcall TConfiguration_F::Them_CBSelect(TObject *Sender)
+{
+this->config_object->Them_form_all(Them_CB->Text);
+ if (!this->config_object->Check_date_to_editin_object(Them_CB->GetNamePath()))
+ {
+   this->config_object->set_do_editing("true");
+   this->config_object->Control_button_v();
+ }
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TConfiguration_F::BitBtn1Click(TObject *Sender)
+{
+
+//ShowMessage(this->set_Directory(this->Locally_E->Text));
+Select_dialog_dir_F->Directory_LB->Directory = this->Locally_E->Text;
+Select_dialog_dir_F->Directory_E->Text = this->Locally_E->Text;
+Select_dialog_dir_F->ShowModal();
+
+}
+//---------------------------------------------------------------------------
+
 

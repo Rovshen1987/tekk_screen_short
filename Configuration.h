@@ -15,9 +15,13 @@
 #include "Config_init.h"
 #include "memory.h"
 #include <Vcl.Samples.Spin.hpp>
+#include <Vcl.Buttons.hpp>
 #include <string>
+#include "general.h"
+#include "Select_dialog_dir.h"
+
 //---------------------------------------------------------------------------
-class TConfig : public TForm
+class TConfiguration_F : public TForm
 {
 __published:	// IDE-managed Components
 	TPageControl *Option;
@@ -70,8 +74,9 @@ __published:	// IDE-managed Components
 	TButton *By_default_BUTTON;
 	TCheckBox *Log_create_CH;
 	TBevel *Bevel1;
-	TLabel *Label1;
-	TComboBox *ComboBox1;
+	TLabel *Them_L;
+	TComboBox *Them_CB;
+	TBitBtn *BitBtn1;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Server_RBClick(TObject *Sender);
 	void __fastcall Locally_RBClick(TObject *Sender);
@@ -104,6 +109,8 @@ __published:	// IDE-managed Components
 	void __fastcall Log_create_CHClick(TObject *Sender);
 	void __fastcall Save_BUTTONClick(TObject *Sender);
 	void __fastcall By_default_BUTTONClick(TObject *Sender);
+	void __fastcall Them_CBSelect(TObject *Sender);
+	void __fastcall BitBtn1Click(TObject *Sender);
 
 
 
@@ -114,10 +121,12 @@ private:	// User declarations
 	void initilization();
 
 public:		// User declarations
-	__fastcall TConfig(TComponent* Owner);
+	__fastcall TConfiguration_F(TComponent* Owner);
 	std::unique_ptr<Config_init> config_object;// = std::make_unique<Config_unit>();
+
+
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TConfig *Config;
+extern PACKAGE TConfiguration_F *Configuration_F;
 //---------------------------------------------------------------------------
 #endif

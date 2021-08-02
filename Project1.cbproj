@@ -122,7 +122,7 @@
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="Configuration.cpp">
-            <Form>Config</Form>
+            <Form>Configuration_F</Form>
             <FormType>dfm</FormType>
             <DependentOn>Configuration.h</DependentOn>
             <BuildOrder>3</BuildOrder>
@@ -146,7 +146,7 @@
             <BuildOrder>9</BuildOrder>
         </None>
         <CppCompile Include="general.cpp">
-            <Form>Form1</Form>
+            <Form>General_F</Form>
             <FormType>dfm</FormType>
             <DependentOn>general.h</DependentOn>
             <BuildOrder>2</BuildOrder>
@@ -158,8 +158,15 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="Select_dialog_dir.cpp">
+            <Form>Select_dialog_dir_F</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Select_dialog_dir.h</DependentOn>
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
         <FormResources Include="general.dfm"/>
         <FormResources Include="Configuration.dfm"/>
+        <FormResources Include="Select_dialog_dir.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
