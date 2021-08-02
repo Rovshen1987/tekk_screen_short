@@ -76,7 +76,8 @@ __published:	// IDE-managed Components
 	TBevel *Bevel1;
 	TLabel *Them_L;
 	TComboBox *Them_CB;
-	TBitBtn *BitBtn1;
+	TBitBtn *Locally_E_BTN_BUTTON;
+	TBitBtn *Locally_BTN_BUTTON_VIDEO;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Server_RBClick(TObject *Sender);
 	void __fastcall Locally_RBClick(TObject *Sender);
@@ -110,7 +111,8 @@ __published:	// IDE-managed Components
 	void __fastcall Save_BUTTONClick(TObject *Sender);
 	void __fastcall By_default_BUTTONClick(TObject *Sender);
 	void __fastcall Them_CBSelect(TObject *Sender);
-	void __fastcall BitBtn1Click(TObject *Sender);
+	void __fastcall Locally_E_BTN_BUTTONClick(TObject *Sender);
+	void __fastcall Locally_BTN_BUTTON_VIDEOClick(TObject *Sender);
 
 
 

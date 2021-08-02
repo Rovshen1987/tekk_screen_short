@@ -22,9 +22,13 @@ __published:	// IDE-managed Components
 	TEdit *Directory_E;
 	void __fastcall Directory_LBChange(TObject *Sender);
 	void __fastcall Cancel_BUTTONClick(TObject *Sender);
+	void __fastcall Select_BUTTONClick(TObject *Sender);
 private:	// User declarations
+			TEdit*   object;
+
 public:		// User declarations
 	__fastcall TSelect_dialog_dir_F(TComponent* Owner);
+      void check_directory(TEdit* object);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TSelect_dialog_dir_F *Select_dialog_dir_F;

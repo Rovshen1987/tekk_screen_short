@@ -1221,7 +1221,7 @@ void Config_init::Default_config_init()
 
 
   this->Default_config->set_Log_create_CH(true);
-  this->Default_config->set_Log_create_CH("Aqua Light State");
+  this->Default_config->set_Them_CB("Aqua Light State");
 
 };
 

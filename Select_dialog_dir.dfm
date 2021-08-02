@@ -62,6 +62,7 @@ object Select_dialog_dir_F: TSelect_dialog_dir_F
       Height = 49
       Caption = #1042#1099#1073#1088#1072#1090#1100
       TabOrder = 1
+      OnClick = Select_BUTTONClick
     end
     object Directory_E: TEdit
       Left = 38

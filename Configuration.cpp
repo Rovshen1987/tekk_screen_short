@@ -507,15 +507,25 @@ this->config_object->Them_form_all(Them_CB->Text);
 //---------------------------------------------------------------------------
 
 
-void __fastcall TConfiguration_F::BitBtn1Click(TObject *Sender)
+void __fastcall TConfiguration_F::Locally_E_BTN_BUTTONClick(TObject *Sender)
 {
 
 //ShowMessage(this->set_Directory(this->Locally_E->Text));
-Select_dialog_dir_F->Directory_LB->Directory = this->Locally_E->Text;
-Select_dialog_dir_F->Directory_E->Text = this->Locally_E->Text;
+//Select_dialog_dir_F->Directory_LB->Directory = this->Locally_E->Text;
+//Select_dialog_dir_F->Directory_E->Text = this->Locally_E->Text;
+Select_dialog_dir_F->check_directory(this->Locally_E);
 Select_dialog_dir_F->ShowModal();
 
 }
 //---------------------------------------------------------------------------
 
+
+
+
+void __fastcall TConfiguration_F::Locally_BTN_BUTTON_VIDEOClick(TObject *Sender)
+{
+Select_dialog_dir_F->check_directory(this->Locally_E_VIDEO);
+Select_dialog_dir_F->ShowModal();
+}
+//---------------------------------------------------------------------------
 
