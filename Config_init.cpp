@@ -1,8 +1,11 @@
 #include "Config_init.h"
 #include "direct_r.h"
 
-
-
+							  //PUBLIC//
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 Config_init::Config_init()
 {
    this->Registry_config = new Config_init_registry;
@@ -39,7 +42,9 @@ Config_init::~Config_init()
 
 };
 
-
+//****************************************************************************//
+//****************************************************************************//
+//*****************************SET Section Begin******************************//
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
 void Config_init::set_Screenshot_of_the_entire_screen_EHK(THotKey* set)
@@ -47,16 +52,19 @@ void Config_init::set_Screenshot_of_the_entire_screen_EHK(THotKey* set)
   this->Screenshot_of_the_entire_screen_EHK = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Screenshot_of_the_active_window_EHK(THotKey* set)
 {
   this->Screenshot_of_the_active_window_EHK = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Screenshot_of_the_screen_area_EHK(THotKey* set)
 {
   this->Screenshot_of_the_screen_area_EHK = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Two_mouse_buttons_at_the_same_time_CH(TCheckBox* set)
 {
   this->Two_mouse_buttons_at_the_same_time_CH = set;
@@ -69,31 +77,37 @@ void Config_init::set_Server_RB(TRadioButton* set)
   this->Server_RB = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Address_E(TEdit* set)
 {
   this->Address_E = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Login_E(TEdit* set)
 {
   this->Login_E = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Password_E(TEdit* set)
 {
   this->Password_E = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Show_Password_CH(TCheckBox* set)
 {
   this->Show_Password_CH = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Locally_RB(TRadioButton* set)
 {
   this->Locally_RB = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Locally_E(TEdit* set)
 {
   this->Locally_E = set;
@@ -106,11 +120,13 @@ void Config_init::set_Show_the_cursor_on_the_screenshot_CH(TCheckBox* set)
   this->Show_the_cursor_on_the_screenshot_CH = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Show_magnifying_glass_CH(TCheckBox* set)
 {
   this->Show_magnifying_glass_CH = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Open_screenshot_in_the_browser_CH(TCheckBox* set)
 {
   this->Open_screenshot_in_the_browser_CH = set;
@@ -124,11 +140,13 @@ void Config_init::set_Recording_screen_area_CH(TCheckBox* set)
   this->Recording_screen_area_CH = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Two_mouse_buttons_at_the_same_time_CH_VIDEO(TCheckBox* set)
 {
   this->Two_mouse_buttons_at_the_same_time_CH_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Recording_screen_area_EHK(THotKey* set)
 {
   this->Recording_screen_area_EHK = set;
@@ -141,31 +159,37 @@ void Config_init::set_Server_RB_VIDEO(TRadioButton* set)
   this->Server_RB_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Address_E_VIDEO(TEdit* set)
 {
   this->Address_E_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Login_E_VIDEO(TEdit* set)
 {
   this->Login_E_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Password_E_VIDEO(TEdit* set)
 {
   this->Password_E_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Show_Password_CH_VIDEO(TCheckBox* set)
 {
   this->Show_Password_CH_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Locally_RB_VIDEO(TRadioButton* set)
 {
    this->Locally_RB_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Locally_E_VIDEO(TEdit* set)
 {
    this->Locally_E_VIDEO = set;
@@ -178,18 +202,20 @@ void Config_init::set_Always_record_the_microphone_CH_VIDEO(TCheckBox* set)
   this->Always_record_the_microphone_CH_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Record_audio_CH_VIDEO(TCheckBox* set)
 {
   this->Record_audio_CH_VIDEO = set;
 };
 
+//-------------------------------------------------------
 void Config_init::set_Open_video_in_the_browser_CH_VIDEO(TCheckBox* set)
 {
   this->Open_video_in_the_browser_CH_VIDEO = set;
 };
 
 
-
+//-------------------------------------------------------
 void Config_init::set_Log_create_CH(TCheckBox* set)
 {
   this->Log_create_CH = set;
@@ -202,20 +228,515 @@ void Config_init::set_Log_create_CH(TCheckBox* set)
 	this->By_default_BUTTON = set;
   };
 
+//-------------------------------------------------------
   void Config_init::set_Exit_BUTTON(TButton* set)
   {
 	this->Exit_BUTTON = set;
   };
 
+//-------------------------------------------------------
   void Config_init::set_Save_BUTTON(TButton* set)
   {
 	this->Save_BUTTON = set;
   };
+
+//-------------------------------------------------------
+void Config_init::set_do_editing(bool set)
+{
+ this->do_editing = set;
+};
+
+//------------------------------------------------------
+void Config_init::set_do_default(bool set)
+{
+  this->do_default = set;
+};
+//****************************************************************************//
+//****************************************************************************//
+//*****************************SET Section End********************************//
+ //-------------------------------------------------------
+
+//-------------------------------------------------------
+bool Config_init::get_do_editing()
+{
+   return this->do_editing;
+};
+
+//-------------------------------------------------------
+bool Config_init::get_do_default()
+{
+   return this->do_default;
+};
+
+//-------------------------------------------------------
+void Config_init::Exit_BUTTON_v()
+{
+
+
+	if (Check_registry_key_in_side())
+	{
+	 this->Registry_read();
+	 this->Form_to_config(this->Registry_config);
+	 this->Config_to_form(this->Program_config);
+	 this->Exit_BUTTON->Caption       = this->CONFIG_CLOSE;
+	 this->Save_BUTTON->Enabled       = false;
+	 this->do_editing                 = false;
+	 this->By_default_BUTTON->Enabled = true;
+	 this->do_default                 = true;
+	}
+	else
+	{
+	 this->Form_to_config(this->Default_config);
+	 this->Config_to_form(this->Program_config);
+	 this->Exit_BUTTON->Caption = this->CONFIG_CLOSE;
+	 this->Save_BUTTON->Enabled       = false;
+	 this->By_default_BUTTON->Enabled = false;
+	 this->do_editing                 = false;
+	 this->do_default                 = false;
+	}
+
+   this->Control_button_v();
+
+};
+
+//-------------------------------------------------------
+void Config_init::By_default_BUTTON_v()
+{
+	 this->Form_to_config(this->Default_config);
+	 this->Config_to_form(this->Program_config);
+	 this->Exit_BUTTON->Caption       = this->CONFIG_RETURN;
+	 this->Save_BUTTON->Enabled       = true;
+	 this->By_default_BUTTON->Enabled = false;
+	 this->do_editing                 = true;
+	 this->do_default                 = false;
+
+};
+
+//-----------------------------------------------------------
+void Config_init::Control_button_v()
+{
+	if (this->do_editing)
+	{
+	  this->Save_BUTTON->Enabled = true;
+	  this->Exit_BUTTON->Caption = this->CONFIG_RETURN;
+	}
+	else
+	{
+	  this->Save_BUTTON->Enabled = false;
+	  this->Exit_BUTTON->Caption = this->CONFIG_CLOSE;
+	}
+};
+
+bool Config_init::Check_date_to_editin_object(const AnsiString& object)
+{
+  int object_i = 0;
+
+  object_i = this->get_ID_object(object);
+
+switch (object_i)
+{
+//--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
+case 1:	{
+			if (this->Check_date_to_editin_inside<int>(this->Screenshot_of_the_entire_screen_EHK->HotKey,
+				  this->Program_config->get_Screenshot_of_the_entire_screen_EHK()))
+			{
+			 return true;
+			}
+			else
+			{
+			 return false;
+			}
+			break;
+		};
+
+case 2:	{
+			if (this->Check_date_to_editin_inside<int>(this->Screenshot_of_the_active_window_EHK->HotKey,
+				  this->Program_config->get_Screenshot_of_the_active_window_EHK()))
+			{
+			 return true;
+			}
+			else
+			{
+			 return false;
+			}
+			break;
+		};
+
+case 3:	{
+			if (this->Check_date_to_editin_inside<int>(this->Screenshot_of_the_screen_area_EHK->HotKey,
+				  this->Program_config->get_Screenshot_of_the_screen_area_EHK()))
+			{
+			 return true;
+			}
+			else
+			{
+			 return false;
+			}
+			break;
+		};
+
+case 4:	{
+			if (this->Check_date_to_editin_inside(this->Two_mouse_buttons_at_the_same_time_CH->Checked,
+				  this->Program_config->get_Two_mouse_buttons_at_the_same_time_CH()))
+			{
+			 return true;
+			}
+			else
+			{
+			 return false;
+			}
+			break;
+		};
+
+//----------Save_parameters------------------------------------//
+case 5:	{
+			 if (this->Check_date_to_editin_inside(this->Server_RB->Checked,
+				  this->Program_config->get_Server_RB()))
+			 {
+			  return true;
+			 }
+			 else
+			 {
+			  return false;
+			 }
+			 break;
+		};
+
+case 6:	{
+		  if (this->Check_date_to_editin_inside<AnsiString>(this->Address_E->Text,
+			  this->Program_config->get_Address_E()))
+		  {
+		   return true;
+		  }
+		  else
+		  {
+		   return false;
+		  }
+		  break;
+		};
+
+case 7:	{
+			if (this->Check_date_to_editin_inside<AnsiString>(this->Login_E->Text,
+				this->Program_config->get_Login_E()))
+			{
+			  return true;
+			}
+			else
+			{
+			return false;
+			}
+			break;
+		};
+
+case 8:	{
+		  if (this->Check_date_to_editin_inside<AnsiString>(this->Password_E->Text,
+			  this->Program_config->get_Password_E()))
+		  {
+		   return true;
+		  }
+		  else
+		  {
+		   return false;
+		  }
+		break;
+		};
+
+case 9:	{
+			if (this->Check_date_to_editin_inside(this->Show_Password_CH->Checked,
+				this->Program_config->get_Show_Password_CH()))
+			{
+			return true;
+			}
+			else
+			{
+			return false;
+			}
+			break;
+		};
+
+case 10: {
+			if (this->Check_date_to_editin_inside(this->Locally_RB->Checked,
+				this->Program_config->get_Locally_RB()))
+			{
+			return true;
+			}
+			else
+			{
+			return false;
+			}
+			break;
+		 };
+
+case 11: {
+			if (this->Check_date_to_editin_inside<AnsiString>(this->Locally_E->Text,
+				this->Program_config->get_Locally_E()))
+			{
+			return true;
+			}
+			else
+			{
+			return false;
+			}
+			break;
+		 };
+
+//----------Additional_options---------------------------------//
+case 12:  {
+			if (this->Check_date_to_editin_inside(this->Show_the_cursor_on_the_screenshot_CH->Checked,
+				this->Program_config->get_Show_the_cursor_on_the_screenshot_CH()))
+			{
+			return true;
+			}
+			else
+			{
+			return false;
+			}
+			break;
+		  };
+
+case 13:  {
+			if (this->Check_date_to_editin_inside(this->Show_magnifying_glass_CH->Checked,
+				this->Program_config->get_Show_magnifying_glass_CH()))
+			{
+			return true;
+			}
+			else
+			{
+			return false;
+			}
+			break;
+		  };
+
+case 14: {
+			if (this->Check_date_to_editin_inside(this->Open_screenshot_in_the_browser_CH->Checked,
+				this->Program_config->get_Open_screenshot_in_the_browser_CH()))
+			{
+			return true;
+			}
+			else
+			{
+			return false;
+			}
+			break;
+		 };
+
+//--------------------------------------------------------------------------------PAGE__2----------
+//-----------Hot_keys_VIDEO------------------------------------//
+case 15: {
+			if (this->Check_date_to_editin_inside(this->Recording_screen_area_CH->Checked,
+				  this->Program_config->get_Recording_screen_area_CH()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 16: {
+			if (this->Check_date_to_editin_inside(this->Two_mouse_buttons_at_the_same_time_CH_VIDEO->Checked,
+				  this->Program_config->get_Two_mouse_buttons_at_the_same_time_CH_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 17: {
+			if (this->Check_date_to_editin_inside<int>(this->Recording_screen_area_EHK->HotKey,
+				  this->Program_config->get_Recording_screen_area_EHK()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+//-----------Save_parameters_VIDEO-----------------------------//
+case 18: {
+			if (this->Check_date_to_editin_inside(this->Server_RB_VIDEO->Checked,
+				  this->Program_config->get_Server_RB_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 19: {
+			if (this->Check_date_to_editin_inside<AnsiString>(this->Address_E_VIDEO->Text,
+				  this->Program_config->get_Address_E_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 20: {
+			if (this->Check_date_to_editin_inside<AnsiString>(this->Login_E_VIDEO->Text,
+				  this->Program_config->get_Login_E_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 21: {
+			if (this->Check_date_to_editin_inside<AnsiString>(this->Password_E_VIDEO->Text,
+				  this->Program_config->get_Password_E_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 22: {
+			if (this->Check_date_to_editin_inside(this->Show_Password_CH_VIDEO->Checked,
+				  this->Program_config->get_Show_Password_CH_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 23: {
+			if (this->Check_date_to_editin_inside(this->Locally_RB_VIDEO->Checked,
+				  this->Program_config->get_Locally_RB_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 24: {
+			if (this->Check_date_to_editin_inside<AnsiString>(this->Locally_E_VIDEO->Text,
+				  this->Program_config->get_Locally_E_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+//------------Additional_options_VIDEO-------------------------//
+case 25: {
+			if (this->Check_date_to_editin_inside(this->Always_record_the_microphone_CH_VIDEO->Checked,
+				  this->Program_config->get_Always_record_the_microphone_CH_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 26: {
+			if (this->Check_date_to_editin_inside(this->Record_audio_CH_VIDEO->Checked,
+				  this->Program_config->get_Record_audio_CH_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 27: {
+			if (this->Check_date_to_editin_inside(this->Open_video_in_the_browser_CH_VIDEO->Checked,
+				  this->Program_config->get_Open_video_in_the_browser_CH_VIDEO()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+
+case 28: {
+			if (this->Check_date_to_editin_inside(this->Log_create_CH->Checked,
+				  this->Program_config->get_Log_create_CH()))
+		 {
+		  return true;
+		 }
+		 else
+		 {
+		  return false;
+		 }
+		 break;
+		 };
+default: {
+		   ShowMessage("Yalnys Bar! 710");
+		 };
+	;
+}
+
+  return true;
+};
+
+void Config_init::Save_BUTTON_v()
+{
+   if (!this->Save_BUTTON_HotKey_check())
+   {
+	return ShowMessage("Одинаковы назначенные клавящи!");
+   }
+
+   this->Config_to_form(this->Program_config);
+   this->Registry_save();
+   this->do_editing = false;
+   this->Registry_config = this->Program_config;
+   this->Control_button_v();
+};
+
+						//PRIVATE//
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 void Config_init::anihilation_varrible()//-----------Destroy object
 {
+//--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
   this->Screenshot_of_the_entire_screen_EHK   = 0;
   this->Screenshot_of_the_active_window_EHK   = 0;
   this->Screenshot_of_the_screen_area_EHK     = 0;
@@ -247,6 +768,8 @@ void Config_init::anihilation_varrible()//-----------Destroy object
   this->Login_E_VIDEO          = 0;
   this->Password_E_VIDEO       = 0;
   this->Show_Password_CH_VIDEO = 0;
+  this->Locally_RB_VIDEO       = 0;
+  this->Locally_E_VIDEO        = 0;
 
 //------------Additional_options_VIDEO-------------------------//
   this->Always_record_the_microphone_CH_VIDEO = 0;
@@ -291,6 +814,8 @@ void Config_init::anihilation_varrible()//-----------Destroy object
   delete this->Login_E_VIDEO;
   delete this->Password_E_VIDEO;
   delete this->Show_Password_CH_VIDEO;
+  delete this->Locally_RB_VIDEO;
+  delete this->Locally_E_VIDEO;
 
 //------------Additional_options_VIDEO-------------------------//
   delete this->Always_record_the_microphone_CH_VIDEO;
@@ -407,13 +932,13 @@ void Config_init::anihilation_varrible()//-----------Destroy object
 
 
 
-
+//-------------------------------------------------------
 void Config_init::Registry_destroy()
 {
 
 };
 
-
+//-------------------------------------------------------
 void Config_init::Registry_save(bool Default)
 {
 TRegistry* reg = new TRegistry();
@@ -556,14 +1081,12 @@ delete reg;
 this->do_editing = false;
 };
 
-
+//-------------------------------------------------------
 void Config_init::Registry_read()
 {
 std::unique_ptr<TRegistry> reg = std::make_unique<TRegistry>();
 reg->RootKey                   = this->Root_key_C;
 reg->OpenKeyReadOnly(this->Screen_shot_ASC);
-
-
 //--------------------------------------------------------------------------------PAGE__1----------
 //----------Hot_Keys--------------------------------------------//
 this->Registry_config->set_Screenshot_of_the_entire_screen_EHK(reg->ReadInteger(this->Screenshot_of_the_entire_screen_EHK->GetNamePath()));
@@ -612,19 +1135,12 @@ this->Registry_config->set_Open_video_in_the_browser_CH_VIDEO(reg->ReadBool(this
 this->Registry_config->set_Log_create_CH(reg->ReadBool(this->Log_create_CH->GetNamePath()));
 
 reg->CloseKey();
-//delete reg;
-/*
 
-this->Registry_config->set_(reg->ReadString());
-
-this->Registry_config->set_(reg->ReadBool());
-
-this->Registry_config->set_(reg->ReadInteger());
-
- */
+this->Control_button_v();
 
 };
 
+//-------------------------------------------------------
 void Config_init::Program_config_init()
 {
 //--------------------------------------------------------------------------------PAGE__1----------
@@ -671,7 +1187,7 @@ this->Program_config->set_Open_video_in_the_browser_CH_VIDEO(this->Checked(this-
 this->Program_config->set_Log_create_CH(this->Checked(this->Log_create_CH));
 };
 
-
+//-------------------------------------------------------
 bool Config_init::Checked(TCheckBox* ch)
 {
    if (ch->Checked)
@@ -685,6 +1201,7 @@ bool Config_init::Checked(TCheckBox* ch)
 
 };
 
+//-------------------------------------------------------
 bool Config_init::Checked(TRadioButton* ch)
 {
    if (ch->Checked)
@@ -698,6 +1215,7 @@ bool Config_init::Checked(TRadioButton* ch)
 
 };
 
+//-------------------------------------------------------
 void Config_init::Default_config_init()
 {
 
@@ -749,6 +1267,7 @@ void Config_init::Default_config_init()
 
 };
 
+//-------------------------------------------------------
 std::string Config_init::Conversion_AnsiString_to_string(AnsiString& str)
 {
 
@@ -756,12 +1275,14 @@ std::string Config_init::Conversion_AnsiString_to_string(AnsiString& str)
   return result;
 };
 
+//-------------------------------------------------------
 AnsiString Config_init::Conversion_string_to_AnsiString(std::string& str)
 {
   AnsiString result = str.c_str();
   return result;
 };
 
+//-------------------------------------------------------
 AnsiString Config_init::fool_path(const AnsiString& folder_name)
 {
 std::string str   = folder_name.c_str();
@@ -770,9 +1291,11 @@ AnsiString result = this->Conversion_string_to_AnsiString(temp);
 
 return result;
 
-//  (this->directory->get_path(this->Conversion_AnsiString_to_string(this->FOLDER_NAME_PICTURE))));
+
 };
 
+
+//-------------------------------------------------------
 void Config_init::Form_to_config(Config_init_registry* first)
 {
 ///////////////////////////////////-------SET----------////////////////////////////////////////////
@@ -826,6 +1349,7 @@ void Config_init::Form_to_config(Config_init_registry* first)
 
 };
 
+//-------------------------------------------------------
 void Config_init::Config_to_form(Config_init_registry* first)
 {
 ///////////////////////////////////-------SET----------////////////////////////////////////////////
@@ -881,6 +1405,7 @@ AnsiString Config_init::get_AnsiString_to_int(int set)
   return result;
 };
 
+//-------------------------------------------------------
 void Config_init::Registry_save_inside(const type_struct& struc, const int& first, const int& last,
 				  const AnsiString& KeyName, TRegistry* reg, bool Default)
 {
@@ -900,6 +1425,7 @@ void Config_init::Registry_save_inside(const type_struct& struc, const int& firs
 
 };
 
+//-------------------------------------------------------
 void Config_init::Registry_save_inside(const type_struct& struc, const bool& first, const bool& last,
 				  const AnsiString& KeyName, TRegistry* reg, bool Default)
 {
@@ -917,6 +1443,7 @@ void Config_init::Registry_save_inside(const type_struct& struc, const bool& fir
 		};
 };
 
+//-------------------------------------------------------
 void Config_init::Registry_save_inside(const type_struct& struc, const AnsiString& first, const AnsiString& last,
 				  const AnsiString& KeyName, TRegistry* reg, bool Default)
 {
@@ -934,11 +1461,8 @@ void Config_init::Registry_save_inside(const type_struct& struc, const AnsiStrin
 		};
 };
 
-void Config_init::Default_config_V()
-{
-  this->Form_to_config(this->Default_config);
-};
 
+//-------------------------------------------------------
 void Config_init::Form_to_config_checked(Config_init_registry* first)
 {
   if (first->get_Server_RB())
@@ -1006,6 +1530,7 @@ void Config_init::Form_to_config_checked(Config_init_registry* first)
 
 };
 
+//-------------------------------------------------------
 bool Config_init::Check_registry_key()
 {
 
@@ -1014,6 +1539,8 @@ bool Config_init::Check_registry_key()
 	 this->Registry_read();
 	 this->Form_to_config(this->Registry_config);
 	 this->Config_to_form(this->Program_config);
+	 this->do_editing = false;
+	 this->Control_button_v();
 	 return true;
 	}
 	else
@@ -1021,11 +1548,16 @@ bool Config_init::Check_registry_key()
 	 this->Form_to_config(this->Default_config);
 	 this->Config_to_form(this->Program_config);
 	 this->Registry_save(true);
+	 this->do_editing = false;
+	 this->Control_button_v();
 	 return false;
 	}
 
+
+
 };
 
+//-------------------------------------------------------
 bool Config_init::Check_registry_key_in_side()
 {
  std::unique_ptr<TRegistry>  reg = std::make_unique<TRegistry>();
@@ -1056,39 +1588,305 @@ bool Config_init::Check_registry_key_in_side()
 
 };
 
-void Config_init::Control_button_v()
+
+
+int  Config_init::get_ID_object(const AnsiString& object)
 {
-	if (this->do_editing)
-	{
-	  this->Save_BUTTON->Enabled = true;
-	  this->Exit_BUTTON->Caption = this->CONFIG_RETURN;
-	}
-	else
-	{
-	  this->Save_BUTTON->Enabled = false;
-	  this->Exit_BUTTON->Caption = this->CONFIG_CLOSE;
-	}
+int result = 0;
+
+ //--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
+
+   result++;//1
+   if (object == AnsiString("Screenshot_of_the_entire_screen_EHK"))
+   {
+	return result;
+   }
+
+   result++;//2
+   if (object == AnsiString("Screenshot_of_the_active_window_EHK"))
+   {
+	return result;
+   }
+
+   result++;//3
+   if (object == AnsiString("Screenshot_of_the_screen_area_EHK"))
+   {
+	return result;
+   }
+
+   result++;//4
+   if (object == AnsiString("Two_mouse_buttons_at_the_same_time_CH"))
+   {
+	return result;
+   }
+
+//----------Save_parameters------------------------------------//
+
+	result++;//5
+   if (object == AnsiString("Server_RB"))
+   {
+	return result;
+   }
+
+   result++;//6
+   if (object == AnsiString("Address_E"))
+   {
+	return result;
+   }
+
+   result++;//7
+   if (object == AnsiString("Login_E"))
+   {
+	return result;
+   }
+
+   result++;//8
+   if (object == AnsiString("Password_E"))
+   {
+	return result;
+   }
+
+   result++;//9
+   if (object == AnsiString("Show_Password_CH"))
+   {
+	return result;
+   }
+
+   result++;//10
+   if (object == AnsiString("Locally_RB"))
+   {
+	return result;
+   }
+
+   result++;//11
+   if (object == AnsiString("Locally_E"))
+   {
+	return result;
+   }
+
+//----------Additional_options---------------------------------//
+   result++;//12
+   if (object == AnsiString("Show_the_cursor_on_the_screenshot_CH"))
+   {
+	return result;
+   }
+
+   result++;//13
+   if (object == AnsiString("Show_magnifying_glass_CH"))
+   {
+	return result;
+   }
+
+   result++;//14
+   if (object == AnsiString("Open_screenshot_in_the_browser_CH"))
+   {
+	return result;
+   }
+
+
+//--------------------------------------------------------------------------------PAGE__2----------
+//-----------Hot_keys_VIDEO------------------------------------//
+   result++;//15
+   if (object == AnsiString("Recording_screen_area_CH"))
+   {
+	return result;
+   }
+
+   result++;//16
+   if (object == AnsiString("Two_mouse_buttons_at_the_same_time_CH_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//17
+   if (object == AnsiString("Recording_screen_area_EHK"))
+   {
+	return result;
+   }
+
+//-----------Save_parameters_VIDEO-----------------------------//
+   result++;//18
+   if (object == AnsiString("Server_RB_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//19
+   if (object == AnsiString("Address_E_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//20
+   if (object == AnsiString("Login_E_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//21
+   if (object == AnsiString("Password_E_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//22
+   if (object == AnsiString("Show_Password_CH_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//23
+   if (object == AnsiString("Locally_RB_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//24
+   if (object == AnsiString("Locally_E_VIDEO"))
+   {
+	return result;
+   }
+
+//------------Additional_options_VIDEO-------------------------//
+   result++;//25
+   if (object == AnsiString("Always_record_the_microphone_CH_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//26
+   if (object == AnsiString("Record_audio_CH_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//27
+   if (object == AnsiString("Open_video_in_the_browser_CH_VIDEO"))
+   {
+	return result;
+   }
+
+   result++;//28
+   if (object == AnsiString("Log_create_CH"))
+   {
+	return result;
+   }
+
+   return 0;
+
 };
 
-void Config_init::set_do_editing(bool set)
+bool Config_init::Save_BUTTON_HotKey_check()
 {
- this->do_editing = set;
+bool result = true;
+
+   if (!(int(this->Screenshot_of_the_entire_screen_EHK->HotKey)==0))
+   {
+	if (this->Save_BUTTON_HotKey_check_inside(int(this->Screenshot_of_the_entire_screen_EHK->HotKey),
+											  int(this->Screenshot_of_the_active_window_EHK->HotKey)))
+		{
+		 return result = false;
+		};
+
+
+	if (this->Save_BUTTON_HotKey_check_inside(int(this->Screenshot_of_the_entire_screen_EHK->HotKey),
+											  int(this->Screenshot_of_the_screen_area_EHK->HotKey)))
+		{
+		 return result = false;
+		};
+
+
+	if (this->Save_BUTTON_HotKey_check_inside(int(this->Screenshot_of_the_entire_screen_EHK->HotKey),
+											  int(this->Recording_screen_area_EHK->HotKey)))
+		{
+		 return result = false;
+		};
+
+   };
+
+   if (!(int(this->Screenshot_of_the_active_window_EHK->HotKey)==0))
+   {
+	if (this->Save_BUTTON_HotKey_check_inside(int(this->Screenshot_of_the_active_window_EHK->HotKey),
+											  int(this->Screenshot_of_the_screen_area_EHK->HotKey)))
+		{
+		 return result = false;
+		};
+
+
+	if (this->Save_BUTTON_HotKey_check_inside(int(this->Screenshot_of_the_active_window_EHK->HotKey),
+											  int(this->Recording_screen_area_EHK->HotKey)))
+		{
+		 return result = false;
+		};
+
+   };
+
+   if (!(int(this->Screenshot_of_the_screen_area_EHK->HotKey)==0))
+   {
+	if (this->Save_BUTTON_HotKey_check_inside(int(this->Screenshot_of_the_screen_area_EHK->HotKey),
+											  int(this->Recording_screen_area_EHK->HotKey)))
+		{
+		 return result = false;
+		};
+
+   };
+
+   return true;
 };
 
-void Config_init::set_do_default(bool set)
+bool Config_init::Save_BUTTON_HotKey_check_inside(const int& first, const int& last)
 {
-  this->do_default = set;
-};
-  //-------------------------------------------------------
-bool Config_init::get_do_editing()
-{
-   return this->do_editing;
-};
-
-bool Config_init::get_do_default()
-{
-   return this->do_default;
+  if (first == last)
+  {
+   return true;
+  }
+  else
+  {
+   return false;
+  };
 };
 
+/*
+ //--------------------------------------------------------------------------------PAGE__1----------
+//----------Hot_Keys--------------------------------------------//
+  THotKey*       Screenshot_of_the_entire_screen_EHK;
+  THotKey*       Screenshot_of_the_active_window_EHK;
+  THotKey*       Screenshot_of_the_screen_area_EHK;
+  TCheckBox*     Two_mouse_buttons_at_the_same_time_CH;
 
+//----------Save_parameters------------------------------------//
+  TRadioButton*  Server_RB;
+  TEdit*         Address_E;
+  TEdit*         Login_E;
+  TEdit*         Password_E;
+  TCheckBox*     Show_Password_CH;
+  TRadioButton*  Locally_RB;
+  TEdit*         Locally_E;
 
+//----------Additional_options---------------------------------//
+  TCheckBox*     Show_the_cursor_on_the_screenshot_CH;
+  TCheckBox*     Show_magnifying_glass_CH;
+  TCheckBox*     Open_screenshot_in_the_browser_CH;
+
+//--------------------------------------------------------------------------------PAGE__2----------
+//-----------Hot_keys_VIDEO------------------------------------//
+  TCheckBox*     Recording_screen_area_CH;
+  TCheckBox*     Two_mouse_buttons_at_the_same_time_CH_VIDEO;
+  THotKey*       Recording_screen_area_EHK;
+
+//-----------Save_parameters_VIDEO-----------------------------//
+  TRadioButton*  Server_RB_VIDEO;
+  TEdit*         Address_E_VIDEO;
+  TEdit*         Login_E_VIDEO;
+  TEdit*         Password_E_VIDEO;
+  TCheckBox*     Show_Password_CH_VIDEO;
+  TRadioButton*  Locally_RB_VIDEO;
+  TEdit*         Locally_E_VIDEO;
+
+//------------Additional_options_VIDEO-------------------------//
+  TCheckBox*     Always_record_the_microphone_CH_VIDEO;
+  TCheckBox*     Record_audio_CH_VIDEO;
+  TCheckBox*     Open_video_in_the_browser_CH_VIDEO;
+  TCheckBox*             Log_create_CH;
+*/

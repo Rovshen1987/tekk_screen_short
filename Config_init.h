@@ -18,8 +18,42 @@ public:
 //	  Config_init& operator=(Config_init&& object);
 	 ~Config_init();
 
+  bool Check_date_to_editin_object(const AnsiString& object);
 
   bool Check_registry_key();
+  void Exit_BUTTON_v();
+  void By_default_BUTTON_v();
+  void Save_BUTTON_v();
+
+//
+//  template<class T>
+//  bool Check_date_to_editing(T& Sender)
+//  {
+//   if (this->Check_date_to_editin_object(Sender->GetNamePath()))
+//   {
+//	return true;
+//   }
+//   else
+//   {
+//	return false;
+//   };
+//  };
+
+
+  template<class T>
+  bool Check_date_to_editin_inside(const T& first, const T& last)
+  {
+	   if (first == last)
+	   {
+		return true;
+	   }
+	   else
+	   {
+        return false;
+	   }
+  };
+
+
 
 
 
@@ -72,11 +106,11 @@ public:
   void set_Exit_BUTTON(TButton* set);
   void set_Save_BUTTON(TButton* set);
 
-  void   set_do_editing(bool set);
-  void   set_do_default(bool set);
+  void set_do_editing(bool set);
+  void set_do_default(bool set);
   //-------------------------------------------------------
-  bool   get_do_editing();
-  bool   get_do_default();
+  bool get_do_editing();
+  bool get_do_default();
 
 //-------------------------------------------------------------------------//
 //-------------------------------------------------------------------------//
@@ -203,7 +237,10 @@ private:
   AnsiString get_AnsiString_to_int(int set);
 
   bool Check_registry_key_in_side();
-  void Default_config_V();
+
+  int  get_ID_object(const AnsiString& object);
+  bool Save_BUTTON_HotKey_check();
+  bool Save_BUTTON_HotKey_check_inside(const int& first, const int& last);
 
 };
 

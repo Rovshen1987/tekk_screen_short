@@ -236,7 +236,7 @@ object Config: TConfig
           Left = 16
           Top = 45
           Width = 185
-          Height = 25
+          Height = 28
           Cursor = crHandPoint
           Caption = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' '#1083#1091#1087#1091
           TabOrder = 1
@@ -244,9 +244,9 @@ object Config: TConfig
         end
         object Open_screenshot_in_the_browser_CH: TCheckBox
           Left = 16
-          Top = 65
+          Top = 72
           Width = 241
-          Height = 33
+          Height = 26
           Cursor = crHandPoint
           Caption = #1054#1090#1082#1088#1099#1074#1072#1090#1100' '#1089#1082#1088#1080#1085#1096#1086#1090' '#1074' '#1073#1088#1072#1091#1079#1077#1088#1077
           TabOrder = 2
@@ -443,6 +443,7 @@ object Config: TConfig
           Cursor = crHandPoint
           Caption = #1057#1086#1079#1076#1072#1090#1100' '#1051#1086#1075' '#1060#1072#1081#1083
           TabOrder = 3
+          OnClick = Log_create_CHClick
         end
       end
     end
@@ -455,6 +456,7 @@ object Config: TConfig
     Cursor = crHandPoint
     Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
     TabOrder = 1
+    OnClick = Save_BUTTONClick
   end
   object Exit_BUTTON: TButton
     Left = 181
@@ -464,6 +466,7 @@ object Config: TConfig
     Cursor = crHandPoint
     Caption = #1054#1090#1084#1077#1085#1080#1090#1100
     TabOrder = 2
+    OnClick = Exit_BUTTONClick
   end
   object By_default_BUTTON: TButton
     Left = 290
@@ -473,5 +476,6 @@ object Config: TConfig
     Cursor = crHandPoint
     Caption = #1055#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
     TabOrder = 3
+    OnClick = By_default_BUTTONClick
   end
 end

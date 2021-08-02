@@ -70,21 +70,21 @@ __published:	// IDE-managed Components
 	TButton *By_default_BUTTON;
 	TCheckBox *Log_create_CH;
 	void __fastcall FormCreate(TObject *Sender);
-	void __fastcall Them_CMChange(TObject *Sender);
 	void __fastcall Server_RBClick(TObject *Sender);
 	void __fastcall Locally_RBClick(TObject *Sender);
 	void __fastcall Server_RB_VIDEOClick(TObject *Sender);
 	void __fastcall Locally_RB_VIDEOClick(TObject *Sender);
 	void __fastcall Show_Password_CHClick(TObject *Sender);
 	void __fastcall Show_Password_CH_VIDEOClick(TObject *Sender);
+	void __fastcall Exit_BUTTONClick(TObject *Sender);
+	void __fastcall Locally_EChange(TObject *Sender);
 	void __fastcall Screenshot_of_the_entire_screen_EHKChange(TObject *Sender);
 	void __fastcall Screenshot_of_the_active_window_EHKChange(TObject *Sender);
 	void __fastcall Screenshot_of_the_screen_area_EHKChange(TObject *Sender);
-	void __fastcall Two_mouse_buttons_at_the_same_time_CHClick(TObject *Sender);
 	void __fastcall Address_EChange(TObject *Sender);
 	void __fastcall Login_EChange(TObject *Sender);
 	void __fastcall Password_EChange(TObject *Sender);
-	void __fastcall Locally_EChange(TObject *Sender);
+	void __fastcall Two_mouse_buttons_at_the_same_time_CHClick(TObject *Sender);
 	void __fastcall Show_the_cursor_on_the_screenshot_CHClick(TObject *Sender);
 	void __fastcall Show_magnifying_glass_CHClick(TObject *Sender);
 	void __fastcall Open_screenshot_in_the_browser_CHClick(TObject *Sender);
@@ -98,15 +98,11 @@ __published:	// IDE-managed Components
 	void __fastcall Always_record_the_microphone_CH_VIDEOClick(TObject *Sender);
 	void __fastcall Record_audio_CH_VIDEOClick(TObject *Sender);
 	void __fastcall Open_video_in_the_browser_CH_VIDEOClick(TObject *Sender);
-	void __fastcall Font_EChange(TObject *Sender);
-	void __fastcall Font_size_EChange(TObject *Sender);
-	void __fastcall Font_BUTTONClick(TObject *Sender);
-	void __fastcall Font_size_UP_BUTTONChanging(TObject *Sender, bool &AllowChange);
-	void __fastcall Font_bold_CHClick(TObject *Sender);
-	void __fastcall Font_italic_CHClick(TObject *Sender);
-	void __fastcall Font_underlined_CHClick(TObject *Sender);
-	void __fastcall Long_type_line_CMChange(TObject *Sender);
-	void __fastcall Long_lines_color_BUTTONClick(TObject *Sender);
+	void __fastcall Log_create_CHClick(TObject *Sender);
+	void __fastcall Save_BUTTONClick(TObject *Sender);
+	void __fastcall By_default_BUTTONClick(TObject *Sender);
+
+
 
 
 
